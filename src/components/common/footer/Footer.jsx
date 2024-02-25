@@ -25,6 +25,9 @@ const Footer = () => {
                     <Link to={'/contacto'}>
                         contacto
                     </Link>
+                    <Link to={'/contacto'}>
+                        Hola
+                    </Link>
                 </nav>
                 <div>
                     <img
