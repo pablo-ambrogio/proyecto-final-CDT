@@ -1,12 +1,12 @@
 import './App.css'
-import Navbar from './components/pages/header/Navbar'
+import Navbar from './components/common/Navbar'
 
 function App() {
     return (
         <>
             <Navbar />
-            {/* <Outlet />
-            <Footer /> */}
+            <Outlet />
+            <Footer />
         </>
     )
 }
