@@ -1,9 +1,12 @@
 import './App.css'
+import Navbar from './components/pages/header/Navbar'
 
 function App() {
     return (
         <>
-            <h1 className="text-3xl font-bold underline">Titulo</h1>
+            <Navbar />
+            {/* <Outlet />
+            <Footer /> */}
         </>
     )
 }
