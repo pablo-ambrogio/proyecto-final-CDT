@@ -4,13 +4,13 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './components/pages/Home.jsx'
-import Login from './components/pages/Login.jsx'
+import LoginAdmin from './components/pages/LoginAdmin.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <BrowserRouter>
             <Routes>
-                <Route path="/login" element={<Login />}></Route>
+                <Route path="/admin" element={<LoginAdmin />}></Route>
                 <Route path="/" element={<App />}>
                     <Route path="/" element={<Home />} />
                 </Route>
