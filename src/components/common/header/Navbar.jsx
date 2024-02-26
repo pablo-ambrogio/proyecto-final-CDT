@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
     return (
         <header className="w-full flex bg-blue uppercase p-2 items-center">
-            <Link to="/" className="w-2/12 h-full flex justify-between items-center mx-auto">
+            <Link to="/" className="w-2/12 h-full flex justify-evenly items-center mx-auto">
                 <img src={LogoHeader} alt="Logo AutoGo" />
             </Link>
             <nav className="w-8/12 flex justify-evenly">
@@ -17,7 +17,7 @@ const Navbar = () => {
                 <Link to={'/paraEmpresas'}>para empresas</Link>
                 <Link to={'/dudas'}>dudas</Link>
             </nav>
-            <div className="w-2/12">
+            <div className="w-2/12 justify-evenly">
                 <div className="flex items-center">
                     <img src={LogoReservas} alt="reservas" />
                     <Link to={'/reservas'}>mis reservas</Link>
