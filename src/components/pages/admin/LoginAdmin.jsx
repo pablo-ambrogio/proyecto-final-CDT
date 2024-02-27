@@ -1,10 +1,10 @@
-import LogoShort from '../../assets/Logo_Short 2.svg'
+import LogoShort from '../../../assets/Logo_Short 2.svg'
 
 const LoginAdmin = () => {
     return (
         <>
             <div className="">
-                <div className='flex'>
+                <div className="flex">
                     <img src={LogoShort} alt="Logo AutoGo" />
                     <div className="bg-red p-5">
                         <h2 className="uppercase">admin login</h2>

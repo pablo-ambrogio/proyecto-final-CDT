@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './components/pages/Home.jsx'
-import LoginAdmin from './components/pages/LoginAdmin.jsx'
+import LoginAdmin from './components/pages/admin/LoginAdmin.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
