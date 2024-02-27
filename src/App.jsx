@@ -5,8 +5,8 @@ function App() {
 
   return (
     <>
-      <h1>Titulo</h1>
       <div
+        className='h-full bg-blue'
       >
         <Outlet />
         <Footer />
