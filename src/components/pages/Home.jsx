@@ -17,7 +17,7 @@ const Home = () => {
                 className='w-3/5 flex items-center relative'
             >
                 <section
-                    className='bg-blue w-[800px] h-[400px] 2xl:w-[1000px] 2xl:h-[500px] flex flex-col justify-center items-center gap-8 absolute left-[-5%] z-0'
+                    className='bg-blue w-[48rem] h-[400px] 2xl:w-[1000px] 2xl:h-[500px] flex flex-col justify-center items-center gap-8 absolute left-[-10%] top-[12%] z-0'
                 >
                     <div
                         className='w-4/5 flex justify-between px-8'
@@ -38,28 +38,28 @@ const Home = () => {
                         <div
                             className='flex w-full justify-around'
                         >
-                            <div className='w-[150px] bg-blue text-center'>
+                            <div className='w-[150px] text-center'>
                                 <select name="" id=""
-                                    className='w-full bg-white py-2 text-[#000]'
+                                    className='w-full bg-grey py-2 text-[#000] rounded-lg'
                                 >
                                     <option value="">Ubicación</option>
                                     <option value="argentina">Argentina</option>
                                     <option value="colombia">Colombia</option>
                                 </select>
                             </div>
-                            <div className='w-[150px] bg-blue text-center'>
-                                <input type="date" name="date-start" id="" value={"2024-02-27"}
-                                    className='w-full  bg-white py-2 text-[#000]'
+                            <div className='w-[150px] text-center'>
+                                <input type="date" name="date-start" id=""
+                                    className='w-full bg-grey py-2 text-[#000] rounded-lg'
                                 />
                             </div>
-                            <div className='w-[150px] bg-blue'>
-                                <input type="time" name='time-start' min={'1:00'} max={'12:00'} value={'21:00'}
-                                    className='w-full bg-white py-2 text-[#000]'
+                            <div className='w-[150px]'>
+                                <input type="time" name='time-start'
+                                    className='w-full bg-grey py-2 text-[#000] rounded-lg'
                                 />
                             </div>
                         </div>
                         <button type="submit"
-                            className='bg-red font-bold w-48 py-2 mt-8'
+                            className='bg-red font-bold w-48 py-2 mt-8 rounded-lg'
                         >Buscar</button>
                     </form>
                 </section>

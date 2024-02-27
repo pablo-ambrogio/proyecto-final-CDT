@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <div
-        className='h-full bg-blue'
+        className='h-full bg-white'
       >
         <Outlet />
         <Footer />
