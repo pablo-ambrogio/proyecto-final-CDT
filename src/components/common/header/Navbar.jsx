@@ -7,26 +7,20 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
     return (
         <header className="w-full bg-blue">
-            <section className="flex uppercase p-2 items-center justify-center  mx-auto">
+            <section className="flex uppercase items-center justify-center mx-auto ">
                 <Link to="/" className="ml-5">
                     <img src={LogoHeader} alt="Logo AutoGo" />
                 </Link>
                 <nav className="w-5/6 flex justify-evenly">
-                    <Link to={'/vehiculos'}>vehículos</Link>
+                    <Link to={'/vehicles'}>vehículos</Link>
                     {/* <Link to={'/redAgencias'}>red de agencias</Link> */}
-                    <Link to={'/ofertas'}>ofertas</Link>
+                    <Link to={'/offers'}>ofertas</Link>
                     {/* <Link to={'/paraEmpresas'}>para empresas</Link> */}
                     {/* <Link to={'/dudas'}>dudas</Link> */}
                 </nav>
-                <div className="w-1/6 mr-5">
-                    <div className="flex items-center justify-between">
-                        <img src={LogoReservas} alt="reservas" />
-                        <Link to={'/reservas'}>mis reservas</Link>
-                    </div>
-                    <div className="flex items-center justify-between">
-                        <img src={LogoLogin} />
-                        <Link to={'/login'}>login</Link>
-                    </div>
+                <div className="capitalize flex gap-2 mr-5">
+                    <Link to={'/register'} className="bg-red font-bold w-48 py-2 mt-8 rounded text-center">crear cuenta</Link>
+                    <Link to={'/login'} className="bg-red font-bold w-48 py-2 mt-8 rounded text-center">iniciar sesión</Link>
                 </div>
             </section>
             <section className="w-full flex bg-blue2 uppercase p-2 items-center justify-evenly">
