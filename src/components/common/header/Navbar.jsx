@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
     return (
         <header className="w-full bg-blue">
-            <section className="flex uppercase items-center justify-center mx-auto ">
+            <section className="flex uppercase items-center h-20 justify-center mx-auto ">
                 <Link to="/" className="ml-5">
                     <img src={LogoHeader} alt="Logo AutoGo" />
                 </Link>
@@ -18,9 +18,9 @@ const Navbar = () => {
                     {/* <Link to={'/paraEmpresas'}>para empresas</Link> */}
                     {/* <Link to={'/dudas'}>dudas</Link> */}
                 </nav>
-                <div className="capitalize flex gap-2 mr-5">
-                    <Link to={'/register'} className="bg-red font-bold w-48 py-2 mt-8 rounded text-center">crear cuenta</Link>
-                    <Link to={'/login'} className="bg-red font-bold w-48 py-2 mt-8 rounded text-center">iniciar sesión</Link>
+                <div className="capitalize flex gap-8 mr-5">
+                    <Link to={'/register'} className="bg-red font-bold w-48 py-2 rounded text-center">crear cuenta</Link>
+                    <Link to={'/login'} className="bg-red font-bold w-48 py-2 rounded text-center">iniciar sesión</Link>
                 </div>
             </section>
             <section className="w-full flex bg-blue2 uppercase p-2 items-center justify-evenly">
