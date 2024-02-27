@@ -32,7 +32,7 @@ const Home = () => {
                                 <input type="time" name="time-start" min={'1:00'} max={'12:00'} value={'21:00'} className="w-full bg-white py-2 text-[#000]" />
                             </div>
                         </div>
-                        <button type="submit" className="bg-red font-bold w-48 py-2 mt-8">
+                        <button type="submit" className="bg-red font-bold w-48 py-2 mt-8 rounded">
                             Buscar
                         </button>
                     </form>
