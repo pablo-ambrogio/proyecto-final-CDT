@@ -11,11 +11,11 @@ const LoginAdmin = () => {
                         <p>Please login to continue</p>
                         <form className="">
                             <div className="">
-                                <label for="admin">Admin id</label>
+                                <label htmlFor="admin">Admin id</label>
                                 <input className="bg-grey" type="text" name="admin" id="admin" />
                             </div>
                             <div className="">
-                                <label for="password">Password</label>
+                                <label htmlFor="password">Password</label>
                                 <input className="bg-grey" type="password" name="password" id="password" />
                             </div>
                             <button type="submit" className="bg-blue uppercase">
