@@ -7,9 +7,7 @@ function App() {
 
   return (
     <>
-      <h1>Titulo</h1>
-      <div
-      >
+      <div>
         <Navbar />
         <Outlet />
         <Footer />
