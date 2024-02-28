@@ -13,7 +13,7 @@ const Footer = () => {
                 <nav
                     className='w-1/2 flex justify-evenly uppercase'
                 >
-                    <Link to={'/nosotros'}>
+                    <Link to={'/about-us'}>
                         sobre nosotros
                     </Link>
                 </nav>

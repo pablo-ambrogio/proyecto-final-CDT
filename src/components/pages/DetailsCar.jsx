@@ -1,4 +1,5 @@
 import CardDetail from "../common/cardDetail/CardDetail"
+import ExploreVehicles from "../common/exploreVehicles/ExploreVehicles"
 
 const DetailsCar = () => {
     return (
@@ -7,9 +8,10 @@ const DetailsCar = () => {
                 className="font-bold text-blue text-3xl uppercase mt-10"
             >detalles</h1>
             <section
-                className="w-full h-full max-w-4xl mx-auto flex items-center my-20"
+                className="w-full"
             >
                 <CardDetail />
+                <ExploreVehicles />
             </section>
         </main>
     )
