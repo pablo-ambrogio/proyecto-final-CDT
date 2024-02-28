@@ -6,9 +6,11 @@ function App() {
   return (
     <>
       <div
-        className='h-full bg-white'
+        className=' h-full bg-white'
       >
-        <Outlet />
+        <section className='max-w-7xl mx-auto w-full'>
+          <Outlet />
+        </section>
         <Footer />
       </div>
     </>
