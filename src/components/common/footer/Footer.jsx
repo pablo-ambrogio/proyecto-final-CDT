@@ -13,17 +13,8 @@ const Footer = () => {
                 <nav
                     className='w-1/2 flex justify-evenly uppercase'
                 >
-                    <Link to={'/institucional'}>
-                        institucional
-                    </Link>
-                    <Link to={'/negocio'}>
-                        negocio
-                    </Link>
-                    <Link to={'/para-ti'}>
-                        para ti
-                    </Link>
-                    <Link to={'/contacto'}>
-                        contacto
+                    <Link to={'/about-us'}>
+                        sobre nosotros
                     </Link>
                 </nav>
                 <div>

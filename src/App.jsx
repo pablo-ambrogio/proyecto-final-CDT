@@ -8,7 +8,7 @@ function App() {
       <div
         className=' h-full bg-white'
       >
-        <section className='max-w-7xl mx-auto w-full'>
+        <section className='mx-auto w-full'>
           <Outlet />
         </section>
         <Footer />
