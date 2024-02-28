@@ -6,11 +6,13 @@ function App() {
 
   return (
     <>
-      <div>
+      <div
+        className='h-full bg-white'
+      >
         <Navbar />
         <Outlet />
         <Footer />
-      </div>
+      </div >
     </>
   )
 
