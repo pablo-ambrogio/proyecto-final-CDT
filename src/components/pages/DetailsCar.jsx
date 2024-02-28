@@ -2,7 +2,7 @@ import CardDetail from "../common/cardDetail/CardDetail"
 
 const DetailsCar = () => {
     return (
-        <main className="h-screen">
+        <main className="h-full">
             <h1
                 className="font-bold text-blue text-3xl uppercase"
             >detalles</h1>
