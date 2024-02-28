@@ -10,7 +10,9 @@ function App() {
         className='h-full bg-white'
       >
         <Navbar />
-        <Outlet />
+        <section className='max-w-7xl mx-auto w-full h-5/6'>
+          <Outlet />
+        </section>
         <Footer />
       </div >
     </>
