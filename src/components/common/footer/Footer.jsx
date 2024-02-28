@@ -2,7 +2,6 @@ import LogoFooter from '../../../assets/logo-footer.svg'
 import LogoSiglas from '../../../assets/BlancoShort 1.svg'
 import { Link } from 'react-router-dom'
 
-
 const Footer = () => {
     return (
         <footer className='w-full h-16 bg-red'>
