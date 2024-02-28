@@ -12,12 +12,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
+
+        <Route path='/admin-home' element={<AdminHome />} />
+        <Route path='/admin-vehicles-list' element={<AdminVehiclesList />} />
+
         <Route path='/' element={<App />}>
           <Route path='/' element={<Home />} />
           <Route path='/vehicles' element={<Vehicles />} />
-          <Route path='/admin-home' element={<AdminHome />} />
-          <Route path='/admin-vehicles-list' element={<AdminVehiclesList />} />
         </Route>
+
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

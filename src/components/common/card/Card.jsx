@@ -1,18 +1,19 @@
+import { Link } from 'react-router-dom'
 import CarMobi from '../../../assets/car-mobi.svg'
 
 const Card = () => {
     return (
         <div
-            className='w-96 h-52 bg-grey text-[#000] rounded-lg p-4'
+            className='w-96 h-64 bg-grey text-[#000] rounded-lg p-6'
         >
             <div
-                className='flex h-3/4 items-center gap-x-2'
+                className='h-3/5 flex items-center gap-x-2'
             >
                 <div
                     className='w-2/4 h-full'
                 >
                     <img src={CarMobi} alt={'Fiat mobi 1.0'}
-                        className='w-48 h-full'
+                        className='w-full h-full'
                     />
                 </div>
                 <div
@@ -27,11 +28,14 @@ const Card = () => {
                 </div>
             </div>
             <div
-                className='w-full text-center mt-2'
+                className='w-full h-2/5 text-center grid gap-y-2 mt-4'
             >
                 <button type="submit"
                     className='bg-blue text-white rounded-lg px-6 py-1 first-letter:capitalize'
                 >reservar ahora</button>
+                <div>
+                    <Link to={''} className='first-letter:uppercase'>mostrar mas detalles</Link>
+                </div>
             </div>
         </div>
     )
