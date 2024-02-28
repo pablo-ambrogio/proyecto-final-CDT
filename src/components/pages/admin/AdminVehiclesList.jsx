@@ -2,7 +2,7 @@ import VehiclesList from "../../common/vehiclesList/VehiclesList"
 
 const AdminVehiclesList = () => {
     return (
-        <div>
+        <div className="bg-white">
             <VehiclesList />
         </div>
     )

@@ -1,11 +1,15 @@
 import CarAdminHome from '../../../assets/car-admin-home.svg'
 import CarAdminReserve from '../../../assets/car-admin-reserve.svg'
 import CarAdminUser from '../../../assets/car-admin-users.svg'
+import { useNavigate } from 'react-router-dom'
 
 const AdminHome = () => {
+
+    const navigate = useNavigate()
+
     return (
         <main
-            className='h-full py-8'
+            className='h-full py-8 bg-white'
         >
             <section>
                 <div
@@ -29,8 +33,8 @@ const AdminHome = () => {
                             <form>
                                 <button
                                     className='first-letter:uppercase bg-blue text-white px-8 py-2 rounded-lg'
+                                    onClick={() => navigate('/admin-vehicles-list')}
                                 >listar vehiculos</button>
-
                             </form>
                         </div>
                     </article>
@@ -41,11 +45,11 @@ const AdminHome = () => {
                         <div
                             className='w-3/4 flex flex-col justify-between h-full gap-y-8'
                         >
-                            <p>Esta sección permite al administrador gestionar todos los vehículos disponibles para alquilar. Puede ver una lista de todos los vehículos, agregar nuevos vehículos, editar los detalles de los vehículos existentes y eliminar vehículos.</p>
+                            <p>En esta sección, el administrador puede gestionar todas las reservas realizadas. Puede ver una lista de todas las reservas, confirmar nuevas reservas y cancelar reservas existentes.</p>
                             <form>
                                 <button
                                     className='first-letter:uppercase bg-blue text-white px-8 py-2 rounded-lg'
-                                >listar vehiculos</button>
+                                >gestion reservas</button>
 
                             </form>
                         </div>
@@ -57,12 +61,11 @@ const AdminHome = () => {
                         <div
                             className='w-3/4 flex flex-col justify-between h-full gap-y-8'
                         >
-                            <p>Esta sección permite al administrador gestionar todos los vehículos disponibles para alquilar. Puede ver una lista de todos los vehículos, agregar nuevos vehículos, editar los detalles de los vehículos existentes y eliminar vehículos.</p>
+                            <p>Esta sección permite al administrador gestionar todos los usuarios registrados en el sitio web. Puede ver una lista de todos los usuarios, agregar nuevos usuarios, editar detalles de usuarios existentes y eliminar usuarios.</p>
                             <form>
                                 <button
                                     className='first-letter:uppercase bg-blue text-white px-8 py-2 rounded-lg'
-                                >listar vehiculos</button>
-
+                                >gestion usuarios</button>
                             </form>
                         </div>
                     </article>
