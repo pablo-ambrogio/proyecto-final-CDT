@@ -33,8 +33,8 @@ const Navbar = () => {
             </section>
             <section className="grid grid-cols-5 gap-8 bg-blue2 uppercase p-2 items-center justify-evenly">
                 <input className="grid col-span-3 p-2 rounded-md bg-grey ml-10" type="text" placeholder="Informa el punto de retirada (Ej: Buenos Aires, Bogotá)" />
-                <input className="p-2 rounded-md bg-grey" type="text" placeholder="Fecha" />
-                <input className="p-2 rounded-md bg-grey mr-10" type="text" placeholder="hora" />
+                <input className="p-2 rounded-md bg-grey" type="date" placeholder="Fecha" />
+                <input className="p-2 rounded-md bg-grey mr-10" type="time" placeholder="hora" />
             </section>
         </header>
     )
