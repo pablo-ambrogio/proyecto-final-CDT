@@ -8,9 +8,9 @@ function App() {
       <div
         className=' h-full bg-white'
       >
-        <section className='mx-auto w-full'>
+        <main className='mx-auto w-full'>
           <Outlet />
-        </section>
+        </main>
         <Footer />
       </div>
     </>
