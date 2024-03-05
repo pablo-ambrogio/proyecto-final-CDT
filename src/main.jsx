@@ -2,21 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
-<<<<<<< HEAD
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import LoginAdmin from './components/pages/admin/LoginAdmin.jsx'
-=======
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
->>>>>>> pablo
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 import Vehicles from './components/pages/Vehicles.jsx'
 import AdminHome from './components/pages/admin/AdminHome.jsx'
 import AdminVehiclesList from './components/pages/admin/AdminVehiclesList.jsx'
 import DetailsCar from './components/pages/DetailsCar.jsx'
-<<<<<<< HEAD
 import Login from './components/pages/Login.jsx'
-=======
 import ProtectedRoute from './components/route/ProtectedRoute.jsx'
->>>>>>> pablo
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
