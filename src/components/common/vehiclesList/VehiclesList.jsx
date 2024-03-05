@@ -19,11 +19,11 @@ const VehiclesList = () => {
                         <th scope="col" className="px-4 py-2">
                             Tipo
                         </th>
-                        <th scope="col" className="px-4 py-2">
-                            Serial carroceria
+                        <th scope="col" className="px-4 py-2" title='Serial carroceria'>
+                            Srl. carroceria
                         </th>
-                        <th scope="col" className="px-4 py-2">
-                            Serial motor
+                        <th scope="col" className="px-4 py-2" title='Serial motor'>
+                            Srl. motor
                         </th>
                         <th scope="col" className="px-4 py-2">
                             color
@@ -41,7 +41,13 @@ const VehiclesList = () => {
                             observacion
                         </th>
                         <th scope="col" className="px-4 py-2">
+                            descripción del vehiculo
+                        </th>
+                        <th scope="col" className="px-4 py-2">
                             fotos
+                        </th>
+                        <th scope="col" className="px-4 py-2">
+                            acciones
                         </th>
                     </tr>
                 </thead>

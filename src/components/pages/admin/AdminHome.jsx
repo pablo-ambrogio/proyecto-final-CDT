@@ -1,8 +1,11 @@
+import { useNavigate } from 'react-router-dom'
 import CarAdminHome from '../../../assets/car-admin-home.svg'
 import CarAdminReserve from '../../../assets/car-admin-reserve.svg'
 import CarAdminUser from '../../../assets/car-admin-users.svg'
 
 const AdminHome = () => {
+
+    const navigate = useNavigate()
     return (
         <main
             className='h-full py-8'
@@ -29,8 +32,10 @@ const AdminHome = () => {
                             <form>
                                 <button
                                     className='first-letter:uppercase bg-blue text-white px-8 py-2 rounded-lg'
+                                    onClick={() => {
+                                        navigate("/vehicles-list") 
+                                    }}
                                 >listar vehiculos</button>
-
                             </form>
                         </div>
                     </article>
