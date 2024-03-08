@@ -15,12 +15,9 @@ const Navbar = () => {
                     <Link to="/vehicles" className="hover:text-grey hover:scale-125 hover:transition-in-out duration-300">
                         vehículos
                     </Link>
-                    {/* <Link to="/redAgencias">red de agencias</Link> */}
                     <Link to="/offers" className="hover:text-grey hover:scale-125 hover:transition-in-out duration-300">
                         ofertas
                     </Link>
-                    {/* <Link to="/paraEmpresas">para empresas</Link> */}
-                    {/* <Link to="/dudas">dudas</Link> */}
                 </nav>
                 <div className="col-span-3 capitalize text-center font-bold">
                     <Link to="/register" className="bg-red hover:bg-grey hover:text-blue px-6 py-2 rounded-lg mr-2 transition-in-out duration-700">

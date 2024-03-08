@@ -7,7 +7,8 @@ function App() {
   return (
     <>
       <div
-        className='h-full bg-white'
+        // className='h-full bg-white'
+        className='grid min-h-screen grid-rows-[150px,1fr,70px]'
       >
         <Navbar />
         <main className='mx-auto w-full'>

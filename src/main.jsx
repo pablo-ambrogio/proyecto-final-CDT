@@ -7,8 +7,8 @@ import Vehicles from './components/pages/Vehicles.jsx'
 import AdminHome from './components/pages/admin/AdminHome.jsx'
 import AdminVehiclesList from './components/pages/admin/AdminVehiclesList.jsx'
 import DetailsCar from './components/pages/DetailsCar.jsx'
-import Login from './components/pages/Login.jsx'
 import ProtectedRoute from './components/route/ProtectedRoute.jsx'
+import Login from './components/pages/Login.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
