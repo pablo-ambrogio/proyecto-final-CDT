@@ -8,6 +8,7 @@ import Vehicles from './components/pages/Vehicles.jsx'
 import AdminHome from './components/pages/admin/AdminHome.jsx'
 import AdminVehiclesList from './components/pages/admin/AdminVehiclesList.jsx'
 import DetailsCar from './components/pages/DetailsCar.jsx'
+import AboutUs from './components/pages/AboutUs.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/' element={<App />}>
           <Route path='/' element={<Vehicles />} />
           <Route path='/vehicles/:id' element={<DetailsCar />} />
+          <Route path='/about-us' element={<AboutUs />} />
         </Route>
 
       </Routes>
