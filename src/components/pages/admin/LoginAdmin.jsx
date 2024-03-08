@@ -2,7 +2,7 @@ import LogoShort from '../../../assets/Logo_Short 2.svg'
 
 const LoginAdmin = () => {
     return (
-        <main className="grid h-screen place-items-center">
+        <main className="w-full grid h-screen place-items-center">
             <div className="flex items-center justify-center bg-grey p-2 rounded-lg">
                 <img src={LogoShort} alt="Logo AutoGo" className="flex size-72 mx-10" />
                 <div className="bg-red p-12 rounded">

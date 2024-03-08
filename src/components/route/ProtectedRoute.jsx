@@ -1,15 +1,12 @@
-import { Navigate, Outlet } from "react-router-dom"
+import { Navigate, Outlet } from 'react-router-dom'
 
 const ProtectedRoute = () => {
-
     let admin = true
 
     if (!admin) {
         return <Navigate to={'/'} />
     }
 
-    return (
-        <Outlet />
-    )
+    return <Outlet />
 }
 export default ProtectedRoute

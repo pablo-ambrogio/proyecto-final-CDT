@@ -2,10 +2,8 @@ import { useNavigate } from 'react-router-dom'
 import CarAdminHome from '../../../assets/car-admin-home.svg'
 import CarAdminReserve from '../../../assets/car-admin-reserve.svg'
 import CarAdminUser from '../../../assets/car-admin-users.svg'
-import { useNavigate } from 'react-router-dom'
 
 const AdminHome = () => {
-
     const navigate = useNavigate()
     return (
         <main className="h-full py-8 bg-white">
@@ -20,11 +18,13 @@ const AdminHome = () => {
                             <p>Esta sección permite al administrador gestionar todos los vehículos disponibles para alquilar. Puede ver una lista de todos los vehículos, agregar nuevos vehículos, editar los detalles de los vehículos existentes y eliminar vehículos.</p>
                             <form>
                                 <button
-                                    className='first-letter:uppercase bg-blue text-white px-8 py-2 rounded-lg'
+                                    className="first-letter:uppercase bg-blue text-white px-8 py-2 rounded-lg"
                                     onClick={() => {
-                                        navigate("/vehicles-list") 
+                                        navigate('/vehicles-list')
                                     }}
-                                >listar vehiculos</button>
+                                >
+                                    listar vehiculos
+                                </button>
                             </form>
                         </div>
                     </article>
