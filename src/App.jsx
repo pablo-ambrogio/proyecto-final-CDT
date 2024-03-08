@@ -7,14 +7,11 @@ function App() {
   return (
     <>
       <div
-        className='h-full bg-white'
+        // className='h-full bg-white'
+        className='grid min-h-screen grid-rows-[150px,1fr,70px]'
       >
-<<<<<<<<< Temporary merge branch 1
         <Navbar />
-        <section className='mx-auto w-full'>
-=========
         <main className='mx-auto w-full'>
->>>>>>>>> Temporary merge branch 2
           <Outlet />
         </main>
         <Footer />
