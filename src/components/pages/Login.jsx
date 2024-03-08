@@ -4,7 +4,7 @@ const Login = () => {
     return (
         <>
             <section className="w-full m-auto h-full flex items-center">
-                <div className="grid grid-cols-2 w-3/5 h-full 2xl:h-3/5 mx-auto bg-grey p-2 rounded-lg">
+                <div className="grid grid-cols-2 h-full 2xl:h-3/5 mx-auto bg-grey p-2 rounded-lg">
                     <div className="grid col-span-1 text-center place-items-center h-full">
                         <img src={LogoShort} alt="Logo AutoGo" className="xl:w-1/2 lg:w-3/5 mx-auto" />
                     </div>
@@ -15,7 +15,7 @@ const Login = () => {
                             <div>
                                 <form className="">
                                     <div className="flex flex-col my-3">
-                                        <label htmlFor="user">correo</label>
+                                        <label htmlFor="user">E-mail</label>
                                         <input className="bg-grey rounded-md h-8" type="text" name="user" id="user" />
                                     </div>
                                     <div className="flex flex-col">
