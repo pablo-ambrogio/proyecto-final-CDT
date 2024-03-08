@@ -9,10 +9,14 @@ function App() {
       <div
         className='h-full bg-white'
       >
+<<<<<<< HEAD
         <Navbar />
         <section className='mx-auto w-full'>
+=======
+        <main className='mx-auto w-full'>
+>>>>>>> pablo
           <Outlet />
-        </section>
+        </main>
         <Footer />
       </div >
     </>
