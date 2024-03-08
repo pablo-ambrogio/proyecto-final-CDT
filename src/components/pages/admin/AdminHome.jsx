@@ -20,11 +20,9 @@ const AdminHome = () => {
                                 <button
                                     className="first-letter:uppercase bg-blue text-white px-8 py-2 rounded-lg"
                                     onClick={() => {
-                                        navigate('/vehicles-list')
+                                        navigate("/vehicles-list")
                                     }}
-                                >
-                                    listar vehiculos
-                                </button>
+                                >listar vehiculos</button>
                             </form>
                         </div>
                     </article>

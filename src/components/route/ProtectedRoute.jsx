@@ -1,7 +1,8 @@
 import { Navigate, Outlet } from 'react-router-dom'
 
 const ProtectedRoute = () => {
-    let admin = true
+
+    let admin = false
 
     if (!admin) {
         return <Navigate to={'/'} />
