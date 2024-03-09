@@ -12,10 +12,12 @@ const Navbar = () => {
                     <img src={LogoHeader} alt="Logo AutoGo" />
                 </Link>
                 <nav className="col-span-7 flex justify-evenly font-bold">
-                    <Link to="/vehicles" className="hover:text-red text-grey hover:transition-in-out duration-300">
+                    <Link to="/" className="hover:text-red text-grey hover:transition-in-out duration-300">
                         vehículos
                     </Link>
-                    <Link to="/offers" className="hover:text-red text-grey hover:transition-in-out duration-300">
+                    <Link to="/offers" className="hover:text-red text-grey hover:transition-in-out duration-300"
+                        onClick={() => alert("Estamos trabajando para darte las mejores ofertas del mercado")}
+                    >
                         ofertas
                     </Link>
                 </nav>
