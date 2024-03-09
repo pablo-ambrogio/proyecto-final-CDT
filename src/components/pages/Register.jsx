@@ -1,14 +1,14 @@
 import Logo from '../../assets/Logo 1.svg'
-import { useForm } from 'react-hook-form'
+// import { useForm } from 'react-hook-form'
 
 const Register = () => {
-    const {
-        register,
-        formState: { errors },
-        handleSubmit
-    } = useForm()
+    // const {
+    //     register,
+    //     formState: { errors },
+    //     handleSubmit
+    // } = useForm()
 
-    function insert(data) {}
+    
     return (
         <>
             <section className="w-full m-auto h-full flex items-center">
@@ -29,7 +29,7 @@ const Register = () => {
                             <div>
                                 <form
                                     className=""
-                                    onsSubmit={handleSubmit(insert)}
+                                    // onsSubmit={handleSubmit(insert)}
                                 >
                                     <div className="flex flex-col my-3">
                                         <label
@@ -43,15 +43,15 @@ const Register = () => {
                                             type="text"
                                             name="name"
                                             id="name"
-                                            {...register('validation', {
-                                                required: true,
-                                                minLength: 4
-                                            })}
+                                            // {...register('validation', {
+                                            //     required: true,
+                                            //     minLength: 4
+                                            // })}
                                         />
-                                        {errors.validation?.type ===
+                                        {/* {errors.validation?.type ===
                                             'required' && (
                                             <p>ingrese un nombre</p>
-                                        )}
+                                        )} */}
                                     </div>
                                     <div className="flex flex-col my-3">
                                         <label
@@ -130,5 +130,4 @@ const Register = () => {
         </>
     )
 }
-
 export default Register

@@ -27,7 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/about-us' element={<AboutUs />} />
 
           <Route element={<ProtectedRoute />}>
-            <Route path='/admin' element={<AdminHome />} />
+            <Route path='/admin-home' element={<AdminHome />} />
             <Route path='/vehicles-list' element={<AdminVehiclesList />} />
           </Route>
 

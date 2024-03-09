@@ -8,14 +8,14 @@ const Navbar = () => {
     return (
         <header className="w-full bg-blue sticky top-0">
             <section className="grid grid-cols-12 p-4 uppercase items-center">
-                <Link to="/" className="col-span-2 flex justify-center items-center hover:scale-125 hover:transition-in-out duration-300">
+                <Link to="/" className="col-span-2 flex justify-center items-center hover:transition-in-out duration-300 hover:scale-110 hover:transition-in-out">
                     <img src={LogoHeader} alt="Logo AutoGo" />
                 </Link>
                 <nav className="col-span-7 flex justify-evenly font-bold">
-                    <Link to="/vehicles" className="hover:text-grey hover:scale-125 hover:transition-in-out duration-300">
+                    <Link to="/vehicles" className="hover:text-red text-grey hover:transition-in-out duration-300">
                         vehículos
                     </Link>
-                    <Link to="/offers" className="hover:text-grey hover:scale-125 hover:transition-in-out duration-300">
+                    <Link to="/offers" className="hover:text-red text-grey hover:transition-in-out duration-300">
                         ofertas
                     </Link>
                 </nav>
