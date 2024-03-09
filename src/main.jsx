@@ -17,13 +17,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
 
-        <Route path='/' element={<App />}>
+        <Route element={<App />}>
 
           <Route path='/' element={<Vehicles />} />
 
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register  />} />
-          <Route path='vehicles/:id' element={<DetailsCar />} />
+          <Route path='/vehicles/:id' element={<DetailsCar />} />
           <Route path='/about-us' element={<AboutUs />} />
 
           <Route element={<ProtectedRoute />}>
