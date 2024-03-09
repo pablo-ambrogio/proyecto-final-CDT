@@ -26,7 +26,7 @@ const Login = () => {
                                             <input className="bg-grey rounded-md h-8 outline-none text-[#010101] px-2" type="password" name="password" id="password" />
                                         </div>
                                         <div className="text-center mt-4">
-                                            <button type="submit" className="bg-blue text-white px-20 py-4 rounded-lg uppercase font-modern">
+                                            <button type="submit" className="bg-blue text-white px-16 py-2 rounded-lg uppercase font-modern">
                                                 iniciar
                                             </button>
                                         </div>
