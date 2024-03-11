@@ -2,7 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom'
 
 const ProtectedRoute = () => {
 
-    let admin = false
+    let admin = true
 
     if (!admin) {
         return <Navigate to={'/'} />
