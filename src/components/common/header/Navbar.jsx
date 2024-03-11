@@ -2,11 +2,12 @@ import LogoHeader from '../../../assets/LogoRojo 1.svg'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import Swal from 'sweetalert2'
 
 const Navbar = () => {
     return (
         <>
-            <header className="flex flex-col">
+            <header className="flex flex-col sticky top-0">
                 <nav class="flex items-center justify-between flex-wrap bg-blue py-2 px-6">
                     <Link
                         to="/"
@@ -34,9 +35,10 @@ const Navbar = () => {
                                 to="/offers"
                                 className="font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
                                 onClick={() =>
-                                    alert(
-                                        'Estamos trabajando para darte las mejores ofertas del mercado'
-                                    )
+                                    Swal.fire({
+                                        confirmButtonColor: '#041562',
+                                        html: '<p class = "text-red text-xl font-bold" >Estamos trabajando para darte las mejores ofertas del mercado</p>'
+                                    })
                                 }
                             >
                                 ofertas
