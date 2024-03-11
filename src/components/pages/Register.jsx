@@ -115,7 +115,6 @@ const Register = () => {
                                                 autoComplete="off"
                                                 {...register('email', {
                                                     required: { value: true, message: '* este campo es obligatorio' },
-
                                                     pattern: {
                                                         value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
                                                         message: '* por favor valide que el correo este correcto'
@@ -140,7 +139,6 @@ const Register = () => {
                                                     type={showPwd ? 'text' : 'password'}
                                                     name="password"
                                                     id="password"
-                                                    ico
                                                     autoComplete="off"
                                                     {...register('password', {
                                                         required: {
