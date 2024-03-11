@@ -27,13 +27,13 @@ const Navbar = () => {
                         <div class="text-md lg:flex-grow flex justify-center gap-24">
                             <Link
                                 to="/"
-                                className="font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
+                                className="uppercase font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
                             >
                                 vehículos
                             </Link>
                             <Link
                                 to="/offers"
-                                className="font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
+                                className="uppercase font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
                                 onClick={() =>
                                     Swal.fire({
                                         confirmButtonColor: '#041562',
@@ -62,17 +62,17 @@ const Navbar = () => {
                 </nav>
                 <section className="flex bg-blue2 w-full px-16 py-2 gap-3">
                     <input
-                        className="rounded py-1 px-5 bg-grey flex-1"
+                        className="rounded py-1 px-5 bg-grey text-blue outline-none flex-1"
                         type="text"
                         placeholder="Informa el punto de retirada (Ej: Buenos Aires, Bogotá)"
                     />
                     <input
-                        className="rounded py-1 px-5 bg-grey"
+                        className="rounded py-1 px-5 bg-grey text-blue outline-none"
                         type="date"
                         placeholder="Fecha"
                     />
                     <input
-                        className="rounded py-1 px-5 bg-grey"
+                        className="rounded py-1 px-5 bg-grey text-blue outline-none"
                         type="time"
                         placeholder="hora"
                     />
