@@ -10,7 +10,8 @@ import DetailsCar from './components/pages/DetailsCar.jsx'
 import AboutUs from './components/pages/AboutUs.jsx'
 import ProtectedRoute from './components/route/ProtectedRoute.jsx'
 import Register from './components/pages/Register.jsx'
-import ModalLogin from './components/pages/ModalLogin.jsx'
+// import ModalLogin from './components/pages/ModalLogin.jsx'
+import Login from './components/pages/Login.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
@@ -19,7 +20,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route element={<App />}>
                     <Route path="/" element={<Vehicles />} />
                     <Route path="/about-us" element={<AboutUs />} />
-                    <Route path="/login" element={<ModalLogin />} />
+                    <Route path="/login" element={<Login />} />
+                    {/* <Route path="/login" element={<ModalLogin />} /> */}
                     <Route path="/register" element={<Register />} />
                     <Route path="/vehicles/:id" element={<DetailsCar />} />
                     <Route element={<ProtectedRoute />}>

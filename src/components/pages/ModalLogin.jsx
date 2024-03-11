@@ -17,17 +17,16 @@ const ModalLogin = () => {
                 iniciar sesión
             </Link>
             {isOpen && (
-                <div className="fixed inset-0 bg-grey bg-opacity-50 backdrop-blur-sm flex justify-center items-center">
-                    <div className="bg-grey rounded flex flex-col justify-center items-center gap-5 p-10">
+                <div className="fixed inset-0 bg-blue bg-opacity-60 backdrop-blur-sm flex justify-center items-center">
+                    <div className="bg-grey rounded gap-5 p-5 flex">
                         <Login />
+                        <button
+                            className="text-blue text-4xl bg-grey flex"
+                            onClick={() => setIsOpen(false)}
+                        >
+                            {<FontAwesomeIcon icon={faX} />}
+                        </button>
                     </div>
-
-                    <button
-                        className="text-blue text-4xl "
-                        onClick={() => setIsOpen(false)}
-                    >
-                        {<FontAwesomeIcon icon={faX} />}
-                    </button>
                 </div>
             )}
         </>
