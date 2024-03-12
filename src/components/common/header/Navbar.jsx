@@ -1,10 +1,13 @@
 import LogoHeader from '../../../assets/LogoRojo 1.svg'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faX } from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2'
+// import { useState } from 'react'
+// import ModalLogin from '../../pages/ModalLogin'
 
 const Navbar = () => {
+    // const [isOpen, setIsOpen] = useState(false)
     return (
         <>
             <header className="flex flex-col sticky top-0">
@@ -51,10 +54,12 @@ const Navbar = () => {
                             >
                                 crear cuenta
                             </Link>
+                            {/* <ModalLogin /> */}
+
                             <Link
                                 to="/login"
                                 className="inline-block text-sm capitalize font-bold px-4 py-2 leading-none rounded-lg bg-red hover:bg-grey hover:text-blue transition-in-out duration-700 "
-                            >
+                                >
                                 iniciar sesión
                             </Link>
                         </div>

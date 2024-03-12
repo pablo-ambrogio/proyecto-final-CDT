@@ -5,8 +5,9 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2'
 import LogoShort from '../../assets/Logo_Short 2.svg'
 
-const Login = () => {
+const Register = () => {
     const [showPwd, setShowPwd] = useState(false)
+    const [showPwd2, setShowPwd2] = useState(false)
 
     const {
         register,
@@ -19,7 +20,7 @@ const Login = () => {
     const formSubmit = handleSubmit(data => {
         Swal.fire({
             icon: 'success',
-            html: '<p class = "text-blue text-xl font-bold" >Usuario registrado con éxito</p>',
+            html: '<p class = "text-blue text-xl font-bold" >Usuario creado con éxito</p>',
             showConfirmButton: false,
             timer: 2000
         })
@@ -30,120 +31,130 @@ const Login = () => {
     return (
         <>
             {/* CONTENEDOR */}
-            <div className="flex flex-wrap h-screen bg-grey content-center justify-center">
-                {/* BLOQUE IMAGEN IZQUIERDA */}
-                <div className='bg-blue p-5 rounded-md'>
-                    <img
-                        className="w-36"
-                        src={LogoShort}
-                        alt="Logo AutoGo"
-                    />
-                </div>
-
-                {/* BLOQUE FORMULARIO DERECHA*/}
-                <div className="bg-red p-5 rounded-md">
-                    {/* TÍTULO */}
-                    <div className="bg-blue">
-                        <h2 className="font-modern text-lg">iniciar sesión</h2>
-                        <p className="mb-5 text-sm">
-                            inicie sesión para continuar
-                        </p>
+            <div className="flex">
+                <div className="flex bg-grey p-4 rounded-md">
+                    {/* BLOQUE IMAGEN IZQUIERDA */}
+                    <div className="p-5 rounded-md sm:hidden lg:block">
+                        <img
+                            className="object-scale-down h-full w-96 items-center"
+                            src={LogoShort}
+                            alt="Logo AutoGo"
+                        />
                     </div>
 
-                    {/* FORM */}
-                    <form
-                        className="bg-blue2"
-                        onSubmit={handleSubmit(formSubmit)}
-                    >
-                        <div className="">
-                            <label htmlFor="user" className="uppercase text-xs">
-                                E-mail
-                            </label>
-                            <input
-                                className="rounded-md outline-none h-8 text-blue font-bold pl-2 bg-grey"
-                                type="email"
-                                name="user"
-                                id="user"
-                                autoComplete="off"
-                                {...register('user', {
-                                    required: {
-                                        value: true,
-                                        message: '* este campo es obligatorio'
-                                    },
-                                    pattern: {
-                                        value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                                        message:
-                                            '* por favor valide que el correo este correcto'
-                                    }
-                                })}
-                            />
-                            {errors.user && (
-                                <span className="text-blue font-bold text-sm">
-                                    {errors.user.message}
-                                </span>
-                            )}
+                    {/* BLOQUE FORMULARIO DERECHA */}
+                    <div className="bg-red p-12 rounded-md w-96 flex flex-col justify-center">
+                        {/* TÍTULO */}
+                        <div>
+                            <h2 className="font-modern text-2xl">
+                                iniciar sesión
+                            </h2>
+                            <p className="mb-10 text-sm">
+                                inicie sesión para continuar
+                            </p>
                         </div>
 
-                        {/* PASSWORD */}
-                        <div className="">
-                            <label
-                                htmlFor="password"
-                                className="uppercase text-xs"
-                            >
-                                contraseña
-                            </label>
-                            <div className="">
+                        {/* FORM */}
+                        <form
+                            className="flex flex-col"
+                            onSubmit={handleSubmit(formSubmit)}
+                        >
+                            {/* USUARIO */}
+                            <div className="flex flex-col mb-3">
+                                <label
+                                    htmlFor="user"
+                                    className="uppercase text-xs"
+                                >
+                                    E-mail
+                                </label>
                                 <input
                                     className="rounded-md outline-none h-8 text-blue font-bold pl-2 bg-grey"
-                                    type={showPwd ? 'text' : 'password'}
-                                    name="password"
-                                    id="password"
+                                    type="email"
+                                    name="user"
+                                    id="user"
                                     autoComplete="off"
-                                    {...register('password', {
+                                    {...register('user', {
                                         required: {
                                             value: true,
                                             message:
                                                 '* este campo es obligatorio'
                                         },
                                         pattern: {
-                                            value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
+                                            value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
                                             message:
-                                                '* la contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un caracter especial'
+                                                '* por favor valide que el correo este correcto'
                                         }
                                     })}
                                 />
-                                <span
-                                    onClick={() => setShowPwd(!showPwd)}
-                                    className="text-blue"
-                                >
-                                    {showPwd ? (
-                                        <FontAwesomeIcon icon={faEye} />
-                                    ) : (
-                                        <FontAwesomeIcon icon={faEyeSlash} />
-                                    )}
-                                </span>
+                                {errors.user && (
+                                    <span className="text-blue font-bold text-xs leading">
+                                        {errors.user.message}
+                                    </span>
+                                )}
                             </div>
-                            {errors.password && (
-                                <span className="text-blue font-bold text-sm leading">
-                                    {errors.password.message}
-                                </span>
-                            )}
-                        </div>
 
-                        {/* BOTÓN INICIAR */}
-                        <div className="text-center">
-                            <button
-                                type="submit"
-                                className="bg-blue text-white px-16 py-2 rounded-lg uppercase font-modern mt-3"
-                            >
-                                iniciar
-                            </button>
-                        </div>
-                    </form>
+                            {/* PASSWORD */}
+                            <div className="flex flex-col mb-3">
+                                <label
+                                    htmlFor="password"
+                                    className="uppercase text-xs"
+                                >
+                                    contraseña
+                                </label>
+                                <div className="relative rounded-md">
+                                    <input
+                                        className="block w-full rounded-md outline-none h-8 text-blue font-bold pl-2 bg-grey"
+                                        type={showPwd ? 'text' : 'password'}
+                                        name="password"
+                                        id="password"
+                                        autoComplete="off"
+                                        {...register('password', {
+                                            required: {
+                                                value: true,
+                                                message:
+                                                    '* este campo es obligatorio'
+                                            },
+                                            pattern: {
+                                                value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
+                                                message:
+                                                    '* la contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un caracter especial'
+                                            }
+                                        })}
+                                    />
+                                    <span
+                                        onClick={() => setShowPwd(!showPwd)}
+                                        className="absolute inset-y-0 right-0 flex items-center pr-3 text-blue"
+                                    >
+                                        {showPwd ? (
+                                            <FontAwesomeIcon icon={faEye} />
+                                        ) : (
+                                            <FontAwesomeIcon
+                                                icon={faEyeSlash}
+                                            />
+                                        )}
+                                    </span>
+                                </div>
+                                {errors.password && (
+                                    <span className="text-blue font-bold text-xs leading">
+                                        {errors.password.message}
+                                    </span>
+                                )}
+                            </div>
+
+                            <div className="text-center">
+                                <button
+                                    type="submit"
+                                    className="bg-blue text-white px-16 py-2 rounded-lg uppercase font-modern mt-1"
+                                >
+                                    iniciar
+                                </button>
+                                <hr className="mt-5" />
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </>
     )
 }
-
-export default Login
+export default Register

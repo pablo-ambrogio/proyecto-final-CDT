@@ -11,21 +11,24 @@ const ModalLogin = () => {
         <>
             <Link
                 to="/login"
-                className="capitalize text-center font-bold bg-red hover:bg-grey hover:text-blue px-6 py-2 rounded-lg inline-block"
+                className="inline-block text-sm capitalize font-bold px-4 py-2 leading-none rounded-lg bg-red hover:bg-grey hover:text-blue transition-in-out duration-700"
                 onClick={() => setIsOpen(true)}
             >
                 iniciar sesión
             </Link>
             {isOpen && (
                 <div className="fixed inset-0 bg-blue bg-opacity-60 backdrop-blur-sm flex justify-center items-center">
-                    <div className="bg-grey rounded gap-5 p-5 flex">
+                    <div className="flex bg-grey rounded-xl gap-5 p-5">
                         <Login />
-                        <button
+
+                        {/* ICONO DE X PARA CERRAR */}
+                        <Link
+                            to="/"
                             className="text-blue text-4xl bg-grey flex"
                             onClick={() => setIsOpen(false)}
                         >
                             {<FontAwesomeIcon icon={faX} />}
-                        </button>
+                        </Link>
                     </div>
                 </div>
             )}

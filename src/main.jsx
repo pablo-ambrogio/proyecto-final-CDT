@@ -20,8 +20,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route element={<App />}>
                     <Route path="/" element={<Vehicles />} />
                     <Route path="/about-us" element={<AboutUs />} />
-                    <Route path="/login" element={<Login />} />
                     {/* <Route path="/login" element={<ModalLogin />} /> */}
+                    <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/vehicles/:id" element={<DetailsCar />} />
                     <Route element={<ProtectedRoute />}>
