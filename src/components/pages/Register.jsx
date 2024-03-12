@@ -31,7 +31,7 @@ const Register = () => {
     return (
         <>
             {/* CONTENEDOR */}
-            <div className="flex">
+            <div className="flex justify-center">
                 <div className="flex bg-grey p-4 rounded-md">
                     {/* BLOQUE IMAGEN IZQUIERDA */}
                     <div className="p-5 rounded-md sm:hidden lg:block">
