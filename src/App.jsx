@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <div
-        className=' h-full bg-white'
+        className='h-full bg-white'
       >
         <main className='mx-auto w-full'>
           <Outlet />
