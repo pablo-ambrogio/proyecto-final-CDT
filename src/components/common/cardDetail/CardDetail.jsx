@@ -1,18 +1,43 @@
+import { useState } from 'react'
 import CarMobi from '../../../assets/car-mobi.svg'
+import IconFav from '../../../assets/icon-fav.svg'
+import IconFavRed from '../../../assets/icon-fav-red.svg'
+
+
+
 
 const CardDetail = () => {
+
+    const [fav, setFav] = useState(false)
+
+    const handleFav = () => {
+        setFav(!fav)
+    }
+
     return (
         <div>
             <article
                 className='bg-grey p-8 text-blue lg:h-[28rem] sm:h-auto rounded-lg max-w-4xl mx-auto'
             >
-                <section>
-                    <h1
-                        className='text-2xl font-bold'
-                    >Fiat mobi 1.0</h1>
-                    <p
-                        className='uppercase text-sm'
-                    >GRUPO C - ECONÓMICO CON AIRE MECÁNICO</p>
+                <section
+                    className='flex justify-between items-center pr-2'
+                >
+                    <div>
+
+                        <h1
+                            className='text-2xl font-bold'
+                        >Fiat mobi 1.0</h1>
+                        <p
+                            className='uppercase text-sm'
+                        >GRUPO C - ECONÓMICO CON AIRE MECÁNICO</p>
+                    </div>
+                    <div>
+                        {
+                            fav ?
+                                <img onClick={handleFav} src={IconFavRed} alt="" /> :
+                                <img onClick={handleFav} src={IconFav} alt="" />
+                        }
+                    </div>
                 </section>
                 <section
                     className='grid lg:grid-cols-2 lg:grid-rows-4 h-4/5 gap-x-4 md:gap-6'

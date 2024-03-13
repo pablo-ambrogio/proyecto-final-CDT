@@ -7,13 +7,12 @@ import LogoShort from '../../assets/Logo_Short 2.svg'
 
 const Register = () => {
     const [showPwd, setShowPwd] = useState(false)
-    const [showPwd2, setShowPwd2] = useState(false)
+    // const [showPwd2, setShowPwd2] = useState(false)
 
     const {
         register,
         handleSubmit,
         formState: { errors },
-        watch,
         reset
     } = useForm()
 

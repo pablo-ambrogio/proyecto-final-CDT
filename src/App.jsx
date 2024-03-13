@@ -3,6 +3,7 @@ import Footer from './components/common/footer/Footer'
 import Navbar from './components/common/header/Navbar'
 
 function App() {
+<<<<<<< HEAD
     return (
         <>
             <div
@@ -17,6 +18,21 @@ function App() {
             </div>
         </>
     )
+=======
+
+  return (
+    <>
+      <div
+        className='h-full bg-white'
+      >
+        <main className='mx-auto w-full'>
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </>
+  )
+>>>>>>> pablo
 }
 
 export default App
