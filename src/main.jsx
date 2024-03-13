@@ -14,6 +14,7 @@ import AdminCharacteristics from './components/pages/admin/AdminCharacteristics.
 import AdminAddUser from './components/pages/admin/AdminAddUser.jsx'
 import AdminConfiguration from './components/pages/admin/AdminConfiguration.jsx'
 import AdminReserve from './components/pages/admin/AdminReserve.jsx'
+import AdminAddVehicles from './components/pages/admin/AdminAddVehicles.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -29,6 +30,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route element={<ProtectedRoute />}>
             <Route path='/admin' element={<AdminHome />}>
 
+              <Route path='add-vehicle' element={<AdminAddVehicles />} />
               <Route path='vehicles-list' element={<AdminVehiclesList />} />
               <Route path='categories' element={<AdminCategories />} />
               <Route path='characteristics' element={<AdminCharacteristics />} />

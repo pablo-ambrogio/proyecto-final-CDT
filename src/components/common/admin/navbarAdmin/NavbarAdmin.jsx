@@ -61,12 +61,22 @@ const NavbarAdmin = () => {
                                 onClick={handleVehicle}
                             >
                                 <img src={IconCar} alt="" className="w-8" />
-                                <span className="justify-self-start">lista de vehiculos</span>
-                                <span className="font-bold place-self-start ">+</span>
+                                <span className="justify-self-start">vehiculos</span>
+                                <div>
+                                    {
+                                        !vehicle ?
+                                            <span className="font-bold place-self-start text-lg">+</span>
+                                            :
+                                            <span className="font-bold place-self-start text-lg">-</span>
+                                    }
+                                </div>
                             </div>
-                            <ul className={`${!vehicle && "hidden"} text-[.75rem] w-full grid place-content-center pl-4`}>
+                            <ul className={`${!vehicle && "hidden"} text-[.75rem] w-4/5 mx-auto grid place-content-center pl-4`}>
                                 <li>
-                                    <NavLink to={"vehicles-list"}>agregar vehiculo</NavLink>
+                                    <NavLink to={"add-vehicle"}>agregar vehiculo</NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to={"vehicles-list"}>Lista de vehiculos</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to={"categories"}>Agregar categoria</NavLink>
@@ -84,9 +94,16 @@ const NavbarAdmin = () => {
                             >
                                 <img src={IconReserve} alt="" className="w-8" />
                                 <span className="justify-self-start">reservas</span>
-                                <span className="font-bold place-self-start ">+</span>
+                                <div>
+                                    {
+                                        !category ?
+                                            <span className="font-bold place-self-start text-lg">+</span>
+                                            :
+                                            <span className="font-bold place-self-start text-lg">-</span>
+                                    }
+                                </div>
                             </div>
-                            <ul className={`${!category && "hidden"} text-[.75rem] w-3/5 mx-auto grid place-content-start pl-2`}>
+                            <ul className={`${!category && "hidden"} text-[.75rem] w-3/5 mx-auto grid place-content-start pl-[.33rem]`}>
                                 <li>
                                     <NavLink to={"reserve"}>agregar reserva</NavLink>
                                 </li>
@@ -100,9 +117,16 @@ const NavbarAdmin = () => {
                             >
                                 <img src={IconUser} alt="" className="w-8" />
                                 <span className="justify-self-start">usuarios</span>
-                                <span className="font-bold place-self-start ">+</span>
+                                <div>
+                                    {
+                                        !user ?
+                                            <span className="font-bold place-self-start text-lg">+</span>
+                                            :
+                                            <span className="font-bold place-self-start text-lg">-</span>
+                                    }
+                                </div>
                             </div>
-                            <ul className={`${!user && "hidden"} text-[.75rem] w-3/5 mx-auto grid place-content-start pl-2`}>
+                            <ul className={`${!user && "hidden"} text-[.75rem] w-3/5 mx-auto grid place-content-start pl-[.33rem]`}>
                                 <li>
                                     <NavLink to={"add-users"}>agregar usuarios</NavLink>
                                 </li>
@@ -115,10 +139,17 @@ const NavbarAdmin = () => {
                                 onClick={handleConfiguration}
                             >
                                 <img src={IconConfig} alt="" className="w-8" />
-                                <span className="justify-self-start">configuracion</span>
-                                <span className="font-bold place-self-start ">+</span>
+                                <span className="justify-self-start ">configuracion</span>
+                                <div>
+                                    {
+                                        !config ?
+                                            <span className="font-bold place-self-start text-lg">+</span>
+                                            :
+                                            <span className="font-bold place-self-start text-lg">-</span>
+                                    }
+                                </div>
                             </div>
-                            <ul className={`${!config && "hidden"} text-[.75rem] w-3/5 mx-auto grid place-content-start pl-2`}>
+                            <ul className={`${!config && "hidden"} text-[.75rem] w-3/5 mx-auto grid place-content-start pl-[.33rem]`}>
                                 <li>
                                     <NavLink to={"configuration"}>editar perfil</NavLink>
                                 </li>

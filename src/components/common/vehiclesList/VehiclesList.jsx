@@ -1,6 +1,24 @@
+import { useEffect, useState } from 'react'
 import Amarok from '../../../assets/amarok.webp'
+import axios from 'axios'
 
 const VehiclesList = () => {
+
+    const [vehicles, setVehicles] = useState([])
+
+    const getVehicles = async () => {
+        const { data } = await axios.get("http://localhost:3000/vehicles")
+        setVehicles(data);
+    }
+
+    useEffect(() => {
+
+        getVehicles()
+        console.log(vehicles);
+
+    }, [])
+
+
     return (
         <div className="relative overflow-x-auto h-screen text-blue max-w-7xl mx-auto pt-6">
             <h1 className="text-xl font-semibold uppercase">Lista de vehiculos</h1>
@@ -17,7 +35,7 @@ const VehiclesList = () => {
                             Modelo
                         </th>
                         <th scope="col" className="px-4 py-2">
-                            Tipo
+                            Cetegoria
                         </th>
                         <th scope="col" className="px-4 py-2" title='Serial carroceria'>
                             Srl. carroceria
@@ -41,7 +59,7 @@ const VehiclesList = () => {
                             observacion
                         </th>
                         <th scope="col" className="px-4 py-2">
-                            descripción del vehiculo
+                            descripción
                         </th>
                         <th scope="col" className="px-4 py-2">
                             fotos
@@ -52,117 +70,56 @@ const VehiclesList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 uppercase text-center ">
-                        <th className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-blue">
-                            1
-                        </th>
-                        <td className="px-4 py-2">
-                            Volkswagen
-                        </td>
-                        <td className="px-4 py-2">
-                            Amarok
-                        </td>
-                        <td className="w-5">
-                            auto
-                        </td>
-                        <td className="px-4 py-2">
-                            65465A654654D564
-                        </td>
-                        <td className="px-4 py-2">
-                            ASDFF65454FF545F
-                        </td>
-                        <td className="px-4 py-2">
-                            Negro
-                        </td>
-                        <td className="px-4 py-2">
-                            2024
-                        </td>
-                        <td className="w-5">
-                            AG 777 ZZ
-                        </td>
-                        <td className="w-3 bg-[#00913f]">
-                        </td>
-                        <td className="px-4 py-2">
-                            r-09
-                        </td>
-                        <td className="">
-                            <img src={Amarok} alt="" width={90} />
-                        </td>
-                    </tr>
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 uppercase text-center">
-                        <th className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-blue">
-                            1
-                        </th>
-                        <td className="px-4 py-2">
-                            Volkswagen
-                        </td>
-                        <td className="px-4 py-2">
-                            Amarok
-                        </td>
-                        <td className="w-5">
-                            Pick-up
-                        </td>
-                        <td className="px-4 py-2">
-                            65465A654654D564
-                        </td>
-                        <td className="px-4 py-2">
-                            ASDFF65454FF545F
-                        </td>
-                        <td className="px-4 py-2">
-                            Negro
-                        </td>
-                        <td className="px-4 py-2">
-                            2024
-                        </td>
-                        <td className="w-5">
-                            AG 777 ZZ
-                        </td>
-                        <td className="w-3 bg-[#00913f]">
-                        </td>
-                        <td className="px-4 py-2">
-                            r-09
-                        </td>
-                        <td className="">
-                            <img src={Amarok} alt="" width={90} />
-                        </td>
-                    </tr>
-                    <tr className="bg-white dark:bg-gray-800 uppercase text-center">
-                        <th className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-blue">
-                            1
-                        </th>
-                        <td className="px-4 py-2">
-                            Volkswagen
-                        </td>
-                        <td className="px-4 py-2">
-                            Amarok
-                        </td>
-                        <td className="w-5">
-                            Pick-up
-                        </td>
-                        <td className="px-4 py-2">
-                            65465A654654D564
-                        </td>
-                        <td className="px-4 py-2">
-                            ASDFF65454FF545F
-                        </td>
-                        <td className="px-4 py-2">
-                            Negro
-                        </td>
-                        <td className="px-4 py-2">
-                            2024
-                        </td>
-                        <td className="w-5">
-                            AG 777 ZZ
-                        </td>
-                        <td className="w-3 bg-[#00913f]">
-                        </td>
-                        <td className="px-4 py-2">
-                            r-09
-                        </td>
-                        <td className="">
-                            <img src={Amarok} alt="" width={90} />
-                        </td>
-                    </tr>
+                    {
+                        vehicles.map(vehicle => {
+
+                            let { brand, model, category, serialBody, serialMotor, color, year, plaque, operative, observation, description } = vehicle
+
+                            return (
+
+                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 uppercase text-center " key={vehicle.id}>
+                                    <th className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-blue">
+                                        1
+                                    </th>
+                                    <td className="px-4 py-2">
+                                        {brand}
+                                    </td>
+                                    <td className="px-4 py-2">
+                                        {model}
+                                    </td>
+                                    <td className="w-5">
+                                        {category}
+                                    </td>
+                                    <td className="px-4 py-2">
+                                        {serialBody}
+                                    </td>
+                                    <td className="px-4 py-2">
+                                        {serialMotor}
+                                    </td>
+                                    <td className="px-4 py-2">
+                                        {color}
+                                    </td>
+                                    <td className="px-4 py-2">
+                                        {year}
+                                    </td>
+                                    <td className="w-5">
+                                        {plaque}
+                                    </td>
+                                    <td className={`${operative ? "bg-[#00913f]" : "bg-[#ff0000]"} w-2`}>
+                                    </td>
+                                    <td className="px-4 py-2">
+                                        {observation}
+                                    </td>
+                                    <td className="px-4 py-2">
+                                        {description}
+                                    </td>
+                                    <td className="">
+                                        <img src={Amarok} alt="" width={90} />
+                                    </td>
+                                </tr>
+                            )
+                        })
+                    }
                 </tbody>
             </table>
 
