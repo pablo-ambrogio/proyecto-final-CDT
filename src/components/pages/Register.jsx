@@ -43,9 +43,11 @@ const Register = () => {
                     </div>
 
                     {/* BLOQUE FORMULARIO DERECHA */}
-                    <div className="bg-blue p-12 rounded-md w-96 flex flex-col justify-center">
+                    <div className="bg-blue px-12 py-4 rounded-md w-96 flex flex-col justify-center">
                         {/* TÍTULO */}
-                        <h2 className="font-modern text-2xl mb-5">crear cuenta</h2>
+                        <h2 className="font-modern text-2xl mb-5">
+                            crear cuenta
+                        </h2>
 
                         {/* FORM */}
                         <form

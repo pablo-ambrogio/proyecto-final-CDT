@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faX } from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2'
-// import { useState } from 'react'
-// import ModalLogin from '../../pages/ModalLogin'
+import Modal from '../modal/Modal'
 
 const Navbar = () => {
-    // const [isOpen, setIsOpen] = useState(false)
     return (
         <>
             <header className="flex flex-col sticky top-0">
@@ -48,20 +46,20 @@ const Navbar = () => {
                             </Link>
                         </div>
                         <div className="flex gap-2">
-                            <Link
+                            {/* <Link
                                 to="/register"
                                 className="inline-block text-sm capitalize font-bold px-4 py-2 leading-none rounded-lg bg-red hover:bg-grey hover:text-blue transition-in-out duration-700 "
                             >
                                 crear cuenta
                             </Link>
-                            {/* <ModalLogin /> */}
 
                             <Link
                                 to="/login"
                                 className="inline-block text-sm capitalize font-bold px-4 py-2 leading-none rounded-lg bg-red hover:bg-grey hover:text-blue transition-in-out duration-700 "
-                                >
+                            >
                                 iniciar sesión
-                            </Link>
+                            </Link> */}
+                            <Modal />
                         </div>
                     </div>
                 </nav>
@@ -74,13 +72,16 @@ const Navbar = () => {
                     <input
                         className="rounded py-1 px-5 bg-grey text-blue outline-none"
                         type="date"
-                        placeholder="Fecha"
+                        placeholder="Fecha inicio"
                     />
                     <input
                         className="rounded py-1 px-5 bg-grey text-blue outline-none"
-                        type="time"
-                        placeholder="hora"
+                        type="date"
+                        placeholder="Fecha fin"
                     />
+                    <button className="block py-2 px-4 leading-none rounded-lg text-sm text-blue border-0 bg-grey hover:bg-grey hover:text-blue cursor-pointer font-bold capitalize transition-in-out duration-700">
+                        Buscar
+                    </button>
                 </section>
             </header>
         </>

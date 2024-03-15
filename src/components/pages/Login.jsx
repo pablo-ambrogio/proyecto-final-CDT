@@ -17,14 +17,15 @@ const Register = () => {
     } = useForm()
 
     const formSubmit = handleSubmit(data => {
-        Swal.fire({
-            icon: 'success',
-            html: '<p class = "text-blue text-xl font-bold" >Usuario creado con éxito</p>',
-            showConfirmButton: false,
-            timer: 2000
-        })
+        // Swal.fire({
+        //     icon: 'success',
+        //     html: '<p class = "text-blue text-xl font-bold" >Accedo permitido</p>',
+        //     showConfirmButton: false,
+        //     timer: 2000
+        // })
         console.log(data)
         reset()
+        // <Link to="/"></Link>
     })
 
     return (
@@ -68,7 +69,7 @@ const Register = () => {
                                 </label>
                                 <input
                                     className="rounded-md outline-none h-8 text-blue font-bold pl-2 bg-grey"
-                                    type="email"
+                                    type="text"
                                     name="user"
                                     id="user"
                                     autoComplete="off"
