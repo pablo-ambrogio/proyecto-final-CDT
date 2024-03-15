@@ -20,51 +20,48 @@ const VehiclesList = () => {
 
 
     return (
-        <div className="relative overflow-x-auto h-screen text-blue max-w-7xl mx-auto pt-6">
+        <div className=" overflow-x-auto h-screen text-blue max-w-7xl mx-auto p-4">
             <h1 className="text-xl font-semibold uppercase">Lista de vehiculos</h1>
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-8 border border-blue">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center border border-blue">
+            <table className="w-fit text-xs mt-8 border border-blue">
+                <thead className="uppercase text-center border border-blue">
                     <tr>
-                        <th scope="col" className="px-4 py-2">
-                            N°
-                        </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             Marca
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th className="bg-red" scope='col'>
                             Modelo
                         </th>
-                        <th scope="col" className="px-4 py-2">
-                            Cetegoria
+                        <th className='bg-blue'>
+                            Categoria
                         </th>
-                        <th scope="col" className="px-4 py-2" title='Serial carroceria'>
+                        <th title='Serial carroceria' className="bg-red">
                             Srl. carroceria
                         </th>
-                        <th scope="col" className="px-4 py-2" title='Serial motor'>
+                        <th title='Serial motor' className='bg-blue'>
                             Srl. motor
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             color
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             año
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             placa
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             operativos
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             observacion
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             descripción
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             fotos
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             acciones
                         </th>
                     </tr>
@@ -78,28 +75,25 @@ const VehiclesList = () => {
                             return (
 
                                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 uppercase text-center " key={vehicle.id}>
-                                    <th className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-blue">
-                                        1
-                                    </th>
-                                    <td className="px-4 py-2">
+                                    <td className="">
                                         {brand}
                                     </td>
-                                    <td className="px-4 py-2">
+                                    <td className="">
                                         {model}
                                     </td>
                                     <td className="w-5">
                                         {category}
                                     </td>
-                                    <td className="px-4 py-2">
+                                    <td className="">
                                         {serialBody}
                                     </td>
-                                    <td className="px-4 py-2">
+                                    <td className="">
                                         {serialMotor}
                                     </td>
-                                    <td className="px-4 py-2">
+                                    <td className="">
                                         {color}
                                     </td>
-                                    <td className="px-4 py-2">
+                                    <td className="">
                                         {year}
                                     </td>
                                     <td className="w-5">
@@ -107,10 +101,10 @@ const VehiclesList = () => {
                                     </td>
                                     <td className={`${operative ? "bg-[#00913f]" : "bg-[#ff0000]"} w-2`}>
                                     </td>
-                                    <td className="px-4 py-2">
+                                    <td className="">
                                         {observation}
                                     </td>
-                                    <td className="px-4 py-2">
+                                    <td className="">
                                         {description}
                                     </td>
                                     <td className="">
@@ -122,24 +116,7 @@ const VehiclesList = () => {
                     }
                 </tbody>
             </table>
-
-            <div className='uppercase flex justify-between text-white w-3/5 mx-auto absolute bottom-[5%] left-0 right-0'>
-                <div>
-                    <button
-                        className='bg-blue w-36 py-2'
-                    >Agregar</button>
-                </div>
-                <div>
-                    <button
-                        className='bg-blue w-36 py-2'
-                    >Modificar</button>
-                </div>
-                <div>
-                    <button
-                        className='bg-blue w-36 py-2'
-                    >Eliminar</button>
-                </div>
-            </div>
+            
         </div>
 
     )

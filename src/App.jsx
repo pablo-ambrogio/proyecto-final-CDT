@@ -9,10 +9,11 @@ function App() {
         className='h-full bg-white'
       >
         <main className='mx-auto w-full'>
-          <Outlet />
+            <Outlet />
         </main>
         <Footer />
       </div>
+
     </>
   )
 }
