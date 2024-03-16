@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faX } from '@fortawesome/free-solid-svg-icons'
+import FlechaAzul from '../../../assets/ArrowBlue 2.svg'
 
 const ModalContainer = ({ children, state, setState }) => {
     return (
@@ -10,9 +9,13 @@ const ModalContainer = ({ children, state, setState }) => {
                         <button
                             className="absolute top-[-30px] right-[-30px] w-5 h-5 cursor-pointer border-0 ease-in-out duration-300 rounded text-blue font-bold
                                 hover:text-blue"
-                            onClick={() => setState(false)}
                         >
-                            <FontAwesomeIcon icon={faX} className="text-4xl" />
+                            <img
+                                onClick={() => setState(false)}
+                                className=""
+                                src={FlechaAzul}
+                                alt="cerrar"
+                            />
                         </button>
                         {children}
                     </div>

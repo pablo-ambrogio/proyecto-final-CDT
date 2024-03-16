@@ -2,12 +2,10 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import Swal from 'sweetalert2'
 import LogoShort from '../../assets/Logo_Short 2.svg'
 
 const Register = () => {
     const [showPwd, setShowPwd] = useState(false)
-    // const [showPwd2, setShowPwd2] = useState(false)
 
     const {
         register,
@@ -17,12 +15,6 @@ const Register = () => {
     } = useForm()
 
     const formSubmit = handleSubmit(data => {
-        // Swal.fire({
-        //     icon: 'success',
-        //     html: '<p class = "text-blue text-xl font-bold" >Accedo permitido</p>',
-        //     showConfirmButton: false,
-        //     timer: 2000
-        // })
         console.log(data)
         reset()
         // <Link to="/"></Link>
