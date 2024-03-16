@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from "react-router-dom"
+import { Navigate, Outlet } from 'react-router-dom'
 
 const ProtectedRoute = () => {
 
@@ -8,8 +8,6 @@ const ProtectedRoute = () => {
         return <Navigate to={'/'} />
     }
 
-    return (
-        <Outlet />
-    )
+    return <Outlet />
 }
 export default ProtectedRoute

@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom"
 import NavbarAdmin from "../../common/admin/navbarAdmin/NavbarAdmin"
 
 const AdminHome = () => {
+
     return (
         <section className="grid min-h-screen grid-rows-1">
 
