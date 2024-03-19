@@ -36,10 +36,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Route path='/admin' element={<AdminHome />}>
 
                 <Route path='add-vehicle' element={<AdminAddVehicles />} />
+                <Route path='add-vehicle/:id' element={<AdminAddVehicles />} />
                 <Route path='vehicles-list' element={<AdminVehiclesList />} />
                 <Route path='categories' element={<AdminCategories />} />
                 <Route path='characteristics' element={<AdminCharacteristics />} />
-
 
                 <Route path='reserve' element={<AdminReserve />} />
                 <Route path='add-users' element={<AdminAddUser />} />
@@ -53,7 +53,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
         </Routes>
       </NavBarContextProvider>
-      
+
     </BrowserRouter>
   </React.StrictMode>,
 )

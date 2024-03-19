@@ -11,12 +11,11 @@ import { NavBarContext } from "../../../../context/NavbarContext";
 
 const NavbarAdmin = () => {
 
-    // const [viewNavbar, setViewNavbar] = useState(false)
-
     const {
         viewNavbar,
         handleMouseEnter,
-        handleMouseLeave
+        handleMouseLeave,
+        setDataForId
     } = useContext(NavBarContext)
 
     const [vehicle, setVehicle] = useState(false)
@@ -30,6 +29,7 @@ const NavbarAdmin = () => {
         setCategory(false)
         setUser(false)
         setConfig(false)
+        setDataForId({})
     }
 
     const handleCategory = () => {
@@ -52,14 +52,6 @@ const NavbarAdmin = () => {
         setVehicle(false)
         setUser(false)
     }
-
-    // const handleMouseEnter = () => {
-    //     setViewNavbar(true)
-    // }
-
-    // const handleMouseLeave = () => {
-    //     setViewNavbar(false)
-    // }
 
 
     return (

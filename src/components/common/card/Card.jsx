@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom'
 import CarMobi from '../../../assets/car-mobi.svg'
 
-const Card = () => {
+const Card = ({ vehicle }) => {
+
+    const { brand } = vehicle
+
+    console.log(vehicle);
 
     const handleClick = () => {
         alert('Estamos trabajando para que puedas reservar tu automovil')
@@ -30,7 +34,7 @@ const Card = () => {
                         >
                             <h2
                                 className='text-2xl font-semibold'
-                            >Fiat Mobi 1.0</h2>
+                            >{brand}</h2>
                             <p
                                 className=' uppercase text-[0.7rem]'
                             >grupo c - economico con aire mecánico</p>

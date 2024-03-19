@@ -1,4 +1,6 @@
+import axios from "axios"
 import { createContext, useState } from "react"
+import { useForm } from 'react-hook-form'
 
 export const NavBarContext = createContext()
 
@@ -7,6 +9,9 @@ export const NavBarContext = createContext()
 const NavBarContextProvider = ({ children }) => {
 
     const [viewNavbar, setViewNavbar] = useState(false)
+    const [dataForId, setDataForId] = useState({})
+
+    const { reset } = useForm()
 
     const handleMouseEnter = () => {
         setViewNavbar(true)
@@ -16,10 +21,23 @@ const NavBarContextProvider = ({ children }) => {
         setViewNavbar(false)
     }
 
+    const searchDataForId = async id => {
+        const { data } = await axios.get("http://localhost:3000/vehicles/" + id)
+            .catch(({ response }) => {
+                if (response.status != 200) return alert("NO SE ENCONTRO")
+            })
+        console.log(data);
+        setDataForId(data);
+    }
+
     const data = {
         handleMouseEnter,
         handleMouseLeave,
         viewNavbar,
+        setDataForId,
+        dataForId,
+        searchDataForId,
+        reset
     }
 
     return (
