@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import LogoShort from '../../assets/Logo_Short 2.svg'
+import axios from 'axios'
 
 const Register = () => {
     const [showPwd, setShowPwd] = useState(false)
@@ -16,6 +17,13 @@ const Register = () => {
 
     const formSubmit = handleSubmit(data => {
         console.log(data)
+        for (const key in data) {
+            if (typeof data[key] === 'string') {
+                data[key] = data[key].toLowerCase()
+            }
+        }
+
+        axios.get('http://localhost:3000/users', data)
         reset()
         // <Link to="/"></Link>
     })
