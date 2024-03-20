@@ -1,70 +1,107 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Amarok from '../../../assets/amarok.webp'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
+
+import IconDelete from '../../../assets/dashboard/icon-delete.svg'
+import IconUpdate from '../../../assets/dashboard/icon-modify.svg'
+import { NavBarContext } from '../../../context/NavbarContext'
+
 
 const VehiclesList = () => {
 
     const [vehicles, setVehicles] = useState([])
+
+    const [data, setData] = useState({})
+
+    const { searchDataForId } = useContext(NavBarContext)
+
+    //#region FUNCIONES
+
+    const handleChange = e => {
+        const value = e.target.value
+        const name = e.target.name
+        setData({
+            ...data,
+            [name]: value
+        })
+    }
 
     const getVehicles = async () => {
         const { data } = await axios.get("http://localhost:3000/vehicles")
         setVehicles(data);
     }
 
+    const deleteVehicle = async (id) => {
+        await axios.delete("http://localhost:3000/vehicles/" + id)
+    }
+
+    const handleDelete = (id) => {
+        const res = confirm("¿Estás seguro que deseas eliminarlo?")
+        if (res) return deleteVehicle(id)
+    }
+
+
+
+    //#endregion
+
     useEffect(() => {
-
         getVehicles()
-        console.log(vehicles);
+    }, [vehicles])
 
-    }, [])
 
 
     return (
-        <div className="relative overflow-x-auto h-screen text-blue max-w-7xl mx-auto pt-6">
+        <div className=" h-screen text-blue max-w-7xl mx-auto p-4">
+
             <h1 className="text-xl font-semibold uppercase">Lista de vehiculos</h1>
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-8 border border-blue">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 text-center border border-blue">
+            <div className='flex justify-end'>
+                <Link to={"/admin/add-vehicle"}>
+                    <button className='bg-blue text-white px-4 py-2 rounded-lg'>
+                        <span>Agregar vehículo</span>
+                    </button>
+                </Link>
+            </div>
+            <table className="w-full text-xs mt-8 border border-blue">
+                <thead className="uppercase text-center border border-blue">
                     <tr>
-                        <th scope="col" className="px-4 py-2">
-                            N°
-                        </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             Marca
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th>
                             Modelo
                         </th>
-                        <th scope="col" className="px-4 py-2">
-                            Cetegoria
+                        <th >
+                            Categoria
                         </th>
-                        <th scope="col" className="px-4 py-2" title='Serial carroceria'>
+                        <th title='Serial carroceria'>
                             Srl. carroceria
                         </th>
-                        <th scope="col" className="px-4 py-2" title='Serial motor'>
+                        <th title='Serial motor'>
                             Srl. motor
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             color
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             año
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             placa
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             operativos
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             observacion
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             descripción
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             fotos
                         </th>
-                        <th scope="col" className="px-4 py-2">
+                        <th >
                             acciones
                         </th>
                     </tr>
@@ -77,44 +114,129 @@ const VehiclesList = () => {
 
                             return (
 
-                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 uppercase text-center " key={vehicle.id}>
-                                    <th className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-blue">
-                                        1
-                                    </th>
-                                    <td className="px-4 py-2">
-                                        {brand}
+                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 uppercase text-center h-14" key={vehicle.id}>
+                                    <td>
+                                        {
+                                            vehicle.id === data.id &&
+                                                Object.entries(data).length > 0 ?
+                                                <input type="text"
+                                                    className='bg-white border border-blue'
+                                                    name={"brand"}
+                                                    value={data.brand}
+                                                    onChange={handleChange}
+                                                />
+                                                :
+                                                brand
+                                        }
                                     </td>
-                                    <td className="px-4 py-2">
-                                        {model}
+                                    <td >
+                                        {
+                                            vehicle.id === data.id &&
+                                                Object.entries(data).length > 0 ?
+                                                <input type="text"
+                                                    className='bg-white border border-blue'
+                                                    name={"model"}
+                                                    value={data.model}
+                                                    onChange={handleChange}
+                                                />
+                                                :
+                                                model
+                                        }
                                     </td>
-                                    <td className="w-5">
+                                    <td>
                                         {category}
                                     </td>
-                                    <td className="px-4 py-2">
+                                    <td >
                                         {serialBody}
                                     </td>
-                                    <td className="px-4 py-2">
+                                    <td >
                                         {serialMotor}
                                     </td>
-                                    <td className="px-4 py-2">
+                                    <td >
                                         {color}
                                     </td>
-                                    <td className="px-4 py-2">
+                                    <td >
+
                                         {year}
                                     </td>
-                                    <td className="w-5">
+                                    <td>
                                         {plaque}
                                     </td>
-                                    <td className={`${operative ? "bg-[#00913f]" : "bg-[#ff0000]"} w-2`}>
+                                    <td>
+                                        {
+                                            vehicle.id === data.id &&
+                                                Object.entries(data).length > 0 ?
+                                                <select id=""
+                                                    name={"operative"}
+                                                    value={data.operative}
+                                                    onChange={handleChange}
+                                                    className='bg-white'
+                                                >
+                                                    <option value={true}>si</option>
+                                                    <option value={false}>no</option>
+                                                </select>
+
+
+                                                // <input type="text"
+                                                //     className='bg-white border border-blue'
+                                                //     name={"operative"}
+                                                //     value={data.operative}
+                                                //     onChange={handleChange}
+                                                // />
+                                                :
+                                                operative || operative === "true" ? "Si" : "No"
+                                        }
                                     </td>
-                                    <td className="px-4 py-2">
-                                        {observation}
+                                    <td>
+                                        {
+                                            vehicle.id === data.id &&
+                                                Object.entries(data).length > 0 ?
+                                                <input type="text"
+                                                    className='bg-white border border-blue'
+                                                    name={"observation"}
+                                                    value={data.observation}
+                                                    onChange={handleChange}
+                                                />
+                                                :
+                                                observation
+                                        }
                                     </td>
-                                    <td className="px-4 py-2">
-                                        {description}
+                                    <td >
+                                        {
+                                            vehicle.id === data.id &&
+                                                Object.entries(data).length > 0 ?
+                                                <input type="text"
+                                                    className='bg-white border border-blue'
+                                                    name={"description"}
+                                                    value={data.description}
+                                                    onChange={handleChange}
+                                                />
+                                                :
+                                                description
+                                        }
                                     </td>
-                                    <td className="">
-                                        <img src={Amarok} alt="" width={90} />
+                                    <td>
+                                        <img src={Amarok} alt="Foto de vehículo cargado" width={80} />
+                                    </td>
+                                    <td
+                                        className='flex justify-between items-center h-14'
+                                    >
+                                        <span
+                                        >
+                                            <button
+                                                onClick={() => handleDelete(vehicle.id)}
+                                            >
+                                                <img src={IconDelete} alt="icono de botín eliminar" />
+                                                <span>Eliminar</span>
+                                            </button>
+                                        </span>
+                                        <Link to={`../add-vehicle/${vehicle.id}`}>
+                                            <button
+                                                onClick={() => searchDataForId(vehicle.id)}
+                                            >
+                                                <img src={IconUpdate} alt="icono de botón modificar" />
+                                            </button>
+                                        </Link>
                                     </td>
                                 </tr>
                             )
@@ -123,24 +245,7 @@ const VehiclesList = () => {
                 </tbody>
             </table>
 
-            <div className='uppercase flex justify-between text-white w-3/5 mx-auto absolute bottom-[5%] left-0 right-0'>
-                <div>
-                    <button
-                        className='bg-blue w-36 py-2'
-                    >Agregar</button>
-                </div>
-                <div>
-                    <button
-                        className='bg-blue w-36 py-2'
-                    >Modificar</button>
-                </div>
-                <div>
-                    <button
-                        className='bg-blue w-36 py-2'
-                    >Eliminar</button>
-                </div>
-            </div>
-        </div>
+        </div >
 
     )
 }

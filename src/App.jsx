@@ -8,12 +8,17 @@ function App() {
       <div
         className="grid min-h-screen grid-rows-[150px,1fr,70px]"
       >
+        {/* <main className='mx-auto w-full'> */}
+        {/* <Outlet /> */}
+
         <Navbar />
-        <main className="mx-auto w-full">
+        <section className="mx-auto w-full">
           <Outlet />
-        </main>
+        </section>
+
         <Footer />
       </div>
+
     </>
   )
 

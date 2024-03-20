@@ -1,7 +1,13 @@
 import { Link } from 'react-router-dom'
 import CarMobi from '../../../assets/car-mobi.svg'
 
-const Card = () => {
+
+const Card = ({ vehicle }) => {
+
+    const { brand } = vehicle
+
+    console.log(vehicle);
+
     const handleClick = () => {
         alert('Estamos trabajando para que puedas reservar tu automovil')
     }
@@ -14,9 +20,22 @@ const Card = () => {
                         <div className="w-2/4 h-full">
                             <img src={CarMobi} alt={'Fiat mobi 1.0'} className="w-full h-full " />
                         </div>
-                        <div className="h-full text-end pt-2 w-2/4">
-                            <h2 className="text-2xl font-semibold">Fiat Mobi 1.0</h2>
-                            <p className=" uppercase text-[0.7rem]">grupo c - economico con aire mecánico</p>
+
+                        <div
+                            className='h-full text-end pt-2 w-2/4'
+                        >
+                            <h2
+                                className='text-2xl font-semibold'
+                            >{brand}</h2>
+                            <p
+                                className=' uppercase text-[0.7rem]'
+                            >grupo c - economico con aire mecánico</p>
+
+                            <div className="h-full text-end pt-2 w-2/4">
+                                <h2 className="text-2xl font-semibold">Fiat Mobi 1.0</h2>
+                                <p className=" uppercase text-[0.7rem]">grupo c - economico con aire mecánico</p>
+
+                            </div>
                         </div>
                     </div>
                 </Link>
