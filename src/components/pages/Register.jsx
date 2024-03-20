@@ -20,12 +20,13 @@ const Register = () => {
     } = useForm()
 
     const formSubmit = handleSubmit(data => {
-        Swal.fire({
-            icon: 'success',
-            html: '<p class = "text-blue text-xl font-bold" >Usuario creado con éxito</p>',
-            showConfirmButton: false,
-            timer: 2000
-        })
+        // Swal.fire({
+        //     icon: 'success',
+        //     html: '<p class = "text-blue text-xl font-bold" >Usuario creado con éxito</p>',
+        //     showConfirmButton: false,
+        //     timer: 2000
+        // })
+        alert('Usuario creado con éxito')
         console.log(data)
 
         for (const key in data) {

@@ -25,7 +25,6 @@ const Register = () => {
 
         axios.get('http://localhost:3000/users', data)
         reset()
-        // <Link to="/"></Link>
     })
 
     return (
