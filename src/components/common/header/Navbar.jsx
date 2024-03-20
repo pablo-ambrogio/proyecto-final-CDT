@@ -36,17 +36,34 @@ const Navbar = () => {
                                 to="/offers"
                                 className="uppercase font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
                                 onClick={() =>
-                                    Swal.fire({
-                                        confirmButtonColor: '#041562',
-                                        html: '<p className = "text-red text-xl font-bold" >Estamos trabajando para darte las mejores ofertas del mercado</p>'
-                                    })
+                                    alert(
+                                        'Estamos trabajando para darte las mejores ofertas del mercado'
+                                    )
                                 }
+                                // onClick={() =>
+                                //     Swal.fire({
+                                //         confirmButtonColor: '#041562',
+                                //         html: '<p class = "text-red text-xl font-bold" >Estamos trabajando para darte las mejores ofertas del mercado</p>'
+                                //     })
+                                // }
                             >
                                 ofertas
                             </Link>
                             <Link
-                                to="/favorite"
+                                to="/offers"
                                 className="uppercase font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
+                                onClick={() =>
+                                    alert(
+                                        'Pronto podrás seleccionar tus opciones favoritas'
+                                    )
+                                }
+
+                                // onClick={() =>
+                                //     Swal.fire({
+                                //         confirmButtonColor: '#041562',
+                                //         html: '<p class = "text-red text-xl font-bold" >Estamos trabajando para darte las mejores ofertas del mercado</p>'
+                                //     })
+                                // }
                             >
                                 favoritos
                             </Link>
@@ -70,22 +87,29 @@ const Navbar = () => {
                     </div>
                 </nav>
                 <section className="flex bg-blue2 w-full px-16 py-2 gap-3">
-                    <input
-                        className="rounded py-1 px-5 bg-grey text-blue outline-none flex-1"
-                        type="text"
-                        placeholder="Informa el punto de retirada (Ej: Buenos Aires, Bogotá)"
-                    />
-                    <input
-                        className="rounded py-1 px-5 bg-grey text-blue outline-none"
-                        type="date"
-                        placeholder="Fecha inicio"
-                    />
-                    <input
-                        className="rounded py-1 px-5 bg-grey text-blue outline-none"
-                        type="date"
-                        placeholder="Fecha fin"
-                    />
-                    <button className="block py-2 px-4 leading-none rounded-lg text-sm text-blue border-0 bg-grey hover:bg-grey hover:text-blue cursor-pointer font-bold capitalize transition-in-out duration-700">
+                    <div className="flex flex-1 flex-col">
+                        <p>Ubicación para retirar el vehículo</p>
+                        <input
+                            className="rounded py-1 px-5 bg-grey text-blue outline-none "
+                            type="text"
+                            placeholder="Punto de retirada (Ej: Buenos Aires, Bogotá)"
+                        />
+                    </div>
+                    <div className="">
+                        <p>Fecha inicio</p>
+                        <input
+                            className="rounded py-1 px-5 bg-grey text-blue outline-none"
+                            type="date"
+                        />
+                    </div>
+                    <div className="">
+                        <p>Fecha fin</p>
+                        <input
+                            className="rounded py-1 px-5 bg-grey text-blue outline-none"
+                            type="date"
+                        />
+                    </div>
+                    <button className="block py-2 px-4 leading-none rounded-lg text-sm text-white border-0 bg-blue hover:bg-grey hover:text-blue cursor-pointer font-bold capitalize transition-in-out duration-700">
                         Buscar
                     </button>
                 </section>
