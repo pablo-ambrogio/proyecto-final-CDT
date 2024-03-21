@@ -22,34 +22,22 @@ import NavBarContextProvider from './context/NavbarContext.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <NavBarContextProvider>
-        <Routes>
-          <Route path='/' element={<App />}>
+      <Routes>
+        <Route path='/' element={<App />}>
 
-            <Route path='/' element={<Vehicles />} />
-            {/* <Route path="register" element={<Register />} /> */}
-            <Route path="about-us" element={<AboutUs />} />
-            <Route path='vehicles/:id' element={<DetailsCar />} />
+          <Route path='/' element={<Vehicles />} />
+          {/* <Route path='login' element={<Login />} /> */}
+          {/* <Route path="register" element={<Register />} /> */}
+          <Route path="about-us" element={<AboutUs />} />
+          <Route path='vehicles/:id' element={<DetailsCar />} />
 
             <Route path='/' element={<Vehicles />} />
             <Route path='vehicles/:id' element={<DetailsCar />} />
             <Route path='login' element={<Login />} />
 
-
-            <Route element={<ProtectedRoute />}>
-
-              <Route path='/admin' element={<AdminHome />}>
-
-                <Route path='add-vehicle' element={<AdminAddVehicles />} />
-                <Route path='add-vehicle/:id' element={<AdminAddVehicles />} />
-                <Route path='vehicles-list' element={<AdminVehiclesList />} />
-                <Route path='categories' element={<AdminCategories />} />
-                <Route path='characteristics' element={<AdminCharacteristics />} />
-
-                <Route path='reserve' element={<AdminReserve />} />
-                <Route path='add-users' element={<AdminAddUser />} />
-                <Route path='configuration' element={<AdminConfiguration />} />
-              </Route>
+              <Route path='reserve' element={<AdminReserve />} />
+              <Route path='add-users' element={<AdminAddUser />} />
+              <Route path='configuration' element={<AdminConfiguration />} />
 
             </Route>
 
