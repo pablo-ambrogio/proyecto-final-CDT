@@ -18,6 +18,8 @@ import AdminConfiguration from './components/pages/admin/AdminConfiguration.jsx'
 import AdminReserve from './components/pages/admin/AdminReserve.jsx'
 import AdminAddVehicles from './components/pages/admin/AdminAddVehicles.jsx'
 import NavBarContextProvider from './context/NavbarContext.jsx'
+import AdminCategoriesList from './components/pages/admin/AdminCategoriesList.jsx'
+import Favorite from './components/pages/Favorite.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -28,10 +30,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
             <Route path='/' element={<Vehicles />} />
             {/* <Route path="register" element={<Register />} /> */}
+            <Route path="favorite" element={<Favorite />} />
             <Route path="about-us" element={<AboutUs />} />
-            <Route path='vehicles/:id' element={<DetailsCar />} />
-
-            <Route path='/' element={<Vehicles />} />
             <Route path='vehicles/:id' element={<DetailsCar />} />
             <Route path='login' element={<Login />} />
 
@@ -44,6 +44,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path='add-vehicle/:id' element={<AdminAddVehicles />} />
                 <Route path='vehicles-list' element={<AdminVehiclesList />} />
                 <Route path='categories' element={<AdminCategories />} />
+                <Route path='categories-list' element={<AdminCategoriesList />} />
                 <Route path='characteristics' element={<AdminCharacteristics />} />
 
                 <Route path='reserve' element={<AdminReserve />} />

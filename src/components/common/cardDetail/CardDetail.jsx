@@ -1,18 +1,39 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import CarMobi from '../../../assets/car-mobi.svg'
 import IconFav from '../../../assets/icon-fav.svg'
 import IconFavRed from '../../../assets/icon-fav-red.svg'
-
-
+import axios from 'axios'
 
 
 const CardDetail = () => {
 
+    const { id } = useParams()
     const [fav, setFav] = useState(false)
+
+    const getFav = async () => {
+        const { data } = await axios.get(`http://localhost:3000/vehicles/${id}`)
+        setFav(data.isFav);
+    }
+
+    const putFav = async () => {
+        await axios.patch(`http://localhost:3000/vehicles/${id}`, {
+            isFav: fav
+        })
+    }
 
     const handleFav = () => {
         setFav(!fav)
     }
+
+    useEffect(() => {
+        getFav()
+    }, [id])
+
+    useEffect(() => {
+        putFav()
+    }, [fav])
+
 
     return (
         <div>
@@ -31,12 +52,20 @@ const CardDetail = () => {
                             className='uppercase text-sm'
                         >GRUPO C - ECONÓMICO CON AIRE MECÁNICO</p>
                     </div>
-                    <div>
+                    <div
+                        onClick={handleFav}
+                    >
+                        {/* {
+                            fav &&
+                            <img src={IconFavRed} alt="" />
+                        } */}
+
                         {
-                            fav ?
-                                <img onClick={handleFav} src={IconFavRed} alt="" /> :
-                                <img onClick={handleFav} src={IconFav} alt="" />
+                            !fav ?
+                                <img src={IconFav} alt="" /> :
+                                <img src={IconFavRed} alt="" />
                         }
+
                     </div>
                 </section>
                 <section

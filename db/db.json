@@ -1,7 +1,6 @@
 {
   "vehicles": [
     {
-      "id": "12a4",
       "brand": "Duccati",
       "model": "golf",
       "category": "motocicleta",
@@ -10,57 +9,96 @@
       "color": "gris",
       "year": "2024",
       "plaque": "654",
-      "operative": "on",
+      "operative": true,
       "observation": "el auto esta perfecto",
       "description": "descr",
-      "photo": {}
+      "isFav": true,
+      "id": "12a4"
     },
     {
-      "id": "9d18",
-      "brand": "ppepepesd",
-      "model": "ddddd",
-      "category": "auto",
-      "serialBody": "dddd",
-      "serialMotor": "motor777",
-      "color": "dddd",
-      "year": "2010",
-      "plaque": "ddddd",
-      "operative": false,
-      "observation": "dddddd",
-      "description": "asdasdasd",
-      "photo": {}
-    },
-    {
-      "id": "9d9f",
+      "id": "eb28",
       "brand": "pablo",
-      "model": "amarok",
+      "model": "asdasd",
       "category": "camioneta",
-      "serialBody": "123213213",
+      "serialBody": "asdasd",
       "serialMotor": "motor777",
       "color": "asdasd",
       "year": "2017",
       "plaque": "asdasd",
       "operative": true,
-      "observation": "perfecto",
-      "description": "desc"
+      "observation": "asdasd",
+      "description": "asdasd",
+      "isFav": false
+    },
+    {
+      "id": "e469",
+      "brand": "volkswagen",
+      "model": "dasdasd",
+      "category": "camioneta",
+      "serialBody": "asdas",
+      "serialMotor": "asdasd",
+      "color": "asdasd",
+      "year": "2018",
+      "plaque": "asdasd",
+      "operative": true,
+      "observation": "asdasd",
+      "description": "asdasd",
+      "isFav": true
+    },
+    {
+      "id": "efd4",
+      "brand": "pablo",
+      "model": "asdasd",
+      "category": "tractor",
+      "serialBody": "asdasd",
+      "serialMotor": "asdasd",
+      "color": "asdasd",
+      "year": "2018",
+      "plaque": "asdasd",
+      "operative": true,
+      "observation": "asd",
+      "description": "asdasd",
+      "isFav": true
+    },
+    {
+      "id": "8fd8",
+      "brand": "pablo",
+      "category": "camioneta",
+      "description": "aire acondicionado",
+      "model": "asdasd",
+      "observation": "dddddd",
+      "operative": true,
+      "plaque": "ddddd",
+      "serialBody": "asdasd",
+      "serialMotor": "motor777",
+      "year": "2019",
+      "isFav": false
     }
   ],
   "categories": [
     {
       "id": "1",
-      "name": "auto"
+      "name": "auto",
+      "description": "autos para la calle",
+      "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
     },
     {
       "id": "2",
-      "name": "camioneta"
+      "name": "camioneta",
+      "description": "camionetas para aventuras",
+      "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
     },
     {
-      "id": "3",
-      "name": "motocicleta"
+      "id": "0031",
+      "name": "motocicleta",
+      "description": "Ideal para recorre las ciudades",
+      "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
     },
     {
-      "id": "3941",
-      "name": "camion"
+      "id": "b429",
+      "name": "monopatin",
+      "description": "ideal para usar en la ciudad",
+      "icon": "/src/assets/iconcategories/icon-notfound.svg"
     }
   ]
 }

@@ -56,7 +56,7 @@ const NavbarAdmin = () => {
 
     return (
         <>
-            <nav className="text-[#010101] bg-grey"
+            <nav className="text-[#010101] bg-grey flex justify-center"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}>
                 <div className="w-11/12 pt-4 
@@ -106,6 +106,9 @@ const NavbarAdmin = () => {
                                         </li>
                                         <li>
                                             <NavLink to={"categories"}>Agregar categoria</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to={"categories-list"}>Lista de categorias</NavLink>
                                         </li>
                                         <li>
                                             <NavLink to={"characteristics"}>Administrar caracteristicas</NavLink>
@@ -223,7 +226,7 @@ const NavbarAdmin = () => {
 
                         </li>
                     </ul>
-                    <div className="grid row-span-1">
+                    <div className="grid row-span-1 w-full">
                         <BtnSignOff />
                     </div>
                 </div>

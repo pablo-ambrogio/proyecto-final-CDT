@@ -9,23 +9,23 @@ const Navbar = () => {
     return (
         <>
             <header className="flex flex-col sticky top-0">
-                <nav class="flex items-center justify-between flex-wrap bg-blue py-2 px-6">
+                <nav className="flex items-center justify-between flex-wrap bg-blue py-2 px-6">
                     <Link
                         to="/"
                         className="flex items-center flex-shrink-0 mr-6 hover:transition-in-out duration-300 hover:scale-110 hover:transition-in-out"
                     >
                         <img src={LogoHeader} alt="Logo AutoGo" />
                     </Link>
-                    <div class="block lg:hidden">
-                        <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+                    <div className="block lg:hidden">
+                        <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
                             <FontAwesomeIcon
                                 icon={faBars}
                                 className="text-blue"
                             />
                         </button>
                     </div>
-                    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                        <div class="text-md lg:flex-grow flex justify-center gap-24">
+                    <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+                        <div className="text-md lg:flex-grow flex justify-center gap-24">
                             <Link
                                 to="/"
                                 className="uppercase font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
@@ -38,11 +38,17 @@ const Navbar = () => {
                                 onClick={() =>
                                     Swal.fire({
                                         confirmButtonColor: '#041562',
-                                        html: '<p class = "text-red text-xl font-bold" >Estamos trabajando para darte las mejores ofertas del mercado</p>'
+                                        html: '<p className = "text-red text-xl font-bold" >Estamos trabajando para darte las mejores ofertas del mercado</p>'
                                     })
                                 }
                             >
                                 ofertas
+                            </Link>
+                            <Link
+                                to="/favorite"
+                                className="uppercase font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
+                            >
+                                favoritos
                             </Link>
                         </div>
                         <div className="flex gap-2">

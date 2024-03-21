@@ -22,6 +22,7 @@ const AdminHome = () => {
                     className="grid col-span-1"
                 >
                     <Outlet />
+                    {/* <AdminVehiclesList /> */}
                 </article>
             </section>
         </section>
