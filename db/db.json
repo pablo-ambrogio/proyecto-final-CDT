@@ -81,6 +81,24 @@
       "password": "prueba123!",
       "password2": "prueba123!",
       "role": "user"
+    },
+    {
+      "id": "866f",
+      "name": "mauricio henao",
+      "lastname": "henao",
+      "email": "mhenaor@gmail.com",
+      "password": "prueba123!",
+      "password2": "prueba123!",
+      "role": "user"
+    },
+    {
+      "id": "ffd4",
+      "name": "mauricio henao",
+      "lastname": "henao",
+      "email": "mhenaor@gmail.com",
+      "password": "prueba123!",
+      "password2": "prueba123!",
+      "role": "user"
     }
   ]
 }
