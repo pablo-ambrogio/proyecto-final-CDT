@@ -80,7 +80,7 @@ import Modal from '../modal/Modal'
                                 setModal(!modal)
                             }}
                         >
-                            Políticas del producto
+                            Política de producto
                         </div>
                         <Modal state={modal} setState={setModal}>
                             <div className="flex flex-col items-center">
