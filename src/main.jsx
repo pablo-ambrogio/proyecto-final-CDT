@@ -22,36 +22,36 @@ import AdminCategoriesList from './components/pages/admin/AdminCategoriesList.js
 import Favorite from './components/pages/Favorite.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<App />}>
+    <React.StrictMode>
+        <BrowserRouter>
+            <NavBarContextProvider>
+                <Routes>
+                    <Route path="/" element={<App />}>
+                        <Route path="/" element={<Vehicles />} />
+                        <Route path="favorite" element={<Favorite />} />
+                        <Route path="about-us" element={<AboutUs />} />
+                        <Route path="vehicles/:id" element={<DetailsCar />} />
+                        <Route path="login" element={<Login />} />
 
-          <Route path='/' element={<Vehicles />} />
-          {/* <Route path='login' element={<Login />} /> */}
-          {/* <Route path="register" element={<Register />} /> */}
-          <Route path="about-us" element={<AboutUs />} />
-          <Route path='vehicles/:id' element={<DetailsCar />} />
+                        <Route element={<ProtectedRoute />}>
+                            <Route path="/admin" element={<AdminHome />}>
+                                <Route path="add-vehicle" element={<AdminAddVehicles />} />
+                                <Route path="add-vehicle/:id" element={<AdminAddVehicles />} />
+                                <Route path="vehicles-list" element={<AdminVehiclesList />} />
+                                <Route path="categories" element={<AdminCategories />} />
+                                <Route path="categories-list" element={<AdminCategoriesList />} />
+                                <Route path="characteristics" element={<AdminCharacteristics />} />
 
-            <Route path='/' element={<Vehicles />} />
-            {/* <Route path="register" element={<Register />} /> */}
-            <Route path="favorite" element={<Favorite />} />
-            <Route path="about-us" element={<AboutUs />} />
-            <Route path='vehicles/:id' element={<DetailsCar />} />
-            <Route path='login' element={<Login />} />
+                                <Route path="reserve" element={<AdminReserve />} />
+                                <Route path="add-users" element={<AdminAddUser />} />
+                                <Route path="configuration" element={<AdminConfiguration />} />
+                            </Route>
+                        </Route>
 
-              <Route path='reserve' element={<AdminReserve />} />
-              <Route path='add-users' element={<AdminAddUser />} />
-              <Route path='configuration' element={<AdminConfiguration />} />
-
-            </Route>
-
-            <Route path='*' element={<Navigate to={"/"} />} />
-          </Route>
-
-        </Routes>
-
-      </NavBarContextProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
+                        <Route path="*" element={<Navigate to={'/'} />} />
+                    </Route>
+                </Routes>
+            </NavBarContextProvider>
+        </BrowserRouter>
+    </React.StrictMode>
 )

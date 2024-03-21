@@ -7,14 +7,14 @@ import axios from 'axios'
 import Policies from '../../pages/Policies'
 import Modal from '../modal/Modal'
 
-    const CardDetail = () => {
-        const [fav, setFav] = useState(false)
-        const [modal, setModal] = useState(false)
-        const { id } = useParams()
+const CardDetail = () => {
+    const [fav, setFav] = useState(false)
+    const [modal, setModal] = useState(false)
+    const { id } = useParams()
 
     const getFav = async () => {
         const { data } = await axios.get(`http://localhost:3000/vehicles/${id}`)
-        setFav(data.isFav);
+        setFav(data.isFav)
     }
 
     const putFav = async () => {
@@ -34,7 +34,6 @@ import Modal from '../modal/Modal'
     useEffect(() => {
         putFav()
     }, [fav])
-
 
     return (
         <div>
