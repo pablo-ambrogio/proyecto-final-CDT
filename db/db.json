@@ -1,104 +1,149 @@
 {
-  "vehicles": [
-    {
-      "id": "12a4",
-      "brand": "Duccati",
-      "model": "golf",
-      "category": "motocicleta",
-      "serialBody": "carroceria333",
-      "serialMotor": "115hp",
-      "color": "gris",
-      "year": "2024",
-      "plaque": "654",
-      "operative": "on",
-      "observation": "el auto esta perfecto",
-      "description": "descr",
-      "photo": {}
-    },
-    {
-      "id": "9d18",
-      "brand": "ppepepesd",
-      "model": "ddddd",
-      "category": "auto",
-      "serialBody": "dddd",
-      "serialMotor": "motor777",
-      "color": "dddd",
-      "year": "2010",
-      "plaque": "ddddd",
-      "operative": false,
-      "observation": "dddddd",
-      "description": "asdasdasd",
-      "photo": {}
-    },
-    {
-      "id": "9d9f",
-      "brand": "pablo",
-      "model": "amarok",
-      "category": "camioneta",
-      "serialBody": "123213213",
-      "serialMotor": "motor777",
-      "color": "asdasd",
-      "year": "2017",
-      "plaque": "asdasd",
-      "operative": true,
-      "observation": "perfecto",
-      "description": "desc"
-    }
-  ],
-  "categories": [
-    {
-      "id": "1",
-      "name": "auto"
-    },
-    {
-      "id": "2",
-      "name": "camioneta"
-    },
-    {
-      "id": "3",
-      "name": "motocicleta"
-    },
-    {
-      "id": "3941",
-      "name": "camion"
-    }
-  ],
-  "users": [
-    {
-      "id": "1",
-      "name": "Brochero",
-      "lastname": "Cura",
-      "email": "brochero@gmail.com",
-      "password": "Brochero123!",
-      "password2": "Brochero123!",
-      "role": "admin"
-    },
-    {
-      "id": "a633",
-      "name": "registro prueba",
-      "lastname": "apellido prueba",
-      "email": "mhenaor@gmail.com",
-      "password": "prueba123!",
-      "password2": "prueba123!",
-      "role": "user"
-    },
-    {
-      "id": "866f",
-      "name": "mauricio henao",
-      "lastname": "henao",
-      "email": "mhenaor@gmail.com",
-      "password": "prueba123!",
-      "password2": "prueba123!",
-      "role": "user"
-    },
-    {
-      "id": "ffd4",
-      "name": "mauricio henao",
-      "lastname": "henao",
-      "email": "mhenaor@gmail.com",
-      "password": "prueba123!",
-      "password2": "prueba123!",
-      "role": "user"
-    }
-  ]
+    "vehicles": [
+        {
+            "id": "12a4",
+            "brand": "Duccati",
+            "model": "golf",
+            "category": "motocicleta",
+            "serialBody": "carroceria333",
+            "serialMotor": "115hp",
+            "color": "gris",
+            "year": "2024",
+            "plaque": "654",
+            "operative": "on",
+            "observation": "el auto esta perfecto",
+            "description": "descr",
+            "photo": {}
+        },
+        {
+            "id": "12a4",
+            "brand": "Duccati",
+            "model": "golf",
+            "category": "motocicleta",
+            "serialBody": "carroceria333",
+            "serialMotor": "115hp",
+            "color": "gris",
+            "year": "2024",
+            "plaque": "654",
+            "operative": "on",
+            "observation": "el auto esta perfecto",
+            "description": "descr",
+            "photo": {}
+        },
+        {
+            "id": "12a4",
+            "brand": "Duccati",
+            "model": "golf",
+            "category": "motocicleta",
+            "serialBody": "carroceria333",
+            "serialMotor": "115hp",
+            "color": "gris",
+            "year": "2024",
+            "plaque": "654",
+            "operative": "on",
+            "observation": "el auto esta perfecto",
+            "description": "descr",
+            "photo": {}
+        },
+        {
+            "id": "12a4",
+            "brand": "Duccati",
+            "model": "golf",
+            "category": "motocicleta",
+            "serialBody": "carroceria333",
+            "serialMotor": "115hp",
+            "color": "gris",
+            "year": "2024",
+            "plaque": "654",
+            "operative": "on",
+            "observation": "el auto esta perfecto",
+            "description": "descr",
+            "photo": {}
+        },
+        {
+            "id": "9d18",
+            "brand": "ppepepesd",
+            "model": "ddddd",
+            "category": "auto",
+            "serialBody": "dddd",
+            "serialMotor": "motor777",
+            "color": "dddd",
+            "year": "2010",
+            "plaque": "ddddd",
+            "operative": false,
+            "observation": "dddddd",
+            "description": "asdasdasd",
+            "photo": {}
+        },
+        {
+            "id": "9d9f",
+            "brand": "pablo",
+            "model": "amarok",
+            "category": "camioneta",
+            "serialBody": "123213213",
+            "serialMotor": "motor777",
+            "color": "asdasd",
+            "year": "2017",
+            "plaque": "asdasd",
+            "operative": true,
+            "observation": "perfecto",
+            "description": "desc"
+        }
+    ],
+    "categories": [
+        {
+            "id": "1",
+            "name": "auto"
+        },
+        {
+            "id": "2",
+            "name": "camioneta"
+        },
+        {
+            "id": "3",
+            "name": "motocicleta"
+        },
+        {
+            "id": "3941",
+            "name": "camion"
+        }
+    ],
+    "users": [
+        {
+            "id": "1",
+            "name": "Brochero",
+            "lastname": "Cura",
+            "email": "brochero@gmail.com",
+            "password": "Brochero123!",
+            "password2": "Brochero123!",
+            "role": "admin"
+        },
+        {
+            "id": "a633",
+            "name": "registro prueba",
+            "lastname": "apellido prueba",
+            "email": "mhenaor@gmail.com",
+            "password": "prueba123!",
+            "password2": "prueba123!",
+            "role": "user"
+        },
+        {
+            "id": "866f",
+            "name": "mauricio henao",
+            "lastname": "henao",
+            "email": "mhenaor@gmail.com",
+            "password": "prueba123!",
+            "password2": "prueba123!",
+            "role": "user"
+        },
+        {
+            "id": "ffd4",
+            "name": "mauricio henao",
+            "lastname": "henao",
+            "email": "mhenaor@gmail.com",
+            "password": "prueba123!",
+            "password2": "prueba123!",
+            "role": "user"
+        }
+    ]
 }
