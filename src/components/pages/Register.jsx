@@ -4,17 +4,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import Swal from 'sweetalert2'
 import Logo from '../../assets/Logo 1.svg'
+import axios from 'axios'
 
 const Register = () => {
     const [showPwd, setShowPwd] = useState(false)
     const [showPwd2, setShowPwd2] = useState(false)
+    const [emailSent, setEmailSent] = useState(false)
 
     const {
         register,
         handleSubmit,
         formState: { errors },
-        watch,
-        reset
+        watch
+        // reset
     } = useForm()
 
     const formSubmit = handleSubmit(data => {
@@ -25,8 +27,57 @@ const Register = () => {
             timer: 2000
         })
         console.log(data)
-        reset()
+
+        for (const key in data) {
+            if (typeof data[key] === 'string') {
+                data[key] = data[key].toLowerCase()
+            }
+        }
+
+        // para prueba
+        // axios.post('http://localhost:3000/users', data)
+
+        // axios.post('http://localhost:4000/nodemailer', {
+        //     email: data.email,
+        //     name: `${data.name} ${data.lastname}`
+        // })
+        // hasta la prueba
+        // reset()
+
+        // desde aqui el nuevo codigo
+
+        sendEmail()
     })
+
+    const sendEmail = async () => {
+        const from = 'proyectoautogo@gmail.com'
+        const to = 'mhenaor@gmail.com'
+        const subject = 'Test Email'
+        const body = 'This is a test email sent from React.'
+
+        const emailData = { from, to, subject, body }
+        try {
+            const response = await axios.post(
+                'http://localhost:8080/mail/send/' + to,
+                emailData
+            )
+            if (response.status === 200) {
+                setEmailSent(true)
+                console.log('Email enviado con éxito')
+            } else {
+                console.error('Error al enviar correo electrónico')
+            }
+        } catch (error) {
+            console.error('Error al enviar correo electrónico: ', error)
+        }
+    }
+
+    // const sendEmail = async () => {
+    //     await axios.post('http://localhost:4000/nodemailer', {
+    //         email: 'mhenaor@gmail.com',
+    //         name: 'Mauricio'
+    //     })
+    // }
 
     return (
         <>
@@ -261,6 +312,7 @@ const Register = () => {
                             </div>
                             <div className="text-center">
                                 <button
+                                    // onClick={() => sendEmail()}
                                     type="submit"
                                     className="bg-red text-white px-16 py-2 rounded-lg uppercase font-modern mt-1"
                                 >
