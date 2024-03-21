@@ -22,6 +22,8 @@ const Register = () => {
     } = useForm()
 
     const formSubmit = handleSubmit(data => {
+        setEmailSent(true)
+
         const refactorizacion = {
             name: data.name,
             lastname: data.lastname,
@@ -94,6 +96,7 @@ const Register = () => {
                                     type="text"
                                     name="name"
                                     id="name"
+                                    // disabled
                                     autoComplete="off"
                                     {...register('name', {
                                         required: {
@@ -294,6 +297,7 @@ const Register = () => {
                                 <button
                                     // onClick={() => sendEmail()}
                                     type="submit"
+                                    // disabled={emailSent ? 'disabled' : ''}
                                     className="bg-red text-white px-16 py-2 rounded-lg uppercase font-modern mt-1"
                                 >
                                     crear
