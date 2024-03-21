@@ -100,5 +100,25 @@
       "description": "ideal para usar en la ciudad",
       "icon": "/src/assets/iconcategories/icon-notfound.svg"
     }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Brochero",
+      "lastname": "Cura",
+      "email": "brochero@gmail.com",
+      "password": "Brochero123!",
+      "password2": "Brochero123!",
+      "role": "admin"
+    },
+    {
+      "id": "a633",
+      "name": "registro prueba",
+      "lastname": "apellido prueba",
+      "email": "mhenaor@gmail.com",
+      "password": "prueba123!",
+      "password2": "prueba123!",
+      "role": "user"
+    }
   ]
 }

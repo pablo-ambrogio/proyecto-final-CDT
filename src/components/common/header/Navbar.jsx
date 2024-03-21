@@ -1,13 +1,9 @@
-import LogoHeader from '../../../assets/LogoRojo 1.svg'
 import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faX } from '@fortawesome/free-solid-svg-icons'
-import Swal from 'sweetalert2'
-import Modal from '../modal/Modal'
 
 const Navbar = () => {
     return (
         <>
+<<<<<<< HEAD
             <header className="flex flex-col sticky top-0">
                 <nav className="flex items-center justify-between flex-wrap bg-blue py-2 px-6">
                     <Link
@@ -114,6 +110,38 @@ const Navbar = () => {
                     </button>
                 </section>
             </header>
+=======
+            <div class="text-md lg:flex-grow flex justify-center gap-24">
+                <Link
+                    to="/"
+                    className="uppercase font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
+                >
+                    vehículos
+                </Link>
+                <Link
+                    to="/offers"
+                    className="uppercase font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
+                    onClick={() =>
+                        alert(
+                            'Estamos trabajando para darte las mejores ofertas del mercado'
+                        )
+                    }
+                >
+                    ofertas
+                </Link>
+                <Link
+                    to="/offers"
+                    className="uppercase font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
+                    onClick={() =>
+                        alert(
+                            'Pronto podrás seleccionar tus opciones favoritas'
+                        )
+                    }
+                >
+                    favoritos
+                </Link>
+            </div>
+>>>>>>> 69999d9 (avances con buscador)
         </>
     )
 }

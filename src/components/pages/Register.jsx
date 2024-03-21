@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
-import Swal from 'sweetalert2'
+// import Swal from 'sweetalert2'
 import Logo from '../../assets/Logo 1.svg'
+import Eye from '../../assets/eye-solid.svg'
+import EyeSlash from '../../assets/eye-slash-solid.svg'
 import axios from 'axios'
 
 const Register = () => {
@@ -20,6 +22,14 @@ const Register = () => {
     } = useForm()
 
     const formSubmit = handleSubmit(data => {
+        const refactorizacion = {
+            name: data.name,
+            lastname: data.lastname,
+            email: data.email,
+            password: data.password,
+            password2: data.password2,
+            role: 'user'
+        }
         // Swal.fire({
         //     icon: 'success',
         //     html: '<p class = "text-blue text-xl font-bold" >Usuario creado con éxito</p>',
@@ -27,58 +37,23 @@ const Register = () => {
         //     timer: 2000
         // })
         alert('Usuario creado con éxito')
-        console.log(data)
+        console.log(refactorizacion)
 
-        for (const key in data) {
-            if (typeof data[key] === 'string') {
-                data[key] = data[key].toLowerCase()
+        for (const key in refactorizacion) {
+            if (typeof refactorizacion[key] === 'string') {
+                refactorizacion[key] = refactorizacion[key].toLowerCase()
             }
         }
 
-        // para prueba
-        // axios.post('http://localhost:3000/users', data)
+        axios.post('http://localhost:3000/users', refactorizacion)
 
-        // axios.post('http://localhost:4000/nodemailer', {
-        //     email: data.email,
-        //     name: `${data.name} ${data.lastname}`
-        // })
-        // hasta la prueba
         // reset()
-
-        // desde aqui el nuevo codigo
-
-        sendEmail()
+        sendEmail(data.email, data.name)
     })
 
-    const sendEmail = async () => {
-        const from = 'proyectoautogo@gmail.com'
-        const to = 'mhenaor@gmail.com'
-        const subject = 'Test Email'
-        const body = 'This is a test email sent from React.'
-
-        const emailData = { from, to, subject, body }
-        try {
-            const response = await axios.post(
-                'http://localhost:8080/mail/send/' + to,
-                emailData
-            )
-            if (response.status === 200) {
-                setEmailSent(true)
-                console.log('Email enviado con éxito')
-            } else {
-                console.error('Error al enviar correo electrónico')
-            }
-        } catch (error) {
-            console.error('Error al enviar correo electrónico: ', error)
-        }
+    const sendEmail = async (email, name) => {
+        await axios.post('http://localhost:4000/nodemailer', { email, name })
     }
-
-    // const sendEmail = async () => {
-    //     await axios.post('http://localhost:4000/nodemailer', {
-    //         email: 'mhenaor@gmail.com',
-    //         name: 'Mauricio'
-    //     })
-    // }
 
     return (
         <>
@@ -95,7 +70,7 @@ const Register = () => {
                     </div>
 
                     {/* BLOQUE FORMULARIO DERECHA */}
-                    <div className="bg-blue px-12 py-4 rounded-md w-96 flex flex-col justify-center">
+                    <div className="bg-blue2 bg-gradient-to-t from-degrade px-12 py-4 rounded-md w-96 flex flex-col justify-center">
                         {/* TÍTULO */}
                         <h2 className="font-modern text-2xl mb-5">
                             crear cuenta
@@ -294,14 +269,18 @@ const Register = () => {
                                     />
                                     <span
                                         onClick={() => setShowPwd2(!showPwd2)}
-                                        className="absolute inset-y-0 right-0 flex items-center pr-3 text-blue"
+                                        className="absolute inset-y-0 right-0 flex items-center pr-3 fill-red"
                                     >
                                         {showPwd2 ? (
                                             <FontAwesomeIcon icon={faEye} />
                                         ) : (
-                                            <FontAwesomeIcon
-                                                icon={faEyeSlash}
+                                            <img
+                                                src={EyeSlash}
+                                                alt="Logo AutoGo"
                                             />
+                                            // <FontAwesomeIcon
+                                            //     icon={faEyeSlash}
+                                            // />
                                         )}
                                     </span>
                                 </div>
@@ -319,9 +298,14 @@ const Register = () => {
                                 >
                                     crear
                                 </button>
+                                <p className="mt-1 text-xs pt-2">
+                                    Por favor, verifica tu registro a través del
+                                    correo electrónico que hemos enviado a tu
+                                    dirección de correo electrónico
+                                </p>
                                 <hr className="mt-5" />
                                 <p className="mt-1 text-sm">
-                                    Reenviar correo de confirmación
+                                    Reenviar correo de confirmación 00:59
                                 </p>
                             </div>
                         </form>

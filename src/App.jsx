@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import Footer from './components/common/footer/Footer'
+<<<<<<< HEAD
 import Navbar from './components/common/header/Navbar'
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
@@ -42,6 +43,23 @@ function App() {
     </>
   )
 
+=======
+// import Navbar from './components/common/header/Navbar'
+import Header from './components/common/header/Header'
+
+function App() {
+    return (
+        <>
+            <div className="grid min-h-screen grid-rows-[150px,1fr,70px]">
+                <Header />
+                <section className="mx-auto w-full">
+                    <Outlet />
+                </section>
+                <Footer />
+            </div>
+        </>
+    )
+>>>>>>> 69999d9 (avances con buscador)
 }
 
 export default App
