@@ -1,104 +1,142 @@
 {
-  "vehicles": [
-    {
-      "brand": "Duccati",
-      "model": "golf",
-      "category": "motocicleta",
-      "serialBody": "carroceria333",
-      "serialMotor": "115hp",
-      "color": "gris",
-      "year": "2024",
-      "plaque": "654",
-      "operative": true,
-      "observation": "el auto esta perfecto",
-      "description": "descr",
-      "isFav": true,
-      "id": "12a4"
-    },
-    {
-      "id": "eb28",
-      "brand": "pablo",
-      "model": "asdasd",
-      "category": "camioneta",
-      "serialBody": "asdasd",
-      "serialMotor": "motor777",
-      "color": "asdasd",
-      "year": "2017",
-      "plaque": "asdasd",
-      "operative": true,
-      "observation": "asdasd",
-      "description": "asdasd",
-      "isFav": false
-    },
-    {
-      "id": "e469",
-      "brand": "volkswagen",
-      "model": "dasdasd",
-      "category": "camioneta",
-      "serialBody": "asdas",
-      "serialMotor": "asdasd",
-      "color": "asdasd",
-      "year": "2018",
-      "plaque": "asdasd",
-      "operative": true,
-      "observation": "asdasd",
-      "description": "asdasd",
-      "isFav": true
-    },
-    {
-      "id": "efd4",
-      "brand": "pablo",
-      "model": "asdasd",
-      "category": "tractor",
-      "serialBody": "asdasd",
-      "serialMotor": "asdasd",
-      "color": "asdasd",
-      "year": "2018",
-      "plaque": "asdasd",
-      "operative": true,
-      "observation": "asd",
-      "description": "asdasd",
-      "isFav": true
-    },
-    {
-      "id": "8fd8",
-      "brand": "pablo",
-      "category": "camioneta",
-      "description": "aire acondicionado",
-      "model": "asdasd",
-      "observation": "dddddd",
-      "operative": true,
-      "plaque": "ddddd",
-      "serialBody": "asdasd",
-      "serialMotor": "motor777",
-      "year": "2019",
-      "isFav": false
-    }
-  ],
-  "categories": [
-    {
-      "id": "1",
-      "name": "auto",
-      "description": "autos para la calle",
-      "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
-    },
-    {
-      "id": "2",
-      "name": "camioneta",
-      "description": "camionetas para aventuras",
-      "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
-    },
-    {
-      "id": "0031",
-      "name": "motocicleta",
-      "description": "Ideal para recorre las ciudades",
-      "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
-    },
-    {
-      "id": "b429",
-      "name": "monopatin",
-      "description": "ideal para usar en la ciudad",
-      "icon": "/src/assets/iconcategories/icon-notfound.svg"
-    }
-  ]
+    "vehicles": [
+        {
+            "brand": "Duccati",
+            "model": "golf",
+            "category": "motocicleta",
+            "serialBody": "carroceria333",
+            "serialMotor": "115hp",
+            "color": "gris",
+            "year": "2024",
+            "plaque": "654",
+            "operative": true,
+            "observation": "el auto esta perfecto",
+            "description": "descr",
+            "isFav": true,
+            "id": "12a4"
+        },
+        {
+            "id": "eb28",
+            "brand": "pablo",
+            "model": "asdasd",
+            "category": "camioneta",
+            "serialBody": "asdasd",
+            "serialMotor": "motor777",
+            "color": "asdasd",
+            "year": "2017",
+            "plaque": "asdasd",
+            "operative": true,
+            "observation": "asdasd",
+            "description": "asdasd",
+            "isFav": false
+        },
+        {
+            "id": "e469",
+            "brand": "volkswagen",
+            "model": "dasdasd",
+            "category": "camioneta",
+            "serialBody": "asdas",
+            "serialMotor": "asdasd",
+            "color": "asdasd",
+            "year": "2018",
+            "plaque": "asdasd",
+            "operative": true,
+            "observation": "asdasd",
+            "description": "asdasd",
+            "isFav": true
+        },
+        {
+            "id": "efd4",
+            "brand": "pablo",
+            "model": "asdasd",
+            "category": "tractor",
+            "serialBody": "asdasd",
+            "serialMotor": "asdasd",
+            "color": "asdasd",
+            "year": "2018",
+            "plaque": "asdasd",
+            "operative": true,
+            "observation": "asd",
+            "description": "asdasd",
+            "isFav": true
+        },
+        {
+            "id": "8fd8",
+            "brand": "pablo",
+            "category": "camioneta",
+            "description": "aire acondicionado",
+            "model": "asdasd",
+            "observation": "dddddd",
+            "operative": true,
+            "plaque": "ddddd",
+            "serialBody": "asdasd",
+            "serialMotor": "motor777",
+            "year": "2019",
+            "isFav": false
+        }
+    ],
+    "categories": [
+        {
+            "id": "1",
+            "name": "auto",
+            "description": "autos para la calle",
+            "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
+        },
+        {
+            "id": "2",
+            "name": "camioneta",
+            "description": "camionetas para aventuras",
+            "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
+        },
+        {
+            "id": "0031",
+            "name": "motocicleta",
+            "description": "Ideal para recorre las ciudades",
+            "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
+        },
+        {
+            "id": "b429",
+            "name": "monopatin",
+            "description": "ideal para usar en la ciudad",
+            "icon": "/src/assets/iconcategories/icon-notfound.svg"
+        }
+    ],
+    "users": [
+        {
+            "id": "1",
+            "name": "Brochero",
+            "lastname": "Cura",
+            "email": "brochero@gmail.com",
+            "password": "Brochero123!",
+            "password2": "Brochero123!",
+            "role": "admin"
+        },
+        {
+            "id": "a633",
+            "name": "registro prueba",
+            "lastname": "apellido prueba",
+            "email": "mhenaor@gmail.com",
+            "password": "prueba123!",
+            "password2": "prueba123!",
+            "role": "user"
+        },
+        {
+            "id": "866f",
+            "name": "mauricio henao",
+            "lastname": "henao",
+            "email": "mhenaor@gmail.com",
+            "password": "prueba123!",
+            "password2": "prueba123!",
+            "role": "user"
+        },
+        {
+            "id": "ffd4",
+            "name": "mauricio henao",
+            "lastname": "henao",
+            "email": "mhenaor@gmail.com",
+            "password": "prueba123!",
+            "password2": "prueba123!",
+            "role": "user"
+        }
+    ]
 }
