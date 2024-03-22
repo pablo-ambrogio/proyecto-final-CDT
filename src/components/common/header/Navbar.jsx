@@ -22,13 +22,8 @@ const Navbar = () => {
                     ofertas
                 </Link>
                 <Link
-                    to="/offers"
+                    to="/favorite"
                     className="uppercase font-bold block mt-4 lg:inline-block lg:mt-0 text-grey hover:text-red over:transition-in-out duration-300 mr-4"
-                    onClick={() =>
-                        alert(
-                            'Pronto podrás seleccionar tus opciones favoritas'
-                        )
-                    }
                 >
                     favoritos
                 </Link>

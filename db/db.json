@@ -12,7 +12,7 @@
       "operative": true,
       "observation": "el auto esta perfecto",
       "description": "descr",
-      "isFav": true,
+      "isFav": false,
       "id": "12a4"
     },
     {
@@ -43,7 +43,7 @@
       "operative": true,
       "observation": "asdasd",
       "description": "asdasd",
-      "isFav": true
+      "isFav": false
     },
     {
       "id": "efd4",
@@ -58,7 +58,7 @@
       "operative": true,
       "observation": "asd",
       "description": "asdasd",
-      "isFav": true
+      "isFav": false
     },
     {
       "id": "8fd8",
@@ -73,6 +73,20 @@
       "serialMotor": "motor777",
       "year": "2019",
       "isFav": false
+    },
+    {
+      "id": "dad4",
+      "brand": "adfadf",
+      "category": "camioneta",
+      "description": "adf",
+      "model": "adsffafd",
+      "observation": "adafaf",
+      "operative": true,
+      "plaque": "adf",
+      "serialBody": "afd",
+      "serialMotor": "adfadf",
+      "year": "2016",
+      "isFav": true
     }
   ],
   "categories": [
@@ -98,6 +112,12 @@
       "id": "b429",
       "name": "monopatin",
       "description": "ideal para usar en la ciudad",
+      "icon": "/src/assets/iconcategories/icon-notfound.svg"
+    },
+    {
+      "id": "0162",
+      "name": "bicicleta",
+      "description": "montaña",
       "icon": "/src/assets/iconcategories/icon-notfound.svg"
     }
   ],
