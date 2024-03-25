@@ -42,7 +42,7 @@ const NavSearch = () => {
 
     return (
         <>
-            <section className="flex bg-secondary2 bg-gradient-to-t from-degrade w-full px-16 py-2 gap-3">
+            <section className="flex w-full px-4 py-2 gap-3 max-w-7xl mx-auto items-center">
                 <div className="flex flex-1 flex-col">
                     <p>Ubicación para retirar el vehículo</p>
                     <input
@@ -53,23 +53,30 @@ const NavSearch = () => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="">
+                <div className="flex-2 ">
                     <p>Fecha inicio</p>
                     <input
                         className="rounded py-1 px-5 bg-grey text-secondary outline-none"
                         type="date"
                     />
                 </div>
-                <div className="">
+                <div className="flex-2">
                     <p>Fecha fin</p>
                     <input
                         className="rounded py-1 px-5 bg-grey text-secondary outline-none"
                         type="date"
                     />
                 </div>
-                <button className="block py-2 px-4 leading-none rounded-lg text-sm text-white border-0 bg-secondary hover:bg-grey hover:text-secondary cursor-pointer font-bold capitalize transition-in-out duration-700">
-                    Buscar
-                </button>
+                <div
+                    className='self-end'
+                >
+                    <button className="
+                block h-10 px-8 rounded-lg text-sm text-white border-0 bg-secondary cursor-pointer font-bold 
+                hover:bg-grey hover:text-secondary 
+                transition-in-out duration-300">
+                        Buscar
+                    </button>
+                </div>
             </section>
         </>
     )
