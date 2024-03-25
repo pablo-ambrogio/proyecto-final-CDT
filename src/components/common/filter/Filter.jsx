@@ -46,7 +46,7 @@ const Filter = () => {
 
     return (
         <section
-            className="text-[#010101] md:w-8/12 mx-auto px-3"
+            className="text-[#010101] mx-auto px-4"
         >
             <div
             >
@@ -66,7 +66,7 @@ const Filter = () => {
                                     onClick={hanldeText}
                                 >
                                     <label htmlFor={category.name}
-                                        className={`${isCheck && "text-red"} text-blue`}
+                                        className={`${isCheck && " text-primary"} text-secondary`}
                                     >
                                         <input type="checkbox"
                                             className="hidden"

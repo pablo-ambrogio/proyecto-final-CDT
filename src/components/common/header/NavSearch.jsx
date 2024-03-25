@@ -42,11 +42,11 @@ const NavSearch = () => {
 
     return (
         <>
-            <section className="flex bg-blue2 bg-gradient-to-t from-degrade w-full px-16 py-2 gap-3">
+            <section className="flex bg-secondary2 bg-gradient-to-t from-degrade w-full px-16 py-2 gap-3">
                 <div className="flex flex-1 flex-col">
                     <p>Ubicación para retirar el vehículo</p>
                     <input
-                        className="rounded py-1 px-5 bg-grey text-blue outline-none "
+                        className="rounded py-1 px-5 bg-grey text-secondary outline-none "
                         type="text"
                         placeholder="Punto de retirada (Ej: Buenos Aires, Bogotá)"
                         value={search}
@@ -56,18 +56,18 @@ const NavSearch = () => {
                 <div className="">
                     <p>Fecha inicio</p>
                     <input
-                        className="rounded py-1 px-5 bg-grey text-blue outline-none"
+                        className="rounded py-1 px-5 bg-grey text-secondary outline-none"
                         type="date"
                     />
                 </div>
                 <div className="">
                     <p>Fecha fin</p>
                     <input
-                        className="rounded py-1 px-5 bg-grey text-blue outline-none"
+                        className="rounded py-1 px-5 bg-grey text-secondary outline-none"
                         type="date"
                     />
                 </div>
-                <button className="block py-2 px-4 leading-none rounded-lg text-sm text-white border-0 bg-blue hover:bg-grey hover:text-blue cursor-pointer font-bold capitalize transition-in-out duration-700">
+                <button className="block py-2 px-4 leading-none rounded-lg text-sm text-white border-0 bg-secondary hover:bg-grey hover:text-secondary cursor-pointer font-bold capitalize transition-in-out duration-700">
                     Buscar
                 </button>
             </section>

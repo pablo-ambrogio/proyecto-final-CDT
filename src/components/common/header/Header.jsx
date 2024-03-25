@@ -8,8 +8,8 @@ import NavSearch from './NavSearch'
 const Header = () => {
     return (
         <>
-            <header className="flex flex-col sticky top-0">
-                <nav className="flex items-center justify-between flex-wrap bg-blue py-2 px-6">
+            <header className="flex flex-col sticky top-0 bg-blue2">
+                <nav className="flex items-center justify-between flex-wrap text-secondary h-full px-6">
                     {/* icono del logo */}
                     <Link
                         to="/"

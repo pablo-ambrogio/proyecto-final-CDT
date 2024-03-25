@@ -95,7 +95,7 @@ const CardDetail = () => {
                             </div>
                         </Modal>
 
-                        <button className="first-letter:uppercase w-[15rem] bg-blue p-2 text-white rounded-lg">
+                        <button className="first-letter:uppercase w-[15rem] bg-secondary p-2 text-white rounded-lg">
                             resevar ahora
                         </button>
                     </div>

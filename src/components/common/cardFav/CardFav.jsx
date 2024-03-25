@@ -24,7 +24,7 @@ const CardFav = ({ vehicle }) => {
                         {brand}
                     </h2>
                     <div>
-                        <button type="submit" className='text-blue' onClick={() => handleDelete(id)}>
+                        <button type="submit" className='text-secondary' onClick={() => handleDelete(id)}>
                             Eliminar
                         </button>
                     </div>

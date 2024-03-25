@@ -49,18 +49,18 @@ const VehiclesList = () => {
 
 
     return (
-        <div className="h-screen text-blue max-w-7xl mx-auto p-4">
+        <div className="h-screen text-secondary max-w-7xl mx-auto p-4">
 
             <h1 className="text-xl font-semibold uppercase">Lista de vehiculos</h1>
             <div className='flex justify-end'>
                 <Link to={"/admin/add-vehicle"}>
-                    <button className='bg-blue text-white px-4 py-2 rounded-lg'>
+                    <button className='bg-secondary text-white px-4 py-2 rounded-lg'>
                         <span>Agregar vehículo</span>
                     </button>
                 </Link>
             </div>
-            <table className="w-full text-xs mt-8 border border-blue">
-                <thead className="uppercase text-center border border-blue">
+            <table className="w-full text-xs mt-8 border border-secondary">
+                <thead className="uppercase text-center border border-secondary">
                     <tr>
                         <th >
                             Marca
@@ -117,7 +117,7 @@ const VehiclesList = () => {
                                             vehicle.id === data.id &&
                                                 Object.entries(data).length > 0 ?
                                                 <input type="text"
-                                                    className='bg-white border border-blue'
+                                                    className='bg-white border border-secondary'
                                                     name={"brand"}
                                                     value={data.brand}
                                                     onChange={handleChange}
@@ -131,7 +131,7 @@ const VehiclesList = () => {
                                             vehicle.id === data.id &&
                                                 Object.entries(data).length > 0 ?
                                                 <input type="text"
-                                                    className='bg-white border border-blue'
+                                                    className='bg-white border border-secondary'
                                                     name={"model"}
                                                     value={data.model}
                                                     onChange={handleChange}
@@ -181,7 +181,7 @@ const VehiclesList = () => {
                                             vehicle.id === data.id &&
                                                 Object.entries(data).length > 0 ?
                                                 <input type="text"
-                                                    className='bg-white border border-blue'
+                                                    className='bg-white border border-secondary'
                                                     name={"observation"}
                                                     value={data.observation}
                                                     onChange={handleChange}
@@ -195,7 +195,7 @@ const VehiclesList = () => {
                                             vehicle.id === data.id &&
                                                 Object.entries(data).length > 0 ?
                                                 <input type="text"
-                                                    className='bg-white border border-blue'
+                                                    className='bg-white border border-secondary'
                                                     name={"description"}
                                                     value={data.description}
                                                     onChange={handleChange}

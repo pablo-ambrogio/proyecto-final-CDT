@@ -34,7 +34,7 @@ const Register = () => {
         }
         // Swal.fire({
         //     icon: 'success',
-        //     html: '<p class = "text-blue text-xl font-bold" >Usuario creado con éxito</p>',
+        //     html: '<p class = "text-secondary text-xl font-bold" >Usuario creado con éxito</p>',
         //     showConfirmButton: false,
         //     timer: 2000
         // })
@@ -72,7 +72,7 @@ const Register = () => {
                     </div>
 
                     {/* BLOQUE FORMULARIO DERECHA */}
-                    <div className="bg-blue2 bg-gradient-to-t from-degrade px-12 py-4 rounded-md w-96 flex flex-col justify-center">
+                    <div className="bg-secondary2 bg-gradient-to-t from-degrade px-12 py-4 rounded-md w-96 flex flex-col justify-center">
                         {/* TÍTULO */}
                         <h2 className="font-modern text-2xl mb-5">
                             crear cuenta
@@ -92,7 +92,7 @@ const Register = () => {
                                     nombre
                                 </label>
                                 <input
-                                    className="rounded-md outline-none h-8 text-blue font-bold pl-2 bg-grey"
+                                    className="rounded-md outline-none h-8 text-secondary font-bold pl-2 bg-grey"
                                     type="text"
                                     name="name"
                                     id="name"
@@ -117,7 +117,7 @@ const Register = () => {
                                     })}
                                 />
                                 {errors.name && (
-                                    <span className="text-red font-bold text-xs leading">
+                                    <span className="text-primary font-bold text-xs leading">
                                         {errors.name.message}
                                     </span>
                                 )}
@@ -132,7 +132,7 @@ const Register = () => {
                                     apellido
                                 </label>
                                 <input
-                                    className="rounded-md outline-none h-8 text-blue font-bold pl-2 bg-grey"
+                                    className="rounded-md outline-none h-8 text-secondary font-bold pl-2 bg-grey"
                                     type="text"
                                     name="lastname"
                                     id="lastname"
@@ -156,7 +156,7 @@ const Register = () => {
                                     })}
                                 />
                                 {errors.lastname && (
-                                    <span className="text-red font-bold text-xs leading">
+                                    <span className="text-primary font-bold text-xs leading">
                                         {errors.lastname.message}
                                     </span>
                                 )}
@@ -171,7 +171,7 @@ const Register = () => {
                                     E-mail
                                 </label>
                                 <input
-                                    className="rounded-md outline-none h-8 text-blue font-bold pl-2 bg-grey"
+                                    className="rounded-md outline-none h-8 text-secondary font-bold pl-2 bg-grey"
                                     type="email"
                                     name="email"
                                     id="email"
@@ -190,7 +190,7 @@ const Register = () => {
                                     })}
                                 />
                                 {errors.email && (
-                                    <span className="text-red font-bold text-xs leading">
+                                    <span className="text-primary font-bold text-xs leading">
                                         {errors.email.message}
                                     </span>
                                 )}
@@ -206,7 +206,7 @@ const Register = () => {
                                 </label>
                                 <div className="relative rounded-md">
                                     <input
-                                        className="block w-full rounded-md outline-none h-8 text-blue font-bold pl-2 bg-grey"
+                                        className="block w-full rounded-md outline-none h-8 text-secondary font-bold pl-2 bg-grey"
                                         type={showPwd ? 'text' : 'password'}
                                         name="password"
                                         id="password"
@@ -226,7 +226,7 @@ const Register = () => {
                                     />
                                     <span
                                         onClick={() => setShowPwd(!showPwd)}
-                                        className="absolute inset-y-0 right-0 flex items-center pr-3 text-blue"
+                                        className="absolute inset-y-0 right-0 flex items-center pr-3 text-secondary"
                                     >
                                         {showPwd ? (
                                             <FontAwesomeIcon icon={faEye} />
@@ -238,7 +238,7 @@ const Register = () => {
                                     </span>
                                 </div>
                                 {errors.password && (
-                                    <span className="text-red font-bold text-xs leading">
+                                    <span className="text-primary font-bold text-xs leading">
                                         {errors.password.message}
                                     </span>
                                 )}
@@ -254,7 +254,7 @@ const Register = () => {
                                 </label>
                                 <div className="relative rounded-md">
                                     <input
-                                        className="block w-full rounded-md outline-none h-8 text-blue font-bold pl-2 bg-grey"
+                                        className="block w-full rounded-md outline-none h-8 text-secondary font-bold pl-2 bg-grey"
                                         type={showPwd2 ? 'text' : 'password'}
                                         name="password2"
                                         id="password2"
@@ -288,7 +288,7 @@ const Register = () => {
                                     </span>
                                 </div>
                                 {errors.password2 && (
-                                    <span className="text-red font-bold text-xs leading">
+                                    <span className="text-primary font-bold text-xs leading">
                                         {errors.password2.message}
                                     </span>
                                 )}
@@ -298,7 +298,7 @@ const Register = () => {
                                     // onClick={() => sendEmail()}
                                     type="submit"
                                     // disabled={emailSent ? 'disabled' : ''}
-                                    className="bg-red text-white px-16 py-2 rounded-lg uppercase font-modern mt-1"
+                                    className="bg-primary text-white px-16 py-2 rounded-lg uppercase font-modern mt-1"
                                 >
                                     crear
                                 </button>

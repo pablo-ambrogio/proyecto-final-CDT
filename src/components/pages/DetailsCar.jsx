@@ -7,7 +7,7 @@ const DetailsCar = () => {
     return (
         <section className="h-full">
             <h1
-                className="font-bold text-blue text-4xl uppercase mt-10 w-4/5 mx-auto max-w-screen-xl"
+                className="font-bold text-secondary text-4xl uppercase mt-10 w-4/5 mx-auto max-w-screen-xl"
             >detalles</h1>
             <section
                 className="w-full"

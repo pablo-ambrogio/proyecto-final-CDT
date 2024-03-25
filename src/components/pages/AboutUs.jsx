@@ -14,12 +14,12 @@ const AboutUs = () => {
     return (
         <>
             <main className="flex flex-col">
-                <h1 className="px-10 text-blue text-2xl uppercase font-modern">
+                <h1 className="px-10 text-secondary text-2xl uppercase font-modern">
                     nosotros
                 </h1>
                 {/* <div className="flex justify-center items-center p-10"> */}
                 <div className="grid grid-cols-1 p-10">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 bg-blue p-10 rounded-lg gap-2 ">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 bg-secondary p-10 rounded-lg gap-2 ">
                         <img
                             src={integrante1}
                             alt="integrante1"

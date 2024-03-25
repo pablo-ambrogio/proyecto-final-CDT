@@ -36,7 +36,7 @@ const FormCategories = () => {
                     onSubmit={onSubmit}
                 >
                     <section
-                        className='grid grid-rows-3 place-items-center bg-red rounded-lg text-white'>
+                        className='grid grid-rows-3 place-items-center bg-primary rounded-lg text-white'>
 
                         <div className='row-span-1 w-4/12 self-end'>
                             <label htmlFor="category" className='grid'>
@@ -73,7 +73,7 @@ const FormCategories = () => {
                         </div> */}
 
                         <div className='row-span-1'>
-                            <button className='bg-blue px-8 py-2 rounded-lg'>
+                            <button className='bg-secondary px-8 py-2 rounded-lg'>
                                 Agregar
                             </button>
                         </div>

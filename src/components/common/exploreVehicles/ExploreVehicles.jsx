@@ -16,53 +16,53 @@ const ExploreVehicles = () => {
                 <div
                     className='grid grid-cols-1 grid-rows-4 gap-4 md:grid-cols-2 md:grid-rows-2 lg:grid-cols-4 lg:grid-rows-1 justify-between '
                 >
-                    <article className='col-span-1 text-blue text-center bg-white rounded-sm flex flex-col justify-evenly py-4'>
+                    <article className='col-span-1 text-secondary text-center bg-white rounded-sm flex flex-col justify-evenly py-4'>
                         <Link to={'#'}>
                             <h2>Auto</h2>
                             <div className='text-center'>
                                 <img src={CarMobi} alt="imane de auto" className='w-3/5 aspect-video mx-auto' />
                             </div>
                             <div>
-                                <button className='text-lg text-blue'>Ver opciones
+                                <button className='text-lg text-secondary'>Ver opciones
                                     <span className='text-lg'>&gt;</span>
                                 </button>
                             </div>
                         </Link>
                     </article>
-                    <article className='col-span-1 text-blue text-center bg-white rounded-sm flex flex-col justify-evenly py-4'>
+                    <article className='col-span-1 text-secondary text-center bg-white rounded-sm flex flex-col justify-evenly py-4'>
                         <Link to={'#'}>
                             <h2>Auto</h2>
                             <div className='text-center'>
                                 <img src={CarMobi} alt="imane de auto" className='w-3/5 aspect-video mx-auto' />
                             </div>
                             <div>
-                                <button className='text-lg text-blue'>Ver opciones
+                                <button className='text-lg text-secondary'>Ver opciones
                                     <span className='text-lg'>&gt;</span>
                                 </button>
                             </div>
                         </Link>
                     </article>
-                    <article className='col-span-1 text-blue text-center bg-white rounded-sm flex flex-col justify-evenly py-4'>
+                    <article className='col-span-1 text-secondary text-center bg-white rounded-sm flex flex-col justify-evenly py-4'>
                         <Link to={'#'}>
                             <h2>Auto</h2>
                             <div className='text-center'>
                                 <img src={CarMobi} alt="imane de auto" className='w-3/5 aspect-video mx-auto' />
                             </div>
                             <div>
-                                <button className='text-lg text-blue'>Ver opciones
+                                <button className='text-lg text-secondary'>Ver opciones
                                     <span className='text-lg'>&gt;</span>
                                 </button>
                             </div>
                         </Link>
                     </article>
-                    <article className='col-span-1 text-blue text-center bg-white rounded-sm flex flex-col justify-evenly py-4'>
+                    <article className='col-span-1 text-secondary text-center bg-white rounded-sm flex flex-col justify-evenly py-4'>
                         <Link to={'#'}>
                             <h2>Auto</h2>
                             <div className='text-center'>
                                 <img src={CarMobi} alt="imane de auto" className='w-3/5 aspect-video mx-auto' />
                             </div>
                             <div>
-                                <button className='text-lg text-blue'>Ver opciones
+                                <button className='text-lg text-secondary'>Ver opciones
                                     <span className='text-lg'>&gt;</span>
                                 </button>
                             </div>

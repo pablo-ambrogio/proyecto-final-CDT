@@ -122,7 +122,7 @@ const AddVehicle = () => {
                                 "Carga de vehiculo"
                         }
                     </h1>
-                    <section className="bg-red text-white p-4 flex flex-col gap-y-2 rounded-lg">
+                    <section className="bg-primary text-white p-4 flex flex-col gap-y-2 rounded-lg">
                         <h2 className="text-xl">Información del vehiculo</h2>
                         <p>
                             Los campos obligatorios van seguidos de

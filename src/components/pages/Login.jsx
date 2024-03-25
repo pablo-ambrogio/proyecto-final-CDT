@@ -42,7 +42,7 @@ const Register = () => {
                     </div>
 
                     {/* BLOQUE FORMULARIO DERECHA */}
-                    <div className="bg-red p-12 rounded-md w-96 flex flex-col justify-center">
+                    <div className="bg-primary p-12 rounded-md w-96 flex flex-col justify-center">
                         {/* TÍTULO */}
                         <div>
                             <h2 className="font-modern text-2xl">
@@ -67,7 +67,7 @@ const Register = () => {
                                     E-mail
                                 </label>
                                 <input
-                                    className="rounded-md outline-none h-8 text-blue font-bold pl-2 bg-grey"
+                                    className="rounded-md outline-none h-8 text-secondar font-bold pl-2 bg-grey"
                                     type="text"
                                     name="user"
                                     id="user"
@@ -86,7 +86,7 @@ const Register = () => {
                                     })}
                                 />
                                 {errors.user && (
-                                    <span className="text-blue font-bold text-xs leading">
+                                    <span className="text-secondar font-bold text-xs leading">
                                         {errors.user.message}
                                     </span>
                                 )}
@@ -102,7 +102,7 @@ const Register = () => {
                                 </label>
                                 <div className="relative rounded-md">
                                     <input
-                                        className="block w-full rounded-md outline-none h-8 text-blue font-bold pl-2 bg-grey"
+                                        className="block w-full rounded-md outline-none h-8 text-secondar font-bold pl-2 bg-grey"
                                         type={showPwd ? 'text' : 'password'}
                                         name="password"
                                         id="password"
@@ -122,7 +122,7 @@ const Register = () => {
                                     />
                                     <span
                                         onClick={() => setShowPwd(!showPwd)}
-                                        className="absolute inset-y-0 right-0 flex items-center pr-3 text-blue"
+                                        className="absolute inset-y-0 right-0 flex items-center pr-3 text-secondar"
                                     >
                                         {showPwd ? (
                                             <FontAwesomeIcon icon={faEye} />
@@ -134,7 +134,7 @@ const Register = () => {
                                     </span>
                                 </div>
                                 {errors.password && (
-                                    <span className="text-blue font-bold text-xs leading">
+                                    <span className="text-secondar font-bold text-xs leading">
                                         {errors.password.message}
                                     </span>
                                 )}
@@ -143,7 +143,7 @@ const Register = () => {
                             <div className="text-center">
                                 <button
                                     type="submit"
-                                    className="bg-blue text-white px-16 py-2 rounded-lg uppercase font-modern mt-1"
+                                    className="bg-secondary text-white px-16 py-2 rounded-lg uppercase font-modern mt-1"
                                 >
                                     iniciar
                                 </button>

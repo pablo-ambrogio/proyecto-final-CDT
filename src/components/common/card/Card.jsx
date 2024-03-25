@@ -38,11 +38,11 @@ const Card = ({ vehicle }) => {
                     </div>
                 </Link>
                 <div className="w-full h-2/5 text-center grid gap-y-2 mt-4">
-                    <button type="submit" className="bg-blue text-white rounded-lg px-6 py-1 first-letter:capitalize hover:opacity-80" onClick={handleClick}>
+                    <button type="submit" className="bg-secondary text-white rounded-lg px-6 py-1 first-letter:capitalize hover:opacity-80" onClick={handleClick}>
                         reservar ahora
                     </button>
                     <div>
-                        <Link to={''} className="hover:text-blue">
+                        <Link to={''} className="hover:text-seconbg-secondary">
                             Mostrar mas detalles
                         </Link>
                     </div>

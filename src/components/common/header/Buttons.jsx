@@ -11,7 +11,7 @@ const Modal = () => {
         <>
             <div className="flex flex-wrap justify-center gap-2">
                 <button
-                    className="block py-2 px-4 leading-none rounded-lg text-sm text-white border-0 bg-red hover:bg-grey hover:text-blue cursor-pointer font-bold capitalize transition-in-out duration-700"
+                    className="block py-2 px-4 leading-none rounded-lg text-sm text-white border-0 bg-primary hover:bg-grey hover:text-secondary cursor-pointer font-bold capitalize transition-in-out duration-700"
                     onClick={() => {
                         setModal2(!modal2)
                     }}
@@ -19,7 +19,7 @@ const Modal = () => {
                     crear usuario
                 </button>
                 <button
-                    className="block py-2 px-4 leading-none rounded-lg text-sm text-white border-0 bg-red hover:bg-grey hover:text-blue cursor-pointer font-bold capitalize transition-in-out duration-700"
+                    className="block py-2 px-4 leading-none rounded-lg text-sm text-white border-0 bg-primary hover:bg-grey hover:text-secondary cursor-pointer font-bold capitalize transition-in-out duration-700"
                     onClick={() => {
                         setModal1(!modal1)
                     }}

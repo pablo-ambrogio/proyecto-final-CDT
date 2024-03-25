@@ -8,7 +8,7 @@ const ModalContainer = ({ children, state, setState }) => {
                     <div className="w-100 min-h-[100px] relative rounded-md p-0">
                         <button
                             className="absolute top-[-50px] right-[-50px] w-7 h-15 cursor-pointer border-0 ease-in-out duration-300 rounded text-white font-bold
-                                hover:text-blue"
+                                hover:text-secondary"
                         >
                             <img
                                 onClick={() => setState(false)}

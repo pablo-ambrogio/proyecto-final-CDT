@@ -24,7 +24,7 @@ function App() {
         className="grid min-h-screen grid-rows-[150px,1fr,70px]"
       >
         <Header />
-        <section className="mx-auto w-full">
+        <section className="mx-auto max-w-7xl w-full py-8">
           {
             !pathname.includes("/favorite") & !isPathnameAdmin &&
             <Filter />
