@@ -22,28 +22,17 @@ import NavBarContextProvider from './context/NavbarContext.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-<<<<<<< HEAD
+
 
       <NavBarContextProvider>
+
         <Routes>
-
           <Route path='/' element={<App />}>
-=======
-      <Routes>
-        <Route path='/' element={<App />}>
-
-          <Route path='/' element={<Vehicles />} />
-          {/* <Route path='login' element={<Login />} /> */}
-          {/* <Route path="register" element={<Register />} /> */}
-          <Route path="about-us" element={<AboutUs />} />
-          <Route path='vehicles/:id' element={<DetailsCar />} />
->>>>>>> b32fe732a5c7aa1fbbb3ab7c657fdc75d1c4c2db
 
             <Route path='/' element={<Vehicles />} />
+            <Route path="about-us" element={<AboutUs />} />
             <Route path='vehicles/:id' element={<DetailsCar />} />
             <Route path='login' element={<Login />} />
-
-<<<<<<< HEAD
 
             <Route element={<ProtectedRoute />}>
 
@@ -59,11 +48,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 <Route path='add-users' element={<AdminAddUser />} />
                 <Route path='configuration' element={<AdminConfiguration />} />
               </Route>
-=======
-              <Route path='reserve' element={<AdminReserve />} />
-              <Route path='add-users' element={<AdminAddUser />} />
-              <Route path='configuration' element={<AdminConfiguration />} />
->>>>>>> b32fe732a5c7aa1fbbb3ab7c657fdc75d1c4c2db
 
             </Route>
 
