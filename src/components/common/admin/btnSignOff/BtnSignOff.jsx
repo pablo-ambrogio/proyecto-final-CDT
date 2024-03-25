@@ -9,9 +9,9 @@ const BtnSignOff = () => {
         <>
             <button
                 className={`${viewNavbar
-                    ? "text-lg w-4/5 mx-auto justify-center gap-x-2"
+                    ? "text-lg w-4/5 mx-auto gap-x-2 "
                     : "text-sm w-full"
-                    } flex justify-center items-center uppercase text-blue font-bold`}
+                    } flex justify-center items-center uppercase text-blue bg-grey font-bold`}
             >
                 {viewNavbar ? (
                     <>

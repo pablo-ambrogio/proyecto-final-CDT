@@ -8,4 +8,11 @@ export const years = () => {
     return allYears
 }
 
-
+export const convertToLowerCase = data => {
+    for (const key in data) {
+        if (typeof data[key] === 'string') {
+            data[key] = data[key].toLowerCase();
+        }
+    }
+    return data
+}

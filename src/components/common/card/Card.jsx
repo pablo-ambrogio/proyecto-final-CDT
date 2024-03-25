@@ -4,9 +4,7 @@ import CarMobi from '../../../assets/car-mobi.svg'
 
 const Card = ({ vehicle }) => {
 
-    const { brand } = vehicle
-
-    console.log(vehicle);
+    const { id, brand, category } = vehicle
 
     const handleClick = () => {
         alert('Estamos trabajando para que puedas reservar tu automovil')
@@ -14,13 +12,12 @@ const Card = ({ vehicle }) => {
 
     return (
         <div className="w-full h-64 bg-grey text-[#000] rounded-lg p-6 place-self-center">
-            <div className="max-w-sm mx-auto">
-                <Link to={'/vehicles/1'}>
+            <div className="max-w-sm mx-auto h-full">
+                <Link to={`/vehicles/${id}`}>
                     <div className="h-3/5 flex items-center gap-x-2">
                         <div className="w-2/4 h-full">
                             <img src={CarMobi} alt={'Fiat mobi 1.0'} className="w-full h-full " />
                         </div>
-
                         <div
                             className='h-full text-end pt-2 w-2/4'
                         >
@@ -28,14 +25,15 @@ const Card = ({ vehicle }) => {
                                 className='text-2xl font-semibold'
                             >{brand}</h2>
                             <p
-                                className=' uppercase text-[0.7rem]'
-                            >grupo c - economico con aire mecánico</p>
+                                className=' uppercase text-[0.7rem] mt-2'
+                            >categoria:
+                                <span className='pl-2'>{category}</span>
+                            </p>
 
-                            <div className="h-full text-end pt-2 w-2/4">
+                            {/* <div className="h-full text-end pt-2 w-2/4">
                                 <h2 className="text-2xl font-semibold">Fiat Mobi 1.0</h2>
                                 <p className=" uppercase text-[0.7rem]">grupo c - economico con aire mecánico</p>
-
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </Link>

@@ -1,47 +1,28 @@
-import { useState } from 'react'
-import ModalContainer from './ModalContainer'
-import Login from '../../pages/Login'
-import Register from '../../pages/Register'
+import Xmark from '../../../assets/xmark-solid.svg'
 
-const Modal = () => {
-    const [modal1, setModal1] = useState(false)
-    const [modal2, setModal2] = useState(false)
-    
+const ModalContainer = ({ children, state, setState }) => {
     return (
         <>
-        {/* botones del header */}
-            <div className="flex flex-wrap justify-center gap-2">
-                <button
-                    className="block py-2 px-4 leading-none rounded-lg text-sm text-white border-0 bg-red hover:bg-grey hover:text-blue cursor-pointer font-bold capitalize transition-in-out duration-700"
-                    onClick={() => {
-                        setModal2(!modal2)
-                    }}
-                >
-                    crear usuario
-                </button>
-                <button
-                    className="block py-2 px-4 leading-none rounded-lg text-sm text-white border-0 bg-red hover:bg-grey hover:text-blue cursor-pointer font-bold capitalize transition-in-out duration-700"
-                    onClick={() => {
-                        setModal1(!modal1)
-                    }}
-                >
-                    iniciar sesión
-                </button>
-            </div>
-            
-            <ModalContainer state={modal1} setState={setModal1}>
-                <div className="flex flex-col items-center">
-                    <Login />
+            {state && (
+                <div className="w-screen h-screen fixed top-0 left-0 bg-darkgrey bg-opacity-60 flex justify-center items-center p-6">
+                    <div className="w-100 min-h-[100px] relative rounded-md p-0">
+                        <button
+                            className="absolute top-[-50px] right-[-50px] w-7 h-15 cursor-pointer border-0 ease-in-out duration-300 rounded text-white font-bold
+                                hover:text-blue"
+                        >
+                            <img
+                                onClick={() => setState(false)}
+                                className="bg-grey rounded"
+                                src={Xmark}
+                                alt="cerrar"
+                            />
+                        </button>
+                        {children}
+                    </div>
                 </div>
-            </ModalContainer>
-            
-            <ModalContainer state={modal2} setState={setModal2}>
-                <div className="flex flex-col items-center">
-                    <Register />
-                </div>
-            </ModalContainer>
+            )}
         </>
     )
 }
 
-export default Modal
+export default ModalContainer

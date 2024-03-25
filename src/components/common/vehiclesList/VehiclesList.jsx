@@ -41,8 +41,6 @@ const VehiclesList = () => {
         if (res) return deleteVehicle(id)
     }
 
-
-
     //#endregion
 
     useEffect(() => {
@@ -50,9 +48,8 @@ const VehiclesList = () => {
     }, [vehicles])
 
 
-
     return (
-        <div className=" h-screen text-blue max-w-7xl mx-auto p-4">
+        <div className="h-screen text-blue max-w-7xl mx-auto p-4">
 
             <h1 className="text-xl font-semibold uppercase">Lista de vehiculos</h1>
             <div className='flex justify-end'>
@@ -175,14 +172,6 @@ const VehiclesList = () => {
                                                     <option value={true}>si</option>
                                                     <option value={false}>no</option>
                                                 </select>
-
-
-                                                // <input type="text"
-                                                //     className='bg-white border border-blue'
-                                                //     name={"operative"}
-                                                //     value={data.operative}
-                                                //     onChange={handleChange}
-                                                // />
                                                 :
                                                 operative || operative === "true" ? "Si" : "No"
                                         }
@@ -219,22 +208,22 @@ const VehiclesList = () => {
                                         <img src={Amarok} alt="Foto de vehículo cargado" width={80} />
                                     </td>
                                     <td
-                                        className='flex justify-between items-center h-14'
+                                        className='flex justify-around items-center h-14 uppercase'
                                     >
                                         <span
                                         >
                                             <button
                                                 onClick={() => handleDelete(vehicle.id)}
                                             >
-                                                <img src={IconDelete} alt="icono de botín eliminar" />
-                                                <span>Eliminar</span>
+                                                <img src={IconDelete} alt="icono de botín eliminar" title='eliminar' />
+                                                {/* <span>Eliminar</span> */}
                                             </button>
                                         </span>
                                         <Link to={`../add-vehicle/${vehicle.id}`}>
                                             <button
                                                 onClick={() => searchDataForId(vehicle.id)}
                                             >
-                                                <img src={IconUpdate} alt="icono de botón modificar" />
+                                                <img src={IconUpdate} alt="icono de botón modificar" title='modificar' />
                                             </button>
                                         </Link>
                                     </td>
