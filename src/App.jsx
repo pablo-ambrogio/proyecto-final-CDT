@@ -3,10 +3,11 @@ import Footer from './components/common/footer/Footer'
 import Navbar from './components/common/header/Navbar'
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import Filter from './components/common/filter/Filter'
 
 function App() {
 
-  const {pathname} = useLocation()
+  const { pathname } = useLocation()
   const [isPathnameAdmin, setIsPathnameAdmin] = useState(false)
 
   const getPathname = (path) => {
@@ -25,18 +26,22 @@ function App() {
       <div
         className="grid min-h-screen grid-rows-[150px,1fr,70px]"
       >
-        {
+        {/* {
           !isPathnameAdmin &&
-          <Navbar />
-        }
+        } */}
+        <Navbar />
         <section className="mx-auto w-full">
+          {
+            !pathname.includes("/favorite") & !isPathnameAdmin &&
+            <Filter />
+          }
           <Outlet />
         </section>
 
-        {
+        {/* {
           !isPathnameAdmin &&
-          <Footer />
-        }
+        } */}
+        <Footer />
       </div>
 
     </>

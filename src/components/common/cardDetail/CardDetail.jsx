@@ -1,15 +1,18 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import CarMobi from '../../../assets/car-mobi.svg'
 import IconFav from '../../../assets/icon-fav.svg'
 import IconFavRed from '../../../assets/icon-fav-red.svg'
 import axios from 'axios'
+import { FilterContext } from '../../../context/FilterContext'
 
 
 const CardDetail = () => {
 
     const { id } = useParams()
     const [fav, setFav] = useState(false)
+
+    const { vehicleId, getVehicleForId } = useContext(FilterContext)
 
     const getFav = async () => {
         const { data } = await axios.get(`http://localhost:3000/vehicles/${id}`)
@@ -28,7 +31,9 @@ const CardDetail = () => {
 
     useEffect(() => {
         getFav()
+        getVehicleForId(id)
     }, [id])
+    console.log(vehicleId);
 
     useEffect(() => {
         putFav()
@@ -47,25 +52,17 @@ const CardDetail = () => {
 
                         <h1
                             className='text-2xl font-bold'
-                        >Fiat mobi 1.0</h1>
+                        >{vehicleId.brand}</h1>
                         <p
                             className='uppercase text-sm'
-                        >GRUPO C - ECONÓMICO CON AIRE MECÁNICO</p>
+                        >{vehicleId.category}</p>
                     </div>
                     <div
                         onClick={handleFav}
                     >
-                        {/* {
-                            fav &&
-                            <img src={IconFavRed} alt="" />
-                        } */}
-
-                        {
-                            !fav ?
-                                <img src={IconFav} alt="" /> :
-                                <img src={IconFavRed} alt="" />
-                        }
-
+                        <img src={`
+                        ${!fav ? IconFav : IconFavRed}`
+                        } alt="icono de corazon, sirve para marcar como favorito" />
                     </div>
                 </section>
                 <section
