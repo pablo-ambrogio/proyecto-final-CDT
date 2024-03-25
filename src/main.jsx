@@ -9,7 +9,6 @@ import AdminVehiclesList from './components/pages/admin/AdminVehiclesList.jsx'
 import DetailsCar from './components/pages/DetailsCar.jsx'
 import AboutUs from './components/pages/AboutUs.jsx'
 import ProtectedRoute from './components/route/ProtectedRoute.jsx'
-// import Register from './components/pages/Register.jsx'
 import Login from './components/pages/Login.jsx'
 import AdminCategories from './components/pages/admin/AdminCategories.jsx'
 import AdminCharacteristics from './components/pages/admin/AdminCharacteristics.jsx'
@@ -23,6 +22,7 @@ import Favorite from './components/pages/Favorite.jsx'
 import FilterContextProvider from './context/FilterContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+
   <React.StrictMode>
     <BrowserRouter>
       <NavBarContextProvider>
@@ -36,7 +36,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Route path="about-us" element={<AboutUs />} />
               <Route path='vehicles/:id' element={<DetailsCar />} />
               <Route path='login' element={<Login />} />
-
 
               <Route element={<ProtectedRoute />}>
 

@@ -13,37 +13,38 @@
       "observation": "pintar",
       "description": "ideal para campo",
       "photo": {},
-      "id": "12a4"
+      "id": "12a4",
+      "isFav": false
     },
     {
-      "brand": "volkswagen",
-      "model": "amarok",
-      "category": "auto",
-      "serialBody": "ty5542589sdxx7",
-      "serialMotor": "ty5542589sdxx7",
-      "color": "gris urbano",
-      "year": "2023",
-      "plaque": "af792fc",
-      "operative": false,
-      "observation": "pintar",
-      "description": "ideal para campo",
-      "photo": {},
-      "id": "eb28"
-    },
-    {
-      "brand": "volkswagen",
-      "model": "amarok",
+      "id": "eb28",
+      "brand": "pablo",
+      "model": "asdasd",
       "category": "camioneta",
-      "serialBody": "ty5542589sdxx7",
-      "serialMotor": "ty5542589sdxx7",
-      "color": "gris urbano",
-      "year": "2021",
-      "plaque": "af792fc",
+      "serialBody": "asdasd",
+      "serialMotor": "motor777",
+      "color": "asdasd",
+      "year": "2017",
+      "plaque": "asdasd",
       "operative": true,
-      "observation": "pintar",
-      "description": "ideal para campo",
-      "photo": {},
-      "id": "e469"
+      "observation": "asdasd",
+      "description": "asdasd",
+      "isFav": false
+    },
+    {
+      "id": "e469",
+      "brand": "volkswagen",
+      "model": "dasdasd",
+      "category": "camioneta",
+      "serialBody": "asdas",
+      "serialMotor": "asdasd",
+      "color": "asdasd",
+      "year": "2018",
+      "plaque": "asdasd",
+      "operative": true,
+      "observation": "asdasd",
+      "description": "asdasd",
+      "isFav": false
     },
     {
       "brand": "volkswagen",
@@ -61,19 +62,18 @@
       "id": "efd4"
     },
     {
-      "brand": "ford",
-      "model": "focus",
-      "category": "auto",
-      "serialBody": "r355d4x584s8",
-      "serialMotor": "r355d4x584s8",
-      "color": "azul",
-      "year": "2016",
-      "plaque": "aa353gt",
+      "id": "dad4",
+      "brand": "adfadf",
+      "category": "camioneta",
+      "description": "adf",
+      "model": "adsffafd",
+      "observation": "adafaf",
       "operative": true,
-      "observation": "service",
-      "description": "auto para ruta",
-      "photo": {},
-      "id": "8fd8"
+      "plaque": "adf",
+      "serialBody": "afd",
+      "serialMotor": "adfadf",
+      "year": "2016",
+      "isFav": false
     }
   ],
   "categories": [
@@ -94,6 +94,26 @@
       "name": "motocicleta",
       "description": "Ideal para recorre las ciudades",
       "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "Brochero",
+      "lastname": "Cura",
+      "email": "brochero@gmail.com",
+      "password": "Brochero123!",
+      "password2": "Brochero123!",
+      "role": "admin"
+    },
+    {
+      "id": "71ec",
+      "name": "mauricio",
+      "lastname": "henao",
+      "email": "mhenaor@gmail.com",
+      "password": "prueba123!",
+      "password2": "prueba123!",
+      "role": "user"
     }
   ]
 }
