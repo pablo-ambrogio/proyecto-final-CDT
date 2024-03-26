@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <div
-        className="grid min-h-screen grid-rows-[150px,1fr,100px]"
+        className="grid min-h-screen grid-rows-[180px,1fr,100px]"
       >
         <Header />
         <section className="mx-auto max-w-7xl w-full py-8">

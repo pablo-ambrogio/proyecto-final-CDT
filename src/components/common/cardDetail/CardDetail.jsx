@@ -1,50 +1,27 @@
 import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import CarMobi from '../../../assets/car-mobi.svg'
-import IconFav from '../../../assets/icon-fav.svg'
-import IconFavRed from '../../../assets/icon-fav-red.svg'
-import axios from 'axios'
-import { FilterContext } from '../../../context/FilterContext'
 import Policies from '../../pages/Policies'
 import Modal from '../modal/Modal'
+import { FavoriteContext } from '../../../context/FavoriteContext'
+import ButtonFav from '../buttonFav/ButtonFav'
 
 
 const CardDetail = () => {
+
+    const { setId, vehicleId } = useContext(FavoriteContext)
+
     const { id } = useParams()
-    const [fav, setFav] = useState(false)
     const [modal, setModal] = useState(false)
 
-    const { vehicleId, getVehicleForId } = useContext(FilterContext)
-
-    const getFav = async () => {
-        const { data } = await axios.get(`http://localhost:3000/vehicles/${id}`)
-        setFav(data.isFav)
-    }
-
-    const putFav = async () => {
-        await axios.patch(`http://localhost:3000/vehicles/${id}`, {
-            isFav: fav
-        })
-    }
-
-    const handleFav = () => {
-        setFav(!fav)
-    }
-
     useEffect(() => {
-        getFav()
-        getVehicleForId(id)
+        setId(id)
     }, [id])
-    console.log(vehicleId);
-
-    useEffect(() => {
-        putFav()
-    }, [fav])
 
     return (
         <div>
-            <article className="bg-grey p-8 text-blue lg:h-[28rem] sm:h-auto rounded-lg max-w-4xl mx-auto">
-                <section className="flex justify-between items-center pr-2">
+            <article className="p-8 text-secondary  sm:h-auto rounded-lg max-w-7xl mx-auto">
+                {/* <div className="flex justify-between items-center pr-2">
                     <div>
                         <h1
                             className='text-2xl font-bold'
@@ -60,16 +37,37 @@ const CardDetail = () => {
                         ${!fav ? IconFav : IconFavRed}`
                         } alt="icono de corazon, sirve para marcar como favorito" />
                     </div>
-                </section>
-                <section className="grid lg:grid-cols-2 lg:grid-rows-4 h-4/5 gap-x-4 md:gap-6">
-                    <div className="lg:col-span-1 lg:row-start-1 row-end-4">
-                        <img
-                            src={CarMobi}
-                            alt="Auto fiat mobi"
-                            className="w-4/5 h-full mx-auto lg:w-full "
-                        />
+                </div> */}
+                <section className="grid grid-cols-2 grid-rows-[1fr,100px] h-full gap-x-4 md:gap-6">
+                    <div className="lg:col-start-1 lg:col-end-2 row-span-1 self-center justify-self-center">
+                        <div
+                            className='bg-secondary relative w-96 h-96 rounded-full'>
+                            <img
+                                src={CarMobi}
+                                alt="Auto fiat mobi"
+                                className="w-96 h-full mx-auto lg:w-full absolute"
+                            />
+                        </div>
                     </div>
-                    <div className="lg:col-span-1 lg:row-start-1 row-span-3 flex items-center">
+                    <div className="lg:col-start-2 lg:col-end-3 lg:row-start-1 row-span-1 flex flex-col gap-y-8">
+                        <div className="flex justify-between items-center pr-2">
+                            <div>
+                                <h1
+                                    className='text-4xl font-bold uppercase'
+                                >{vehicleId.brand}</h1>
+                                <p
+                                    className='uppercase text-2xl'
+                                >{vehicleId.category}</p>
+                            </div>
+                            <ButtonFav />
+                            {/* <div
+                                onClick={handleFav}
+                            >
+                                <img src={`
+                        ${!fav ? IconFav : IconFavRed}`
+                                } alt="icono de corazon, sirve para marcar como favorito" />
+                            </div> */}
+                        </div>
                         <p className="tracking-wider">
                             El Fiat Mobi 1.0 es un compacto producido en Brasil,
                             equipado con un motor Fire de 1.0 litro que
@@ -80,7 +78,7 @@ const CardDetail = () => {
                         </p>
                     </div>
 
-                    <div className="flex-col gap-3 lg:col-star-2 lg:col-end-3 lg:row-start-4 lg:row-span-1 flex justify-center items-center">
+                    <div className="flex-col gap-3 lg:col-start-2 lg:col-end-3 row-span-2 flex justify-start items-center">
                         <div
                             className="hover:font-bold hover:underline"
                             onClick={() => {

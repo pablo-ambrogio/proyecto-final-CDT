@@ -59,7 +59,8 @@
       "observation": "pintar",
       "description": "ideal para campo",
       "photo": {},
-      "id": "efd4"
+      "id": "efd4",
+      "isFav": false
     },
     {
       "id": "dad4",

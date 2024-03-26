@@ -4,9 +4,8 @@ import CarMobi from '../../../assets/car-mobi.svg'
 const ExploreVehicles = () => {
     return (
         <section aria-label='Categorias de vehículos'
-            className='bg-blue p-8'
+            className='bg-secondary p-8'
         >
-
             <div
                 className='lg:w-4/5 md:w-4/5 mx-auto py-6'
             >

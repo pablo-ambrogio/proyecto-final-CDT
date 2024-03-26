@@ -43,27 +43,27 @@ const NavSearch = () => {
     return (
         <>
             <section className="flex w-full px-4 py-2 gap-3 max-w-7xl mx-auto items-center">
-                <div className="flex flex-1 flex-col">
-                    <p>Ubicación para retirar el vehículo</p>
+                <div className="flex flex-1 flex-col text-sm">
+                    <p className=' mb-2'>Ubicación para retirar el vehículo</p>
                     <input
-                        className="rounded py-1 px-5 bg-grey text-secondary outline-none "
+                        className="rounded px-4 h-10 bg-grey text-secondary outline-none "
                         type="text"
                         placeholder="Punto de retirada (Ej: Buenos Aires, Bogotá)"
                         value={search}
                         onChange={handleChange}
                     />
                 </div>
-                <div className="flex-2 ">
-                    <p>Fecha inicio</p>
+                <div className="flex-2 text-sm">
+                    <p className=' mb-2'>Fecha de retiro</p>
                     <input
-                        className="rounded py-1 px-5 bg-grey text-secondary outline-none"
+                        className="rounded px-4 h-10 bg-grey text-secondary outline-none"
                         type="date"
                     />
                 </div>
-                <div className="flex-2">
-                    <p>Fecha fin</p>
+                <div className="flex-2 text-sm">
+                    <p className=' mb-2'>Fecha de devoulción</p>
                     <input
-                        className="rounded py-1 px-5 bg-grey text-secondary outline-none"
+                        className="rounded px-4 h-10 bg-grey text-secondary outline-none"
                         type="date"
                     />
                 </div>
