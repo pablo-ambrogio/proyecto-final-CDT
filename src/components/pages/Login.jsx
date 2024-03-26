@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
@@ -11,21 +11,42 @@ const Register = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isDirty, isValid },
         reset
-    } = useForm()
+    } = useForm({ mode: 'OnChange' })
 
-    const formSubmit = handleSubmit(data => {
-        console.log(data)
-        for (const key in data) {
-            if (typeof data[key] === 'string') {
-                data[key] = data[key].toLowerCase()
-            }
+    const loginSubmit = data => {
+        const refactorData = {
+            user: data.user,
+            password: data.password,
+            role: 'user'
         }
+        // console.log(refactorData);
+        localStorage.setItem('user', refactorData.user)
+        localStorage.setItem('password', refactorData.password)
+        localStorage.setItem('role', refactorData.role)
+        // reset()
+    }
 
-        axios.get('http://localhost:3000/users', data)
-        reset()
-    })
+    // useEffect(()=>)
+
+    // const iniciarSesion = async () => {
+    //     await axios
+    //         .get('http://localhost:3000/login', formSubmit)
+    //         .then(res => {
+    //             console.log(res.data)
+    //             return res.data
+    //         })
+    //         .then(res => {
+    //             if (res.length > 0) {
+    //                 // aqui el acceso
+
+    //             } else {
+    //                 alert('El usuario o la contraseña no son validos')
+    //             }
+    //         })
+    //         .catch(error => console.log(error))
+    // }
 
     return (
         <>
@@ -34,36 +55,22 @@ const Register = () => {
                 <div className="flex bg-grey p-4 rounded-md">
                     {/* BLOQUE IMAGEN IZQUIERDA */}
                     <div className="p-5 rounded-md sm:hidden lg:block">
-                        <img
-                            className="object-scale-down h-full w-96 items-center"
-                            src={LogoShort}
-                            alt="Logo AutoGo"
-                        />
+                        <img className="object-scale-down h-full w-96 items-center" src={LogoShort} alt="Logo AutoGo" />
                     </div>
 
                     {/* BLOQUE FORMULARIO DERECHA */}
                     <div className="bg-red p-12 rounded-md w-96 flex flex-col justify-center">
                         {/* TÍTULO */}
                         <div>
-                            <h2 className="font-modern text-2xl">
-                                iniciar sesión
-                            </h2>
-                            <p className="mb-10 text-sm">
-                                inicie sesión para continuar
-                            </p>
+                            <h2 className="font-modern text-2xl">iniciar sesión</h2>
+                            <p className="mb-10 text-sm">inicie sesión para continuar</p>
                         </div>
 
                         {/* FORM */}
-                        <form
-                            className="flex flex-col"
-                            onSubmit={handleSubmit(formSubmit)}
-                        >
+                        <form className="flex flex-col" onSubmit={handleSubmit(loginSubmit)}>
                             {/* USUARIO */}
                             <div className="flex flex-col mb-3">
-                                <label
-                                    htmlFor="user"
-                                    className="uppercase text-xs"
-                                >
+                                <label htmlFor="user" className="uppercase text-xs">
                                     E-mail
                                 </label>
                                 <input
@@ -75,29 +82,22 @@ const Register = () => {
                                     {...register('user', {
                                         required: {
                                             value: true,
-                                            message:
-                                                '* este campo es obligatorio'
+                                            message: '* este campo es obligatorio'
                                         },
                                         pattern: {
                                             value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                                            message:
-                                                '* por favor valide que el correo este correcto'
+                                            message: '* por favor valide que el correo este correcto'
                                         }
                                     })}
                                 />
                                 {errors.user && (
-                                    <span className="text-blue font-bold text-xs leading">
-                                        {errors.user.message}
-                                    </span>
+                                    <span className="text-blue font-bold text-xs leading">{errors.user.message}</span>
                                 )}
                             </div>
 
                             {/* PASSWORD */}
                             <div className="flex flex-col mb-3">
-                                <label
-                                    htmlFor="password"
-                                    className="uppercase text-xs"
-                                >
+                                <label htmlFor="password" className="uppercase text-xs">
                                     contraseña
                                 </label>
                                 <div className="relative rounded-md">
@@ -110,8 +110,7 @@ const Register = () => {
                                         {...register('password', {
                                             required: {
                                                 value: true,
-                                                message:
-                                                    '* este campo es obligatorio'
+                                                message: '* este campo es obligatorio'
                                             },
                                             pattern: {
                                                 value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
@@ -127,9 +126,7 @@ const Register = () => {
                                         {showPwd ? (
                                             <FontAwesomeIcon icon={faEye} />
                                         ) : (
-                                            <FontAwesomeIcon
-                                                icon={faEyeSlash}
-                                            />
+                                            <FontAwesomeIcon icon={faEyeSlash} />
                                         )}
                                     </span>
                                 </div>
@@ -143,6 +140,7 @@ const Register = () => {
                             <div className="text-center">
                                 <button
                                     type="submit"
+                                    disabled={!isValid || !isDirty}
                                     className="bg-blue text-white px-16 py-2 rounded-lg uppercase font-modern mt-1"
                                 >
                                     iniciar

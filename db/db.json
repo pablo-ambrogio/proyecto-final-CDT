@@ -16,10 +16,9 @@
       "id": "12a4"
     },
     {
-      "id": "eb28",
-      "brand": "pablo",
-      "model": "asdasd",
-      "category": "camioneta",
+      "brand": "Renault",
+      "model": "adsffafd",
+      "category": "motocicleta",
       "serialBody": "asdasd",
       "serialMotor": "motor777",
       "color": "asdasd",
@@ -28,7 +27,8 @@
       "operative": true,
       "observation": "asdasd",
       "description": "asdasd",
-      "isFav": true
+      "photo": {},
+      "id": "eb28"
     },
     {
       "id": "e469",
@@ -75,18 +75,18 @@
       "isFav": false
     },
     {
-      "id": "dad4",
-      "brand": "adfadf",
-      "category": "camioneta",
-      "description": "adf",
+      "id": "c04b",
+      "brand": "renault",
+      "category": "motocicleta",
+      "description": "dsajfñljdsañflj",
       "model": "adsffafd",
       "observation": "adafaf",
       "operative": true,
       "plaque": "adf",
-      "serialBody": "afd",
-      "serialMotor": "adfadf",
-      "year": "2016",
-      "isFav": true
+      "serialBody": "adfdsf",
+      "serialMotor": "adkjfñlkdsajf",
+      "year": "2007",
+      "isFav": false
     }
   ],
   "categories": [
@@ -119,6 +119,18 @@
       "name": "bicicleta",
       "description": "montaña",
       "icon": "/src/assets/iconcategories/icon-notfound.svg"
+    },
+    {
+      "id": "d127",
+      "name": "tractocamion",
+      "description": "vehiculo con mas de 6 ejes",
+      "icon": "/src/assets/iconcategories/icon-notfound.svg"
+    },
+    {
+      "id": "8064",
+      "name": "tractocamion",
+      "description": "cualquiera",
+      "icon": "/src/assets/iconcategories/icon-notfound.svg"
     }
   ],
   "users": [
@@ -132,12 +144,65 @@
       "role": "admin"
     },
     {
-      "id": "71ec",
+      "id": "905d",
+      "name": "julio",
+      "lastname": "jaramillo",
+      "email": "mauricio@vestigio.co",
+      "password": "prueba123!",
+      "password2": "prueba123!",
+      "role": "user"
+    },
+    {
+      "id": "2930",
+      "name": "julio",
+      "lastname": "jaramillo",
+      "email": "mauricio@vestigio.co",
+      "password": "prueba123!",
+      "password2": "prueba123!",
+      "role": "user"
+    },
+    {
+      "id": "dd1c",
       "name": "mauricio",
       "lastname": "henao",
       "email": "mhenaor@gmail.com",
-      "password": "prueba123!",
-      "password2": "prueba123!",
+      "password": "miranda09!",
+      "password2": "miranda09!",
+      "role": "user"
+    },
+    {
+      "id": "ea66",
+      "name": "mauricio",
+      "lastname": "henao",
+      "email": "mhenaor@gmail.com",
+      "password": "miranda09!",
+      "password2": "miranda09!",
+      "role": "user"
+    }
+  ],
+  "login": [
+    {
+      "id": "1",
+      "email": "brochero@gmail.com",
+      "password": "Brochero123!",
+      "role": "admin"
+    },
+    {
+      "id": "9735",
+      "email": "mhenaor@gmail.com",
+      "password": "Miranda09!",
+      "role": "user"
+    },
+    {
+      "id": "b1e4",
+      "email": "mauricio@vestigio.co",
+      "password": "Prueba123!",
+      "role": "user"
+    },
+    {
+      "id": "cc7d",
+      "email": "mauricio@vestigio.co",
+      "password": "Prueba123!",
       "role": "user"
     }
   ]

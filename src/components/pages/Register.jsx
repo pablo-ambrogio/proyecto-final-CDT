@@ -46,15 +46,29 @@ const Register = () => {
                 refactorizacion[key] = refactorizacion[key].toLowerCase()
             }
         }
+        const login = {
+            email: data.email,
+            password: data.password,
+            role: 'user'
+        }
 
         axios.post('http://localhost:3000/users', refactorizacion)
+        // axios.post('http://localhost:3000/login', login)
 
         // reset()
-        sendEmail(data.email, data.name)
+        sendEmail(data.email, data.name, data.lastname)
     })
 
-    const sendEmail = async (email, name) => {
-        await axios.post('http://localhost:4000/nodemailer', { email, name })
+    try {
+        const sendEmail = async (email, name, lastname) => {
+            await axios.post('http://localhost:4000/nodemailer', {
+                email,
+                name,
+                lastname
+            })
+        }
+    } catch (error) {
+        console.log(error)
     }
 
     return (
@@ -64,31 +78,19 @@ const Register = () => {
                 <div className="flex bg-grey p-4 rounded-md">
                     {/* BLOQUE IMAGEN IZQUIERDA */}
                     <div className="p-5 rounded-md sm:hidden lg:block">
-                        <img
-                            className="object-scale-down h-full w-96 items-center"
-                            src={Logo}
-                            alt="Logo AutoGo"
-                        />
+                        <img className="object-scale-down h-full w-96 items-center" src={Logo} alt="Logo AutoGo" />
                     </div>
 
                     {/* BLOQUE FORMULARIO DERECHA */}
                     <div className="bg-blue2 bg-gradient-to-t from-degrade px-12 py-4 rounded-md w-96 flex flex-col justify-center">
                         {/* TÍTULO */}
-                        <h2 className="font-modern text-2xl mb-5">
-                            crear cuenta
-                        </h2>
+                        <h2 className="font-modern text-2xl mb-5">crear cuenta</h2>
 
                         {/* FORM */}
-                        <form
-                            className="flex flex-col"
-                            onSubmit={handleSubmit(formSubmit)}
-                        >
+                        <form className="flex flex-col" onSubmit={handleSubmit(formSubmit)}>
                             {/* NOMBRE */}
                             <div className="flex flex-col mb-3">
-                                <label
-                                    htmlFor="name"
-                                    className="uppercase text-xs"
-                                >
+                                <label htmlFor="name" className="uppercase text-xs">
                                     nombre
                                 </label>
                                 <input
@@ -101,34 +103,26 @@ const Register = () => {
                                     {...register('name', {
                                         required: {
                                             value: true,
-                                            message:
-                                                '* este campo es obligatorio'
+                                            message: '* este campo es obligatorio'
                                         },
                                         minLength: {
                                             value: 3,
-                                            message:
-                                                '* el nombre debe tener al menos 3 caracteres'
+                                            message: '* el nombre debe tener al menos 3 caracteres'
                                         },
                                         maxLength: {
                                             value: 20,
-                                            message:
-                                                '* el nombre debe tener máximo 20 caracteres'
+                                            message: '* el nombre debe tener máximo 20 caracteres'
                                         }
                                     })}
                                 />
                                 {errors.name && (
-                                    <span className="text-red font-bold text-xs leading">
-                                        {errors.name.message}
-                                    </span>
+                                    <span className="text-red text-xs leading">{errors.name.message}</span>
                                 )}
                             </div>
 
                             {/* APELLIDO */}
                             <div className="flex flex-col mb-3">
-                                <label
-                                    htmlFor="lastname"
-                                    className="uppercase text-xs"
-                                >
+                                <label htmlFor="lastname" className="uppercase text-xs">
                                     apellido
                                 </label>
                                 <input
@@ -140,23 +134,20 @@ const Register = () => {
                                     {...register('lastname', {
                                         required: {
                                             value: true,
-                                            message:
-                                                '* este campo es obligatorio'
+                                            message: '* este campo es obligatorio'
                                         },
                                         minLength: {
                                             value: 3,
-                                            message:
-                                                '* el apellido debe tener al menos 3 caracteres'
+                                            message: '* el apellido debe tener al menos 3 caracteres'
                                         },
                                         maxLength: {
                                             value: 20,
-                                            message:
-                                                '* el apellido debe tener máximo 20 caracteres'
+                                            message: '* el apellido debe tener máximo 20 caracteres'
                                         }
                                     })}
                                 />
                                 {errors.lastname && (
-                                    <span className="text-red font-bold text-xs leading">
+                                    <span className="text-red text-xs leading">
                                         {errors.lastname.message}
                                     </span>
                                 )}
@@ -164,10 +155,7 @@ const Register = () => {
 
                             {/* CORREO */}
                             <div className="flex flex-col mb-3">
-                                <label
-                                    htmlFor="email"
-                                    className="uppercase text-xs"
-                                >
+                                <label htmlFor="email" className="uppercase text-xs">
                                     E-mail
                                 </label>
                                 <input
@@ -179,29 +167,22 @@ const Register = () => {
                                     {...register('email', {
                                         required: {
                                             value: true,
-                                            message:
-                                                '* este campo es obligatorio'
+                                            message: '* este campo es obligatorio'
                                         },
                                         pattern: {
                                             value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                                            message:
-                                                '* por favor valide que el correo este correcto'
+                                            message: '* por favor valide que el correo este correcto'
                                         }
                                     })}
                                 />
                                 {errors.email && (
-                                    <span className="text-red font-bold text-xs leading">
-                                        {errors.email.message}
-                                    </span>
+                                    <span className="text-red text-xs leading">{errors.email.message}</span>
                                 )}
                             </div>
 
                             {/* PASSWORD */}
                             <div className="flex flex-col mb-3">
-                                <label
-                                    htmlFor="password"
-                                    className="uppercase text-xs"
-                                >
+                                <label htmlFor="password" className="uppercase text-xs">
                                     contraseña
                                 </label>
                                 <div className="relative rounded-md">
@@ -214,8 +195,7 @@ const Register = () => {
                                         {...register('password', {
                                             required: {
                                                 value: true,
-                                                message:
-                                                    '* este campo es obligatorio'
+                                                message: '* este campo es obligatorio'
                                             },
                                             pattern: {
                                                 value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
@@ -231,14 +211,12 @@ const Register = () => {
                                         {showPwd ? (
                                             <FontAwesomeIcon icon={faEye} />
                                         ) : (
-                                            <FontAwesomeIcon
-                                                icon={faEyeSlash}
-                                            />
+                                            <FontAwesomeIcon icon={faEyeSlash} />
                                         )}
                                     </span>
                                 </div>
                                 {errors.password && (
-                                    <span className="text-red font-bold text-xs leading">
+                                    <span className="text-red text-xs leading">
                                         {errors.password.message}
                                     </span>
                                 )}
@@ -246,10 +224,7 @@ const Register = () => {
 
                             {/* CONFIRMACION DE PASSWORD */}
                             <div className="flex flex-col mb-3">
-                                <label
-                                    htmlFor="password2"
-                                    className="uppercase text-xs"
-                                >
+                                <label htmlFor="password2" className="uppercase text-xs">
                                     confirmar contraseña
                                 </label>
                                 <div className="relative rounded-md">
@@ -262,54 +237,45 @@ const Register = () => {
                                         {...register('password2', {
                                             required: {
                                                 value: true,
-                                                message:
-                                                    '* confirmar comtraseña es requerido'
+                                                message: '* confirmar comtraseña es requerido'
                                             },
                                             validate: value =>
-                                                value === watch('password') ||
-                                                '* las contraseñas no coinciden'
+                                                value === watch('password') || '* las contraseñas no coinciden'
                                         })}
                                     />
                                     <span
                                         onClick={() => setShowPwd2(!showPwd2)}
-                                        className="absolute inset-y-0 right-0 flex items-center pr-3 fill-red"
+                                        className="absolute inset-y-0 right-0 flex items-center pr-3 text-blue"
                                     >
                                         {showPwd2 ? (
                                             <FontAwesomeIcon icon={faEye} />
                                         ) : (
-                                            <img
-                                                src={EyeSlash}
-                                                alt="Logo AutoGo"
-                                            />
-                                            // <FontAwesomeIcon
-                                            //     icon={faEyeSlash}
-                                            // />
+                                            // <img src={EyeSlash} alt="Logo AutoGo" />
+                                            <FontAwesomeIcon icon={faEyeSlash} />
                                         )}
                                     </span>
                                 </div>
                                 {errors.password2 && (
-                                    <span className="text-red font-bold text-xs leading">
+                                    <span className="text-red text-xs leading">
                                         {errors.password2.message}
                                     </span>
                                 )}
                             </div>
                             <div className="text-center">
                                 <button
-                                    // onClick={() => sendEmail()}
                                     type="submit"
-                                    // disabled={emailSent ? 'disabled' : ''}
                                     className="bg-red text-white px-16 py-2 rounded-lg uppercase font-modern mt-1"
                                 >
                                     crear
                                 </button>
                                 <p className="mt-1 text-xs pt-2">
-                                    Por favor, verifica tu registro a través del
-                                    correo electrónico que hemos enviado a tu
-                                    dirección de correo electrónico
+                                    Por favor, verifica tu registro a través del correo electrónico que hemos enviado a
+                                    tu dirección de correo electrónico
                                 </p>
                                 <hr className="mt-5" />
                                 <p className="mt-1 text-sm">
-                                    Reenviar correo de confirmación 00:59
+                                    <button type="submit">Reenviar correo de confirmación</button>
+                                    {/* 00:59 */}
                                 </p>
                             </div>
                         </form>
