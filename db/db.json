@@ -1,19 +1,20 @@
 {
   "vehicles": [
     {
-      "brand": "Duccati",
-      "model": "golf",
-      "category": "motocicleta",
-      "serialBody": "carroceria333",
-      "serialMotor": "115hp",
-      "color": "gris",
+      "brand": "volkswagen",
+      "model": "amarok",
+      "category": "Selec. una categoria",
+      "serialBody": "ty5542589sdxx7",
+      "serialMotor": "ty5542589sdxx7",
+      "color": "gris urbano",
       "year": "2024",
-      "plaque": "654",
-      "operative": true,
-      "observation": "el auto esta perfecto",
-      "description": "descr",
-      "isFav": false,
-      "id": "12a4"
+      "plaque": "af792fc",
+      "operative": false,
+      "observation": "pintar",
+      "description": "ideal para campo",
+      "photo": {},
+      "id": "12a4",
+      "isFav": false
     },
     {
       "brand": "Renault",
@@ -27,8 +28,7 @@
       "operative": true,
       "observation": "asdasd",
       "description": "asdasd",
-      "photo": {},
-      "id": "eb28"
+      "isFav": false
     },
     {
       "id": "e469",
@@ -46,33 +46,19 @@
       "isFav": false
     },
     {
-      "id": "efd4",
-      "brand": "pablo",
-      "model": "asdasd",
-      "category": "tractor",
-      "serialBody": "asdasd",
-      "serialMotor": "asdasd",
-      "color": "asdasd",
-      "year": "2018",
-      "plaque": "asdasd",
-      "operative": true,
-      "observation": "asd",
-      "description": "asdasd",
-      "isFav": false
-    },
-    {
-      "id": "8fd8",
-      "brand": "pablo",
+      "brand": "volkswagen",
+      "model": "amarok",
       "category": "camioneta",
-      "description": "aire acondicionado",
-      "model": "asdasd",
-      "observation": "dddddd",
-      "operative": true,
-      "plaque": "ddddd",
-      "serialBody": "asdasd",
-      "serialMotor": "motor777",
-      "year": "2019",
-      "isFav": false
+      "serialBody": "ty5542589sdxx7",
+      "serialMotor": "ty5542589sdxx7",
+      "color": "gris urbano",
+      "year": "2021",
+      "plaque": "af792fc",
+      "operative": false,
+      "observation": "pintar",
+      "description": "ideal para campo",
+      "photo": {},
+      "id": "efd4"
     },
     {
       "id": "c04b",
@@ -83,9 +69,9 @@
       "observation": "adafaf",
       "operative": true,
       "plaque": "adf",
-      "serialBody": "adfdsf",
-      "serialMotor": "adkjfñlkdsajf",
-      "year": "2007",
+      "serialBody": "afd",
+      "serialMotor": "adfadf",
+      "year": "2016",
       "isFav": false
     }
   ],
@@ -107,30 +93,6 @@
       "name": "motocicleta",
       "description": "Ideal para recorre las ciudades",
       "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
-    },
-    {
-      "id": "b429",
-      "name": "monopatin",
-      "description": "ideal para usar en la ciudad",
-      "icon": "/src/assets/iconcategories/icon-notfound.svg"
-    },
-    {
-      "id": "0162",
-      "name": "bicicleta",
-      "description": "montaña",
-      "icon": "/src/assets/iconcategories/icon-notfound.svg"
-    },
-    {
-      "id": "d127",
-      "name": "tractocamion",
-      "description": "vehiculo con mas de 6 ejes",
-      "icon": "/src/assets/iconcategories/icon-notfound.svg"
-    },
-    {
-      "id": "8064",
-      "name": "tractocamion",
-      "description": "cualquiera",
-      "icon": "/src/assets/iconcategories/icon-notfound.svg"
     }
   ],
   "users": [

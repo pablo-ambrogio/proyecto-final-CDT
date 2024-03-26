@@ -7,7 +7,7 @@ import { years } from '../../../utils/utils'
 import { NavBarContext } from "../../../../context/NavbarContext";
 
 
-const defaultValues = {
+export const defaultValues = {
     brand: "",
     model: "",
     category: "",
@@ -26,8 +26,8 @@ const AddVehicle = () => {
 
     const navigate = useNavigate()
     const { id } = useParams()
-
     const { setDataForId, dataForId, searchDataForId } = useContext(NavBarContext)
+
     const { register, handleSubmit, formState: { errors }, reset } = useForm(defaultValues);
 
     const [categories, setCategories] = useState([])
@@ -72,6 +72,7 @@ const AddVehicle = () => {
     }, [])
 
     useEffect(() => {
+        console.log(id);
         if (id) {
             searchDataForId(id)
         } else {
@@ -81,7 +82,6 @@ const AddVehicle = () => {
     }, [id])
 
     const onSubmit = handleSubmit((data) => {
-
         if (id) {
             axios.put("http://localhost:3000/vehicles/" + id, data)
         } else {
@@ -106,7 +106,7 @@ const AddVehicle = () => {
             }
             axios.post("http://localhost:3000/vehicles", refactorizadoData);
         }
-        reset()
+        // reset()
         navigate("/admin/vehicles-list")
     });
 
@@ -149,12 +149,12 @@ const AddVehicle = () => {
                                                 value={brand}
                                                 className="w-3/5 bg-white text-[#010101] pl-1 outline-none"
                                                 {...register("brand", {
+                                                    // value: brand,
                                                     required: {
                                                         value: true,
                                                         message: message.req
                                                     },
-                                                    value: brand
-                                                    ,
+
                                                     // setValueAs: v => {
                                                     //     parseInt(v)
                                                     //     console.log(v)

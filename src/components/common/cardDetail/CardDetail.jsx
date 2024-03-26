@@ -1,16 +1,20 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import CarMobi from '../../../assets/car-mobi.svg'
 import IconFav from '../../../assets/icon-fav.svg'
 import IconFavRed from '../../../assets/icon-fav-red.svg'
 import axios from 'axios'
+import { FilterContext } from '../../../context/FilterContext'
 import Policies from '../../pages/Policies'
 import Modal from '../modal/Modal'
+
 
 const CardDetail = () => {
     const { id } = useParams()
     const [fav, setFav] = useState(false)
     const [modal, setModal] = useState(false)
+
+    const { vehicleId, getVehicleForId } = useContext(FilterContext)
 
     const getFav = async () => {
         const { data } = await axios.get(`http://localhost:3000/vehicles/${id}`)
@@ -29,7 +33,9 @@ const CardDetail = () => {
 
     useEffect(() => {
         getFav()
+        getVehicleForId(id)
     }, [id])
+    console.log(vehicleId);
 
     useEffect(() => {
         putFav()
@@ -40,22 +46,19 @@ const CardDetail = () => {
             <article className="bg-grey p-8 text-blue lg:h-[28rem] sm:h-auto rounded-lg max-w-4xl mx-auto">
                 <section className="flex justify-between items-center pr-2">
                     <div>
-                        <h1 className="text-2xl font-bold">Fiat mobi 1.0</h1>
-                        <p className="uppercase text-sm">
-                            GRUPO C - ECONÓMICO CON AIRE MECÁNICO
-                        </p>
+                        <h1
+                            className='text-2xl font-bold'
+                        >{vehicleId.brand}</h1>
+                        <p
+                            className='uppercase text-sm'
+                        >{vehicleId.category}</p>
                     </div>
-                    <div onClick={handleFav}>
-                        {/* {
-                            fav &&
-                            <img src={IconFavRed} alt="" />
-                        } */}
-
-                        {!fav ? (
-                            <img src={IconFav} alt="" />
-                        ) : (
-                            <img src={IconFavRed} alt="" />
-                        )}
+                    <div
+                        onClick={handleFav}
+                    >
+                        <img src={`
+                        ${!fav ? IconFav : IconFavRed}`
+                        } alt="icono de corazon, sirve para marcar como favorito" />
                     </div>
                 </section>
                 <section className="grid lg:grid-cols-2 lg:grid-rows-4 h-4/5 gap-x-4 md:gap-6">

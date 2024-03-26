@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <>
             <header className="flex flex-col sticky top-0">
-                <nav class="flex items-center justify-between flex-wrap bg-blue py-2 px-6">
+                <nav className="flex items-center justify-between flex-wrap bg-blue py-2 px-6">
                     {/* icono del logo */}
                     <Link
                         to="/"
@@ -19,13 +19,13 @@ const Header = () => {
                     </Link>
 
                     {/* icono de hamburguesa */}
-                    <div class="block lg:hidden">
-                        <a class="flex items-center border-0 rounded hover:text-white hover:border-white">
+                    <div className="block lg:hidden">
+                        <a className="flex items-center border-0 rounded hover:text-white hover:border-white">
                             <img src={Menu} alt="menú" className="text-white" />
                         </a>
                     </div>
 
-                    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+                    <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                         {/* barra de links */}
                         <Navbar />
 
