@@ -26,7 +26,7 @@ const CategoriesList = () => {
                 className="w-full grid justify-center mt-8 uppercase"
             >
                 <table>
-                    <thead className="uppercase text-center border border-blue">
+                    <thead className="uppercase text-center border border-secondary">
                         <tr className="grid grid-cols-[50px,1fr,1fr]">
                             <th className="col-span-1">
                                 Icon
@@ -39,11 +39,11 @@ const CategoriesList = () => {
                             </th>
                         </tr>
                     </thead>
-                    <tbody className="border border-blue">
+                    <tbody className="border border-secondary">
                         {
                             categories.map(category => {
                                 return (
-                                    <tr className="grid grid-cols-[50px,1fr,1fr] border border-blue" key={category.id}>
+                                    <tr className="grid grid-cols-[50px,1fr,1fr] border border-secondary" key={category.id}>
                                         <td className="col-span-1 justify-self-center">
                                             <img src={category.icon} alt="" />
                                         </td>

@@ -3,10 +3,10 @@ const Policies = () => {
         <>
             <main className="flex flex-col bg-white">
                 <div className="">
-                    <h2 className="px-10 pt-10 text-blue text-2xl uppercase font-modern">
+                    <h2 className="px-10 pt-10 text-secondary text-2xl uppercase font-modern">
                         Política de producto
                     </h2>
-                    <p className="px-10 text-blue text-md ">
+                    <p className="px-10 text-secondary text-md ">
                         En nuestra empresa, la seguridad es nuestra prioridad.
                         Queremos asegurarnos de que nuestros clientes viajen de
                         manera segura y confiable. Por eso, hemos establecido
@@ -16,7 +16,7 @@ const Policies = () => {
 
                 <div className="grid grid-cols-3 gap-5 h-96 p-10">
                     {/* BLOQUE IZQUIERDA */}
-                    <div className="grid bg-blue2 text-white p-10 rounded-lg gap-2 shadow-lg">
+                    <div className="grid bg-secondary text-white p-10 rounded-lg gap-2 shadow-lg">
                         <ul className="font-bold">
                             Uso Responsable de los Vehículos:
                             <li className="ml-5 list-disc font-normal">
@@ -47,7 +47,7 @@ const Policies = () => {
                     </div>
 
                     {/* BLOQUE CENTRO */}
-                    <div className="grid bg-grey text-blue p-10 rounded-lg gap-2 ">
+                    <div className="grid bg-grey text-secondary p-10 rounded-lg gap-2 ">
                         <ul className="font-bold">
                             Reporte de Incidentes:
                             <li className="ml-5 list-disc font-normal">
@@ -77,7 +77,7 @@ const Policies = () => {
                     </div>
 
                     {/* BLOQUE DERECHA */}
-                    <div className="grid bg-white text-blue p-10 rounded-lg gap-2  border border-grey">
+                    <div className="grid bg-white text-secondary p-10 rounded-lg gap-2  border border-grey">
                         <ul className="font-bold">
                             Cobertura básica que ampara el vehículo:
                             <li className="ml-5 list-disc font-normal">

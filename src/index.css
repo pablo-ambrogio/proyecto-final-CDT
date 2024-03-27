@@ -25,20 +25,13 @@
         /* background-color: #909090; */
     }
     a:hover {
-        color: #747bff;
+        color: #9D67AD;
     }
     button {
         background-color: #f9f9f9;
     }
 }
 
-/* nav ul li ul li .active {
-  color: #11468F;
-} */
 .active {
   color: #11468F;
-}
-
-.fill {
-  fill: #ff0000 !important;
 }

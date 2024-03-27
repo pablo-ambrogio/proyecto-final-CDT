@@ -46,17 +46,18 @@ const VehiclesList = () => {
     }, [vehicles])
 
     return (
-        <div className="h-screen text-blue max-w-7xl mx-auto p-4">
+        <div className="h-screen text-secondary max-w-7xl mx-auto p-4">
+
             <h1 className="text-xl font-semibold uppercase">Lista de vehiculos</h1>
-            <div className="flex justify-end">
-                <Link to={'/admin/add-vehicle'}>
-                    <button className="bg-blue text-white px-4 py-2 rounded-lg">
+            <div className='flex justify-end'>
+                <Link to={"/admin/add-vehicle"}>
+                    <button className='bg-secondary text-white px-4 py-2 rounded-lg'>
                         <span>Agregar vehículo</span>
                     </button>
                 </Link>
             </div>
-            <table className="w-full text-xs mt-8 border border-blue">
-                <thead className="uppercase text-center border border-blue">
+            <table className="w-full text-xs mt-8 border border-secondary">
+                <thead className="uppercase text-center border border-secondary">
                     <tr>
                         <th>Marca</th>
                         <th>Modelo</th>
@@ -89,51 +90,110 @@ const VehiclesList = () => {
                             description
                         } = vehicle
 
-                        return (
-                            <tr
-                                className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 uppercase text-center h-14"
-                                key={vehicle.id}
-                            >
-                                <td>
-                                    {vehicle.id === data.id && Object.entries(data).length > 0 ? (
-                                        <input
-                                            type="text"
-                                            className="bg-white border border-blue"
-                                            name={'brand'}
-                                            value={data.brand}
-                                            onChange={handleChange}
-                                        />
-                                    ) : (
-                                        brand
-                                    )}
-                                </td>
-                                <td>
-                                    {vehicle.id === data.id && Object.entries(data).length > 0 ? (
-                                        <input
-                                            type="text"
-                                            className="bg-white border border-blue"
-                                            name={'model'}
-                                            value={data.model}
-                                            onChange={handleChange}
-                                        />
-                                    ) : (
-                                        model
-                                    )}
-                                </td>
-                                <td>{category}</td>
-                                <td>{serialBody}</td>
-                                <td>{serialMotor}</td>
-                                <td>{color}</td>
-                                <td>{year}</td>
-                                <td>{plaque}</td>
-                                <td>
-                                    {vehicle.id === data.id && Object.entries(data).length > 0 ? (
-                                        <select
-                                            id=""
-                                            name={'operative'}
-                                            value={data.operative}
-                                            onChange={handleChange}
-                                            className="bg-white"
+                            let { brand, model, category, serialBody, serialMotor, color, year, plaque, operative, observation, description } = vehicle
+
+                            return (
+
+                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 uppercase text-center h-14" key={vehicle.id}>
+                                    <td>
+                                        {
+                                            vehicle.id === data.id &&
+                                                Object.entries(data).length > 0 ?
+                                                <input type="text"
+                                                    className='bg-white border border-secondary'
+                                                    name={"brand"}
+                                                    value={data.brand}
+                                                    onChange={handleChange}
+                                                />
+                                                :
+                                                brand
+                                        }
+                                    </td>
+                                    <td >
+                                        {
+                                            vehicle.id === data.id &&
+                                                Object.entries(data).length > 0 ?
+                                                <input type="text"
+                                                    className='bg-white border border-secondary'
+                                                    name={"model"}
+                                                    value={data.model}
+                                                    onChange={handleChange}
+                                                />
+                                                :
+                                                model
+                                        }
+                                    </td>
+                                    <td>
+                                        {category}
+                                    </td>
+                                    <td >
+                                        {serialBody}
+                                    </td>
+                                    <td >
+                                        {serialMotor}
+                                    </td>
+                                    <td >
+                                        {color}
+                                    </td>
+                                    <td >
+
+                                        {year}
+                                    </td>
+                                    <td>
+                                        {plaque}
+                                    </td>
+                                    <td>
+                                        {
+                                            vehicle.id === data.id &&
+                                                Object.entries(data).length > 0 ?
+                                                <select id=""
+                                                    name={"operative"}
+                                                    value={data.operative}
+                                                    onChange={handleChange}
+                                                    className='bg-white'
+                                                >
+                                                    <option value={true}>si</option>
+                                                    <option value={false}>no</option>
+                                                </select>
+                                                :
+                                                operative || operative === "true" ? "Si" : "No"
+                                        }
+                                    </td>
+                                    <td>
+                                        {
+                                            vehicle.id === data.id &&
+                                                Object.entries(data).length > 0 ?
+                                                <input type="text"
+                                                    className='bg-white border border-secondary'
+                                                    name={"observation"}
+                                                    value={data.observation}
+                                                    onChange={handleChange}
+                                                />
+                                                :
+                                                observation
+                                        }
+                                    </td>
+                                    <td >
+                                        {
+                                            vehicle.id === data.id &&
+                                                Object.entries(data).length > 0 ?
+                                                <input type="text"
+                                                    className='bg-white border border-secondary'
+                                                    name={"description"}
+                                                    value={data.description}
+                                                    onChange={handleChange}
+                                                />
+                                                :
+                                                description
+                                        }
+                                    </td>
+                                    <td>
+                                        <img src={Amarok} alt="Foto de vehículo cargado" width={80} />
+                                    </td>
+                                    <td
+                                        className='flex justify-around items-center h-14 uppercase'
+                                    >
+                                        <span
                                         >
                                             <option value={true}>si</option>
                                             <option value={false}>no</option>

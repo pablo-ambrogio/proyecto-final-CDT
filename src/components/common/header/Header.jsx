@@ -8,13 +8,10 @@ import NavSearch from './NavSearch'
 const Header = () => {
     return (
         <>
-            <header className="flex flex-col sticky top-0">
-                <nav className="flex items-center justify-between flex-wrap bg-blue py-2 px-6">
+            <header className="flex flex-col sticky top-0 bg-blue2  bg-gradient-to-t from-degrade to-secondary py-4 z-10">
+                <nav className="flex w-full items-center justify-between flex-wrap text-secondary h-full px-4 max-w-7xl mx-auto">
                     {/* icono del logo */}
-                    <Link
-                        to="/"
-                        className="flex items-center flex-shrink-0 mr-6 hover:transition-in-out duration-300 hover:scale-110 hover:transition-in-out"
-                    >
+                    <Link to="/">
                         <img src={LogoHeader} alt="Logo AutoGo" />
                     </Link>
 
@@ -35,7 +32,6 @@ const Header = () => {
                         </div>
                     </div>
                 </nav>
-
                 {/* barra de busqueda */}
                 <NavSearch />
             </header>

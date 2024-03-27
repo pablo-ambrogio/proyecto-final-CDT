@@ -25,13 +25,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
   <React.StrictMode>
     <BrowserRouter>
+
       <NavBarContextProvider>
         <FilterContextProvider>
           <Routes>
             <Route path='/' element={<App />}>
 
               <Route path='/' element={<Vehicles />} />
-              {/* <Route path="register" element={<Register />} /> */}
               <Route path="favorite" element={<Favorite />} />
               <Route path="about-us" element={<AboutUs />} />
               <Route path='vehicles/:id' element={<DetailsCar />} />

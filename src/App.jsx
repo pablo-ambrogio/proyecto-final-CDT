@@ -21,23 +21,16 @@ function App() {
   return (
     <>
       <div
-        className="grid min-h-screen grid-rows-[150px,1fr,70px]"
+        className="grid min-h-screen grid-rows-[180px,1fr,100px]"
       >
-        {/* {
-          !isPathnameAdmin &&
-        } */}
         <Header />
-        <section className="mx-auto w-full">
+        <section className="mx-auto max-w-7xl w-full py-8">
           {
             !pathname.includes("/favorite") & !isPathnameAdmin &&
             <Filter />
           }
           <Outlet />
         </section>
-
-        {/* {
-          !isPathnameAdmin &&
-        } */}
         <Footer />
       </div>
 

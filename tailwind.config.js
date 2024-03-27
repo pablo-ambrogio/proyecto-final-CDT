@@ -6,10 +6,10 @@ export default {
             modern: ['Modern Age']
         },
         colors: {
-            red: '#DA1212',
-            blue: '#041562',
+            primary: '#DA2B2B',
+            secondary: '#213B73',
             blue2: '#11468F',
-            degrade: '#89A3C8',
+            degrade: '#6FA8F9',
             white: '#FFF',
             grey: '#D9D9D9',
             darkgrey: '#010101'

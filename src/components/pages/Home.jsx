@@ -17,7 +17,7 @@ const Home = () => {
                 className='w-3/5 flex items-center relative'
             >
                 <section
-                    className='bg-blue w-[48rem] h-[400px] 2xl:w-[1000px] 2xl:h-[500px] flex flex-col justify-center items-center gap-8 absolute left-[-10%] top-[12%] z-0'
+                    className='bg-secondary w-[48rem] h-[400px] 2xl:w-[1000px] 2xl:h-[500px] flex flex-col justify-center items-center gap-8 absolute left-[-10%] top-[12%] z-0'
                 >
                     <div
                         className='w-4/5 flex justify-between px-8'
@@ -59,7 +59,7 @@ const Home = () => {
                             </div>
                         </div>
                         <button type="submit"
-                            className='bg-red font-bold w-48 py-2 mt-8 rounded-lg'
+                            className='bg-primary font-bold w-48 py-2 mt-8 rounded-lg'
                         >Buscar</button>
                     </form>
                 </section>
