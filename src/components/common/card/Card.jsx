@@ -5,17 +5,20 @@ import ButtonFav from '../buttonFav/ButtonFav'
 
 const Card = ({ vehicle }) => {
 
-    const { id, brand, category } = vehicle
+    const { id, brand, category, isFav } = vehicle
 
     const handleClick = () => {
         alert('Estamos trabajando para que puedas reservar tu automovil')
     }
 
     return (
-        <div className="w-full h-full bg-grey text-[#000] rounded-lg">
-            <ButtonFav id={id} />
-            <p>{id}</p>
-            <div className="max-w-sm mx-auto h-full py-8 grid gap-y-4">
+        <div className="w-full h-full bg-grey text-[#000] rounded-lg py-6">
+            <div
+                className='flex justify-end pr-4'
+            >
+                <ButtonFav id={id} isFav={isFav} />
+            </div>
+            <div className="max-w-sm mx-auto grid gap-y-4">
                 <Link to={`/vehicles/${id}`}
                     className='block'
                 >
@@ -35,15 +38,13 @@ const Card = ({ vehicle }) => {
                         </div>
                     </div>
                 </Link>
-                <div className="w-4/5 mx-auto text-center grid gap-y-2">
-                    <button type="submit" className="bg-secondary text-white rounded-lg px-4 py-2 first-letter:capitalize hover:opacity-80" onClick={handleClick}>
+                <div className="w-4/5 mx-auto text-center flex flex-col gap-y-2">
+                    <button type="submit" className="bg-secondary text-white rounded-lg h-12 px-4 py-2 first-letter:capitalize hover:opacity-80" onClick={handleClick}>
                         reservar ahora
                     </button>
-                    <div>
-                        <Link to={`/vehicles/${id}`} className="hover:text-secondary">
-                            Mostrar mas detalles
-                        </Link>
-                    </div>
+                    <Link to={`/vehicles/${id}`} className="hover:text-secondary">
+                        Mostrar mas detalles
+                    </Link>
                 </div>
             </div>
         </div>

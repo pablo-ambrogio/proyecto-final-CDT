@@ -61,25 +61,23 @@ const Filter = () => {
                     {
                         categories.map(category => {
                             return (
-                                <>
-                                    <div key={category.id}
-                                        onClick={hanldeText}
-                                        className="px-4 py-2 border border-secondary rounded-md text-sm"
+                                <div key={category.id}
+                                    onClick={hanldeText}
+                                    className="px-4 py-2 border border-secondary rounded-md text-sm"
+                                >
+                                    <label htmlFor={category.name}
+                                        className={`${isCheck && " text-primary"} text-secondary cursor-pointer`}
                                     >
-                                        <label htmlFor={category.name}
-                                            className={`${isCheck && " text-primary"} text-secondary cursor-pointer`}
-                                        >
-                                            <input type="checkbox"
-                                                className="hidden"
-                                                id={category.name}
-                                                name={category.name}
-                                                value={category.name}
-                                                onChange={handleCheck}
-                                            />
-                                            {category.name}
-                                        </label>
-                                    </div>
-                                </>
+                                        <input type="checkbox"
+                                            className="hidden"
+                                            id={category.name}
+                                            name={category.name}
+                                            value={category.name}
+                                            onChange={handleCheck}
+                                        />
+                                        {category.name}
+                                    </label>
+                                </div>
                             )
                         })
                     }

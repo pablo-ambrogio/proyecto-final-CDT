@@ -1,14 +1,14 @@
 import CardDetail from "../common/cardDetail/CardDetail"
 import ExploreVehicles from "../common/exploreVehicles/ExploreVehicles"
 import ArrowBack from '../../assets/arrow-back.svg'
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 const DetailsCar = () => {
+
+    const { id } = useParams()
+
     return (
         <section className="h-full max-w-7xl">
-            <h1
-                className="font-bold text-secondary text-4xl uppercase mt-10 w-4/5 mx-auto max-w-screen-xl"
-            >detalles</h1>
             <section
                 className="w-full"
             >
@@ -51,7 +51,7 @@ const DetailsCar = () => {
                     // lg:col-span-1 
                     // sm:col-span-1 sm:row-span-1"
                     >
-                        <CardDetail />
+                        <CardDetail id={id} />
                     </div>
                 </section>
                 <ExploreVehicles />

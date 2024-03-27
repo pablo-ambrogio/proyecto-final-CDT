@@ -1,43 +1,31 @@
-import { useState, useEffect, useContext } from 'react'
-import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import CarMobi from '../../../assets/car-mobi.svg'
 import Policies from '../../pages/Policies'
 import Modal from '../modal/Modal'
-import { FavoriteContext } from '../../../context/FavoriteContext'
 import ButtonFav from '../buttonFav/ButtonFav'
+import axios from 'axios'
 
 
-const CardDetail = () => {
+const CardDetail = ({ id }) => {
 
-    const { setId, vehicleId } = useContext(FavoriteContext)
-
-    const { id } = useParams()
+    const [vehicleId, setVehicleId] = useState({})
     const [modal, setModal] = useState(false)
+    const [isData, setIsData] = useState(false)
+
+    const getVehicleForId = async id => {
+        const { data } = await axios.get(`http://localhost:3000/vehicles/${id}`)
+        setVehicleId({ ...data });
+        setIsData(true)
+    }
 
     useEffect(() => {
-        setId(id)
-    }, [id])
+        getVehicleForId(id)
+    }, [isData])
 
     return (
         <div>
-            <article className="p-8 text-secondary  sm:h-auto rounded-lg max-w-7xl mx-auto">
-                {/* <div className="flex justify-between items-center pr-2">
-                    <div>
-                        <h1
-                            className='text-2xl font-bold'
-                        >{vehicleId.brand}</h1>
-                        <p
-                            className='uppercase text-sm'
-                        >{vehicleId.category}</p>
-                    </div>
-                    <div
-                        onClick={handleFav}
-                    >
-                        <img src={`
-                        ${!fav ? IconFav : IconFavRed}`
-                        } alt="icono de corazon, sirve para marcar como favorito" />
-                    </div>
-                </div> */}
+            <article className="p-8 text-secondary sm:h-auto rounded-lg max-w-7xl mx-auto">
+                
                 <section className="grid grid-cols-2 grid-rows-[1fr,100px] h-full gap-x-4 md:gap-6">
                     <div className="lg:col-start-1 lg:col-end-2 row-span-1 self-center justify-self-center">
                         <div
@@ -59,14 +47,11 @@ const CardDetail = () => {
                                     className='uppercase text-2xl'
                                 >{vehicleId.category}</p>
                             </div>
-                            <ButtonFav />
-                            {/* <div
-                                onClick={handleFav}
-                            >
-                                <img src={`
-                        ${!fav ? IconFav : IconFavRed}`
-                                } alt="icono de corazon, sirve para marcar como favorito" />
-                            </div> */}
+                            {
+                                isData &&
+                                <ButtonFav id={id} isFav={vehicleId.isFav} />
+                            }
+                            
                         </div>
                         <p className="tracking-wider">
                             El Fiat Mobi 1.0 es un compacto producido en Brasil,

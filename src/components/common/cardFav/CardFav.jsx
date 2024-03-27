@@ -1,5 +1,6 @@
 import axios from 'axios'
 import CarMobi from '../../../assets/car-mobi.svg'
+import ButtonFav from '../buttonFav/ButtonFav'
 
 const CardFav = ({ vehicle }) => {
 
@@ -24,9 +25,10 @@ const CardFav = ({ vehicle }) => {
                         {brand}
                     </h2>
                     <div>
-                        <button type="submit" className='text-secondary' onClick={() => handleDelete(id)}>
+                        <ButtonFav id={id} isFav={vehicle.isFav} />
+                        {/* <button type="submit" className='text-secondary' onClick={() => handleDelete(id)}>
                             Eliminar
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </div>
