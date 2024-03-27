@@ -1,4 +1,3 @@
-import axios from 'axios'
 import CarMobi from '../../../assets/car-mobi.svg'
 import ButtonFav from '../buttonFav/ButtonFav'
 
