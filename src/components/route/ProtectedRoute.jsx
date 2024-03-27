@@ -1,8 +1,10 @@
+import { useContext } from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
+import { AuthAdminContext } from '../../context/AuthAdminContext'
 
 const ProtectedRoute = () => {
 
-    let admin = true
+    const { admin } = useContext(AuthAdminContext)
 
     if (!admin) {
         return <Navigate to={'/'} />

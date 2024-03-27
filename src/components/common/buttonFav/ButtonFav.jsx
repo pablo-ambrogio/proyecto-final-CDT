@@ -31,6 +31,7 @@ const ButtonFav = ({ id, isFav }) => {
         >
             <img
                 src={`${!fav ? IconFav : IconFavRed}`}
+                className="bg-grey"
                 alt="icono de corazon, sirve para marcar como favorito" />
         </button>
     )

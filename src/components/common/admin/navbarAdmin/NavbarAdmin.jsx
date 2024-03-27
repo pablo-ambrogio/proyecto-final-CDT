@@ -9,6 +9,11 @@ import BtnSignOff from "../btnSignOff/BtnSignOff";
 import { NavBarContext } from "../../../../context/NavbarContext";
 
 
+const style = {
+    div: "grid grid-cols-[4rem,1fr,3rem] place-items-center cursor-pointer"
+}
+
+
 const NavbarAdmin = () => {
 
     const {
@@ -68,11 +73,11 @@ const NavbarAdmin = () => {
                         />
                     </div>
                     <ul
-                        className="uppercase flex flex-col gap-y-8 row-span-1"
+                        className="uppercase flex flex-col gap-y-8 row-span-1 "
                     >
                         <li>
                             <div
-                                className={`grid grid-cols-[4rem,1fr,3rem] place-items-center`}
+                                className={style.div}
                                 onClick={handleVehicle}
                             >
                                 <img src={IconCar} alt="" className={`${viewNavbar ? "" : "col-span-3 justify-self-center"} w-8`} />
@@ -121,7 +126,7 @@ const NavbarAdmin = () => {
 
                         <li>
                             <div
-                                className="grid grid-cols-[4rem,1fr,3rem] place-items-center"
+                                className={style.div}
                                 onClick={handleCategory}
                             >
                                 <img src={IconReserve} alt="" className={`${viewNavbar ? "" : "col-span-3 justify-self-center"} w-8`} />
@@ -157,7 +162,7 @@ const NavbarAdmin = () => {
 
                         <li>
                             <div
-                                className="grid grid-cols-[4rem,1fr,3rem] place-items-center"
+                                className={style.div}
                                 onClick={handleUser}
                             >
                                 <img src={IconUser} alt="" className={`${viewNavbar ? "" : "col-span-3 justify-self-center"} w-8`} />
@@ -194,7 +199,7 @@ const NavbarAdmin = () => {
 
                         <li>
                             <div
-                                className="grid grid-cols-[4rem,1fr,3rem] place-items-center"
+                                className={style.div}
                                 onClick={handleConfiguration}
                             >
                                 <img src={IconConfig} alt="" className={`${viewNavbar ? "" : "col-span-3 justify-self-center"} w-8`} />
