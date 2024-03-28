@@ -74,7 +74,7 @@
       "serialBody": "afd",
       "serialMotor": "adfadf",
       "year": "2016",
-      "isFav": false
+      "isFav": true
     }
   ],
   "categories": [
@@ -115,6 +115,33 @@
       "password": "prueba123!",
       "password2": "prueba123!",
       "role": "user"
+    },
+    {
+      "id": "c783",
+      "username": "asdasd",
+      "password": "hola?123",
+      "apellido": "asdasd",
+      "email": "asdasd@asd.com",
+      "nombre": "asdasd",
+      "role": "customer"
+    },
+    {
+      "id": "49c1",
+      "username": "asdasd",
+      "password": "hola?123",
+      "apellido": "asdasd",
+      "email": "asdasd@asd.com",
+      "nombre": "asdasd",
+      "role": "customer"
+    },
+    {
+      "id": "9f2c",
+      "username": "pablo",
+      "password": "hola?123",
+      "apellido": "asdasd",
+      "email": "asdasd@asd.com",
+      "nombre": "asdasd",
+      "role": "customer"
     }
   ]
 }

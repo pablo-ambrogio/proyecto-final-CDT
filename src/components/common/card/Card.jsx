@@ -12,7 +12,7 @@ const Card = ({ vehicle }) => {
     }
 
     return (
-        <div className="w-full h-full bg-grey text-[#000] rounded-lg py-6">
+        <div className="w-4/5 md:w-full h-full bg-grey text-[#000] rounded-lg py-6">
             <div
                 className='flex justify-end pr-4'
             >
@@ -39,7 +39,7 @@ const Card = ({ vehicle }) => {
                     </div>
                 </Link>
                 <div className="w-4/5 mx-auto text-center flex flex-col gap-y-2">
-                    <button type="submit" className="bg-secondary text-white rounded-lg h-12 px-4 py-2 first-letter:capitalize hover:opacity-80" onClick={handleClick}>
+                    <button type="submit" className="bg-secondary text-white rounded-lg h-10 px-4 py-2 first-letter:capitalize hover:opacity-80" onClick={handleClick}>
                         reservar ahora
                     </button>
                     <Link to={`/vehicles/${id}`} className="hover:text-secondary">

@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <div
-        className="grid min-h-screen grid-rows-[180px,1fr,100px]"
+        className="grid min-h-screen grid-rows-[auto,1fr,100px]"
       >
 
         {!admin && <Header />}

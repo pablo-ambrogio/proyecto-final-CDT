@@ -18,20 +18,20 @@ const Register = () => {
         handleSubmit,
         formState: { errors },
         watch
-        // reset
     } = useForm()
 
     const formSubmit = handleSubmit(data => {
         setEmailSent(true)
 
         const refactorizacion = {
-            name: data.name,
-            lastname: data.lastname,
-            email: data.email,
+            username: data.username,
             password: data.password,
-            password2: data.password2,
-            role: 'user'
+            apellido: data.lastname,
+            email: data.email,
+            nombre: data.name,
+            role: 'CUSTOMER'
         }
+
         // Swal.fire({
         //     icon: 'success',
         //     html: '<p class = "text-secondary text-xl font-bold" >Usuario creado con éxito</p>',
@@ -48,6 +48,18 @@ const Register = () => {
         }
 
         axios.post('http://localhost:3000/users', refactorizacion)
+        // axios.post("http://localhost:8084/auth/register", refactorizacion, {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     }
+        // })
+        //     .then(res => {
+        //         console.log(res);
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     })
 
         // reset()
         sendEmail(data.email, data.name)
@@ -83,6 +95,47 @@ const Register = () => {
                             className="flex flex-col"
                             onSubmit={handleSubmit(formSubmit)}
                         >
+                            {/* USERNAME */}
+
+                            <div className="flex flex-col mb-3">
+                                <label
+                                    htmlFor="name"
+                                    className="uppercase text-xs"
+                                >
+                                    username
+                                </label>
+                                <input
+                                    className="rounded-md outline-none h-8 text-secondary font-bold pl-2 bg-grey"
+                                    type="text"
+                                    name="username"
+                                    id="username"
+                                    // disabled
+                                    autoComplete="off"
+                                    {...register('username', {
+                                        required: {
+                                            value: true,
+                                            message:
+                                                '* este campo es obligatorio'
+                                        },
+                                        minLength: {
+                                            value: 3,
+                                            message:
+                                                '* el nombre debe tener al menos 3 caracteres'
+                                        },
+                                        maxLength: {
+                                            value: 20,
+                                            message:
+                                                '* el nombre debe tener máximo 20 caracteres'
+                                        }
+                                    })}
+                                />
+                                {errors.username && (
+                                    <span className="text-primary font-bold text-xs leading">
+                                        {errors.name.message}
+                                    </span>
+                                )}
+                            </div>
+
                             {/* NOMBRE */}
                             <div className="flex flex-col mb-3">
                                 <label
@@ -309,7 +362,9 @@ const Register = () => {
                                 </p>
                                 <hr className="mt-5" />
                                 <p className="mt-1 text-sm">
-                                    Reenviar correo de confirmación 00:59
+                                    {
+                                        `Reenviar correo de confirmación 00:59`
+                                    }
                                 </p>
                             </div>
                         </form>
