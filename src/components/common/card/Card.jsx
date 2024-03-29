@@ -12,7 +12,7 @@ const Card = ({ vehicle }) => {
     }
 
     return (
-        <div className="w-4/5 md:w-full h-full bg-grey text-[#000] rounded-lg py-6">
+        <div className="w-11/12 md:w-full h-full bg-grey text-[#000] rounded-lg py-6">
             <div
                 className='flex justify-end pr-4'
             >

@@ -11,6 +11,9 @@ const NavBarContextProvider = ({ children }) => {
     const [viewNavbar, setViewNavbar] = useState(false)
     const [dataForId, setDataForId] = useState({})
 
+    const [menu, setMenu] = useState(false)
+
+
     const { reset } = useForm()
 
     const handleMouseEnter = () => {
@@ -37,7 +40,9 @@ const NavBarContextProvider = ({ children }) => {
         setDataForId,
         dataForId,
         searchDataForId,
-        reset
+        reset,
+        setMenu,
+        menu
     }
 
     return (

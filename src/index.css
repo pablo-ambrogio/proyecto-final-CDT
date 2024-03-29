@@ -27,11 +27,11 @@
     a:hover {
         color: #9D67AD;
     }
-    button {
+    /* button {
         background-color: #f9f9f9;
-    }
+    } */
 }
 
 .active {
-  color: #11468F;
+    color: #11468F;
 }

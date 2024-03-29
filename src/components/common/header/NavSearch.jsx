@@ -45,7 +45,7 @@ const NavSearch = () => {
 
     return (
         <>
-            <section className="flex flex-col lg:flex-row justify-center w-full p-4 gap-4 items-center text-white">
+            <section className="flex flex-col lg:flex-row justify-center w-full py-4 gap-4 items-center text-white">
                 <div className="flex lg:flex-1 flex-col w-full lg:w-fit">
                     <p className=' mb-2'>Ubicación para retirar el vehículo</p>
                     <input

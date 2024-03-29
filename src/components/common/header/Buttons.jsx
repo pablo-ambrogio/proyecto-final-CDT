@@ -7,11 +7,12 @@ const Modal = () => {
     const [modal1, setModal1] = useState(false)
     const [modal2, setModal2] = useState(false)
 
+
     return (
         <>
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="flex justify-center w-full gap-4">
                 <button
-                    className="h-10 px-4 leading-none rounded-lg text-white border-0 bg-primary hover:bg-grey hover:text-secondary cursor-pointer font-bold first-letter:uppercase transition-in-out duration-300"
+                    className="h-10 px-4 w-full lg:w-fit rounded-lg text-white border-0 bg-primary hover:bg-grey hover:text-secondary cursor-pointer font-bold first-letter:uppercase transition-in-out duration-300"
                     onClick={() => {
                         setModal2(!modal2)
                     }}
@@ -19,7 +20,7 @@ const Modal = () => {
                     crear usuario
                 </button>
                 <button
-                    className="h-10 px-4 leading-none rounded-lg text-white border-0 bg-primary hover:bg-grey hover:text-secondary cursor-pointer font-bold first-letter:uppercase transition-in-out duration-300"
+                    className="h-10 px-4 w-full lg:w-fit rounded-lg text-white border-0 bg-primary hover:bg-grey hover:text-secondary cursor-pointer font-bold first-letter:uppercase transition-in-out duration-300"
                     onClick={() => {
                         setModal1(!modal1)
                     }}

@@ -46,7 +46,7 @@ const Filter = () => {
 
     return (
         <section
-            className="text-[#010101] mx-auto px-4"
+            className="text-[#010101] mx-auto px-4 w-11/12 md:w-full"
         >
             <div
                 className=" flex flex-col gap-y-4 "
