@@ -34,7 +34,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Route path='/' element={<App />}>
 
                 <Route path='/' element={<Vehicles />} />
-                <Route path="favorite" element={<Favorite />} />
+                <Route path="favorite" element={<Favorite />} loader={({ params, request }) => {
+                  console.log(params);
+                  console.log(request);
+                }} />
                 <Route path="about-us" element={<AboutUs />} />
                 <Route path='vehicles/:id' element={<DetailsCar />} />
                 <Route path='login' element={<Login />} />

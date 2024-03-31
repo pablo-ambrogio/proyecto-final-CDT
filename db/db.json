@@ -30,7 +30,7 @@
       "description": "asdasd",
       "photo": {},
       "id": "eb28",
-      "isFav": false
+      "isFav": true
     },
     {
       "id": "e469",
@@ -45,7 +45,7 @@
       "operative": true,
       "observation": "asdasd",
       "description": "asdasd",
-      "isFav": false
+      "isFav": true
     },
     {
       "brand": "volkswagen",
