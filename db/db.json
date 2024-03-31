@@ -17,18 +17,19 @@
       "isFav": false
     },
     {
-      "id": "eb28",
       "brand": "pablo",
       "model": "asdasd",
-      "category": "camioneta",
+      "category": "Selec. una categoria",
       "serialBody": "asdasd",
       "serialMotor": "motor777",
       "color": "asdasd",
       "year": "2017",
       "plaque": "asdasd",
-      "operative": true,
+      "operative": false,
       "observation": "asdasd",
       "description": "asdasd",
+      "photo": {},
+      "id": "eb28",
       "isFav": true
     },
     {
@@ -74,7 +75,7 @@
       "serialBody": "afd",
       "serialMotor": "adfadf",
       "year": "2016",
-      "isFav": true
+      "isFav": false
     }
   ],
   "categories": [
@@ -95,6 +96,12 @@
       "name": "motocicleta",
       "description": "Ideal para recorre las ciudades",
       "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
+    },
+    {
+      "id": "36ba",
+      "name": "pablo",
+      "description": "asdadasd",
+      "icon": "/src/assets/iconcategories/icon-notfound.svg"
     }
   ],
   "users": [

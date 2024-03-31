@@ -5,7 +5,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import LogoShort from '../../assets/Logo_Short 2.svg'
 import axios from 'axios'
 
-const Register = () => {
+const Login = () => {
     const [showPwd, setShowPwd] = useState(false)
 
     const {
@@ -156,4 +156,4 @@ const Register = () => {
         </>
     )
 }
-export default Register
+export default Login

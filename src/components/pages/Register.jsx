@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 // import Swal from 'sweetalert2'
 import Logo from '../../assets/Logo 1.svg'
-import Eye from '../../assets/eye-solid.svg'
+// import Eye from '../../assets/eye-solid.svg'
 import EyeSlash from '../../assets/eye-slash-solid.svg'
 import axios from 'axios'
 
 const Register = () => {
     const [showPwd, setShowPwd] = useState(false)
     const [showPwd2, setShowPwd2] = useState(false)
-    const [emailSent, setEmailSent] = useState(false)
+    // const [emailSent, setEmailSent] = useState(false)
 
     const {
         register,
@@ -20,10 +20,20 @@ const Register = () => {
         watch
     } = useForm()
 
-    const formSubmit = handleSubmit(data => {
-        setEmailSent(true)
+    const login = (settings) => {
 
-        const refactorizacion = {
+        console.log(settings);
+
+        const { response } = axios.post("http://localhost:8084/auth/register", settings)
+        console.log(response);
+        // console.log(res);
+
+    }
+
+    const formSubmit = handleSubmit(data => {
+        // setEmailSent(true)
+
+        const payload = {
             username: data.username,
             password: data.password,
             apellido: data.lastname,
@@ -32,42 +42,44 @@ const Register = () => {
             role: 'CUSTOMER'
         }
 
+
+        for (const key in payload) {
+            if (typeof payload[key] === 'string') {
+                payload[key] = payload[key].toLowerCase()
+            }
+        }
+        console.log(payload);
+
+        const settings = {
+            method: 'POST',
+            body: JSON.stringify(payload),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        login(settings)
+
         // Swal.fire({
         //     icon: 'success',
         //     html: '<p class = "text-secondary text-xl " >Usuario creado con éxito</p>',
         //     showConfirmButton: false,
         //     timer: 2000
         // })
-        alert('Usuario creado con éxito')
-        console.log(refactorizacion)
+        // alert('Usuario creado con éxito')
+        // console.log(refactorizacion)
 
-        for (const key in refactorizacion) {
-            if (typeof refactorizacion[key] === 'string') {
-                refactorizacion[key] = refactorizacion[key].toLowerCase()
-            }
-        }
 
-        axios.post('http://localhost:3000/users', refactorizacion)
-        // axios.post("http://localhost:8084/auth/register", refactorizacion, {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // })
-        //     .then(res => {
-        //         console.log(res);
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //     })
+        // axios.post('http://localhost:3000/users', refactorizacion)
+
 
         // reset()
-        sendEmail(data.email, data.name)
+        // sendEmail(data.email, data.name)
     })
 
-    const sendEmail = async (email, name) => {
-        await axios.post('http://localhost:4000/nodemailer', { email, name })
-    }
+    // const sendEmail = async (email, name) => {
+    //     await axios.post('http://localhost:4000/nodemailer', { email, name })
+    // }
 
     return (
         <>
