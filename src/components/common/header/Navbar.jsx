@@ -17,10 +17,10 @@ const Navbar = () => {
 
     return (
         <nav
-            className='w-4/5 lg:w-full mx-auto'
+            className='w-11/12 lg:w-full mx-auto h-full'
         >
             <section
-                className='grid grid-rows-[auto,1fr,auto] lg:grid-rows-2 lg:grid-cols-[auto,1fr,auto] lg:justify-between px-4'
+                className='grid h-4/5 items-center grid-rows-[auto,auto,auto] lg:grid-rows-2 lg:grid-cols-[auto,1fr,auto] lg:justify-between px-4'
             >
                 <Link to="/" className='hidden lg:block row-start-1 row-end-2 col-start-1 col-end-2 lg:place-content-center'>
                     <img src={LogoHeader} width={140} alt="Logo AutoGo" />

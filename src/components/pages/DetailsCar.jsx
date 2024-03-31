@@ -10,14 +10,15 @@ const DetailsCar = () => {
     return (
         <section className="h-full max-w-7xl">
             <section
-                className="w-full"
+                className="w-11/12 mx-auto lg:w-full"
             >
                 <div
-                    className="
-                        grid 
-                        lg:place-self-center 
-                        lg:col-span-1 
-                        sm:col-span-1 sm:row-span-1 sm:place-self-start"
+                    className="inline-block p-4"
+                // className="
+                //     grid 
+                //     lg:place-self-center 
+                //     lg:col-span-1 
+                //     sm:col-span-1 sm:row-span-1 sm:place-self-start"
                 >
                     <Link to={"/"}>
                         <img src={ArrowBack} alt="" />

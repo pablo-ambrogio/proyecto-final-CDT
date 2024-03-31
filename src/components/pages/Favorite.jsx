@@ -35,12 +35,24 @@ const Favorite = () => {
                         )
                         :
                         (
-                            <>
-                                <h1>NO TIENES VEHICULOS EN FAVORITOS</h1>
-                                <Link to={"/"}>
-                                    Ver vehiculos
-                                </Link>
-                            </>
+                            <div
+                                className="text-center uppercase flex flex-col gap-8"
+                            >
+                                <h1 className="text-xl">Lo siento, no tienes vehículos en favoritos</h1>
+                                <p
+                                    className="mx-auto w-2/5"
+                                >si quieres agregar vehíclos a favoritos haz click en el siguiente enlace
+                                    <span
+                                        className="inline-block ml-1"
+                                    >
+                                        <Link to={"/"}
+                                            className="text-secondary underline"
+                                        >
+                                            Ver vehiculos
+                                        </Link>
+                                    </span>
+                                </p>
+                            </div>
                         )
                 }
             </section>

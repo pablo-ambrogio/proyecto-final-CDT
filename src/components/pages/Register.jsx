@@ -35,12 +35,18 @@ const Register = () => {
 
         const payload = {
             username: data.username,
-            password: data.password,
+            password: btoa(data.password),
             apellido: data.lastname,
             email: data.email,
             nombre: data.name,
             role: 'CUSTOMER'
         }
+
+        console.log("password", btoa(data.password));
+
+        // function utf8_to_b64(str) {
+        //     return window.btoa(unescape(encodeURIComponent(str)));
+        //   }
 
 
         for (const key in payload) {

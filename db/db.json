@@ -30,7 +30,7 @@
       "description": "asdasd",
       "photo": {},
       "id": "eb28",
-      "isFav": true
+      "isFav": false
     },
     {
       "id": "e469",
@@ -45,7 +45,7 @@
       "operative": true,
       "observation": "asdasd",
       "description": "asdasd",
-      "isFav": true
+      "isFav": false
     },
     {
       "brand": "volkswagen",
@@ -61,7 +61,7 @@
       "description": "ideal para campo",
       "photo": {},
       "id": "efd4",
-      "isFav": true
+      "isFav": false
     },
     {
       "id": "dad4",
