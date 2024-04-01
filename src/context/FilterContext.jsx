@@ -7,6 +7,7 @@ const FilterContextProvider = ({ children }) => {
 
     const [check, setCheck] = useState([])
 
+
     const [vehicles, setVehicles] = useState([]);
     const [vehicleId, setVehicleId] = useState({})
 
@@ -26,7 +27,7 @@ const FilterContextProvider = ({ children }) => {
         vehicles,
         getVehicles,
         getVehicleForId,
-        vehicleId
+        vehicleId,
     }
 
     return (

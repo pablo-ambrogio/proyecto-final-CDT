@@ -1,38 +1,39 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import Footer from './components/common/footer/Footer'
-import { useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import Filter from './components/common/filter/Filter'
 import Header from './components/common/header/Header'
+import { AuthAdminContext } from './context/AuthAdminContext'
 
 function App() {
-  const { pathname } = useLocation()
-  const [isPathnameAdmin, setIsPathnameAdmin] = useState(false)
+  const { admin } = useContext(AuthAdminContext)
 
-  const getPathname = path => {
-    path.includes('admin')
-      ? setIsPathnameAdmin(true)
-      : setIsPathnameAdmin(false)
-  }
-  useEffect(() => {
-    getPathname(pathname)
-  }, [pathname])
+  const location = useLocation()
+
+
 
   return (
     <>
       <div
-        className="grid min-h-screen grid-rows-[180px,1fr,100px]"
+        className="grid min-h-screen grid-rows-[auto,1fr,100px]"
       >
-        <Header />
-        <section className="mx-auto max-w-7xl w-full py-8">
-          {
-            !pathname.includes("/favorite") & !isPathnameAdmin &&
-            <Filter />
-          }
+
+        {!admin && <Header />}
+
+
+        <section className=
+          {`${!admin && "max-w-7xl py-8"} w-full mx-auto `}
+        >
+
+          {!admin && location.pathname != "/favorite" && <Filter />}
+
           <Outlet />
         </section>
-        <Footer />
-      </div>
+
+        {
+          !admin && <Footer />
+        }
+      </div >
 
     </>
   )

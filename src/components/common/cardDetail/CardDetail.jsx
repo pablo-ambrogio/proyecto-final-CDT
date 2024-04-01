@@ -25,7 +25,7 @@ const CardDetail = ({ id }) => {
     return (
         <div>
             <article className="p-8 text-secondary sm:h-auto rounded-lg max-w-7xl mx-auto">
-                
+
                 <section className="grid grid-cols-2 grid-rows-[1fr,100px] h-full gap-x-4 md:gap-6">
                     <div className="lg:col-start-1 lg:col-end-2 row-span-1 self-center justify-self-center">
                         <div
@@ -51,7 +51,7 @@ const CardDetail = ({ id }) => {
                                 isData &&
                                 <ButtonFav id={id} isFav={vehicleId.isFav} />
                             }
-                            
+
                         </div>
                         <p className="tracking-wider">
                             El Fiat Mobi 1.0 es un compacto producido en Brasil,

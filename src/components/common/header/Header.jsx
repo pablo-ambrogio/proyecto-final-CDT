@@ -1,39 +1,40 @@
-import LogoHeader from '../../../assets/LogoRojo 1.svg'
-import Menu from '../../../assets/BurguerMenu.svg'
-import { Link } from 'react-router-dom'
-import Buttons from './Buttons'
+import Menu from '../../../assets/menu.svg'
+import MenuClose from '../../../assets/menu-close.svg'
 import Navbar from './Navbar'
-import NavSearch from './NavSearch'
+import { useContext, useEffect, useState } from 'react'
+import { NavBarContext } from '../../../context/NavbarContext'
 
 const Header = () => {
+
+    const { menu, setMenu } = useContext(NavBarContext)
+
+    const [width, setWidth] = useState(window.innerWidth)
+
+    const handleMenu = () => {
+        setMenu(!menu)
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            setWidth(window.innerWidth)
+            if (width > 800) {
+                setMenu(false)
+                console.log(width);
+            }
+        })
+    }, [width])
+
     return (
         <>
-            <header className="flex flex-col sticky top-0 bg-blue2  bg-gradient-to-t from-degrade to-secondary py-4 z-10">
-                <nav className="flex w-full items-center justify-between flex-wrap text-secondary h-full px-4 max-w-7xl mx-auto">
-                    {/* icono del logo */}
-                    <Link to="/">
-                        <img src={LogoHeader} alt="Logo AutoGo" />
-                    </Link>
-
-                    {/* icono de hamburguesa */}
-                    <div className="block lg:hidden">
-                        <a className="flex items-center border-0 rounded hover:text-white hover:border-white">
-                            <img src={Menu} alt="menú" className="text-white" />
-                        </a>
+            <header className={`flex flex-col lg:sticky top-0 h-auto py-4 z-10 bg-gradient-to-t from-degrade to-secondary`}>
+                <section className="w-full text-secondary max-w-7xl mx-auto">
+                    <div className="lg:hidden flex justify-end cursor-pointer w-11/12 mx-auto" onClick={handleMenu}>
+                        <img src={`${menu ? MenuClose : Menu}`} alt="menú" className="text-white" />
                     </div>
-
-                    <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-                        {/* barra de links */}
+                    <div className={`${!menu ? "hidden" : "h-auto"} lg:block`}>
                         <Navbar />
-
-                        {/* botones de login y registro */}
-                        <div className="flex gap-2">
-                            <Buttons />
-                        </div>
                     </div>
-                </nav>
-                {/* barra de busqueda */}
-                <NavSearch />
+                </section>
             </header>
         </>
     )

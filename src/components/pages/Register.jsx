@@ -4,46 +4,63 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 // import Swal from 'sweetalert2'
 import Logo from '../../assets/Logo 1.svg'
-import Eye from '../../assets/eye-solid.svg'
+// import Eye from '../../assets/eye-solid.svg'
 import EyeSlash from '../../assets/eye-slash-solid.svg'
 import axios from 'axios'
 
 const Register = () => {
     const [showPwd, setShowPwd] = useState(false)
     const [showPwd2, setShowPwd2] = useState(false)
-    const [emailSent, setEmailSent] = useState(false)
+    // const [emailSent, setEmailSent] = useState(false)
 
     const {
         register,
         handleSubmit,
         formState: { errors },
         watch
-        // reset
     } = useForm()
 
+    const login = (settings) => {
+
+        console.log(settings);
+
+        const { response } = axios.post("http://localhost:8084/auth/register", settings)
+        console.log(response);
+        // console.log(res);
+
+    }
+
     const formSubmit = handleSubmit(data => {
-        setEmailSent(true)
+        // setEmailSent(true)
 
-        const refactorizacion = {
-            name: data.name,
-            lastname: data.lastname,
+        const payload = {
+            username: data.username,
+            password: btoa(data.password),
+            apellido: data.lastname,
             email: data.email,
-            password: data.password,
-            password2: data.password2,
-            role: 'user'
+            nombre: data.name,
+            role: 'CUSTOMER'
         }
-        // Swal.fire({
-        //     icon: 'success',
-        //     html: '<p class = "text-secondary text-xl font-bold" >Usuario creado con éxito</p>',
-        //     showConfirmButton: false,
-        //     timer: 2000
-        // })
-        alert('Usuario creado con éxito')
-        console.log(refactorizacion)
 
-        for (const key in refactorizacion) {
-            if (typeof refactorizacion[key] === 'string') {
-                refactorizacion[key] = refactorizacion[key].toLowerCase()
+        console.log("password", btoa(data.password));
+
+        // function utf8_to_b64(str) {
+        //     return window.btoa(unescape(encodeURIComponent(str)));
+        //   }
+
+
+        for (const key in payload) {
+            if (typeof payload[key] === 'string') {
+                payload[key] = payload[key].toLowerCase()
+            }
+        }
+        console.log(payload);
+
+        const settings = {
+            method: 'POST',
+            body: JSON.stringify(payload),
+            headers: {
+                'Content-Type': 'application/json'
             }
         }
         const login = {
@@ -52,6 +69,7 @@ const Register = () => {
             role: 'user'
         }
 
+<<<<<<< HEAD
         axios.post('http://localhost:3000/users', refactorizacion)
         // axios.post('http://localhost:3000/login', login)
 
@@ -70,6 +88,30 @@ const Register = () => {
     } catch (error) {
         console.log(error)
     }
+=======
+        login(settings)
+
+        // Swal.fire({
+        //     icon: 'success',
+        //     html: '<p class = "text-secondary text-xl " >Usuario creado con éxito</p>',
+        //     showConfirmButton: false,
+        //     timer: 2000
+        // })
+        // alert('Usuario creado con éxito')
+        // console.log(refactorizacion)
+
+
+        // axios.post('http://localhost:3000/users', refactorizacion)
+
+
+        // reset()
+        // sendEmail(data.email, data.name)
+    })
+
+    // const sendEmail = async (email, name) => {
+    //     await axios.post('http://localhost:4000/nodemailer', { email, name })
+    // }
+>>>>>>> 459398cdb3cd0d2c9fd20dbbc87bde8360041b98
 
     return (
         <>
@@ -82,19 +124,67 @@ const Register = () => {
                     </div>
 
                     {/* BLOQUE FORMULARIO DERECHA */}
-                    <div className="bg-secondary2 bg-gradient-to-t from-degrade px-12 py-4 rounded-md w-96 flex flex-col justify-center">
+                    <div className="bg-secondary bg-gradient-to-t from-degrade px-12 py-4 rounded-md w-96 flex flex-col text-white justify-center">
                         {/* TÍTULO */}
                         <h2 className="font-modern text-2xl mb-5">crear cuenta</h2>
 
                         {/* FORM */}
+<<<<<<< HEAD
                         <form className="flex flex-col" onSubmit={handleSubmit(formSubmit)}>
+=======
+                        <form
+                            className="flex flex-col"
+                            onSubmit={handleSubmit(formSubmit)}
+                        >
+                            {/* USERNAME */}
+
+                            <div className="flex flex-col mb-3">
+                                <label
+                                    htmlFor="name"
+                                    className="uppercase text-xs"
+                                >
+                                    username
+                                </label>
+                                <input
+                                    className="rounded-md outline-none h-8 text-secondary pl-2 bg-grey"
+                                    type="text"
+                                    name="username"
+                                    id="username"
+                                    // disabled
+                                    autoComplete="off"
+                                    {...register('username', {
+                                        required: {
+                                            value: true,
+                                            message:
+                                                '* este campo es obligatorio'
+                                        },
+                                        minLength: {
+                                            value: 3,
+                                            message:
+                                                '* el nombre debe tener al menos 3 caracteres'
+                                        },
+                                        maxLength: {
+                                            value: 20,
+                                            message:
+                                                '* el nombre debe tener máximo 20 caracteres'
+                                        }
+                                    })}
+                                />
+                                {errors.username && (
+                                    <span className="text-primary text-xs leading">
+                                        {errors.name.message}
+                                    </span>
+                                )}
+                            </div>
+
+>>>>>>> 459398cdb3cd0d2c9fd20dbbc87bde8360041b98
                             {/* NOMBRE */}
                             <div className="flex flex-col mb-3">
                                 <label htmlFor="name" className="uppercase text-xs">
                                     nombre
                                 </label>
                                 <input
-                                    className="rounded-md outline-none h-8 text-secondary font-bold pl-2 bg-grey"
+                                    className="rounded-md outline-none h-8 text-secondary pl-2 bg-grey"
                                     type="text"
                                     name="name"
                                     id="name"
@@ -116,7 +206,7 @@ const Register = () => {
                                     })}
                                 />
                                 {errors.name && (
-                                    <span className="text-primary font-bold text-xs leading">
+                                    <span className="text-primary text-xs leading">
                                         {errors.name.message}
                                     </span>
                                 )}
@@ -128,7 +218,7 @@ const Register = () => {
                                     apellido
                                 </label>
                                 <input
-                                    className="rounded-md outline-none h-8 text-secondary font-bold pl-2 bg-grey"
+                                    className="rounded-md outline-none h-8 text-secondary pl-2 bg-grey"
                                     type="text"
                                     name="lastname"
                                     id="lastname"
@@ -149,7 +239,7 @@ const Register = () => {
                                     })}
                                 />
                                 {errors.lastname && (
-                                    <span className="text-primary font-bold text-xs leading">
+                                    <span className="text-primary text-xs leading">
                                         {errors.lastname.message}
                                     </span>
                                 )}
@@ -161,7 +251,7 @@ const Register = () => {
                                     E-mail
                                 </label>
                                 <input
-                                    className="rounded-md outline-none h-8 text-secondary font-bold pl-2 bg-grey"
+                                    className="rounded-md outline-none h-8 text-secondary pl-2 bg-grey"
                                     type="email"
                                     name="email"
                                     id="email"
@@ -178,7 +268,7 @@ const Register = () => {
                                     })}
                                 />
                                 {errors.email && (
-                                    <span className="text-primary font-bold text-xs leading">
+                                    <span className="text-primary  text-xs leading">
                                         {errors.email.message}
                                     </span>
                                 )}
@@ -191,7 +281,7 @@ const Register = () => {
                                 </label>
                                 <div className="relative rounded-md">
                                     <input
-                                        className="block w-full rounded-md outline-none h-8 text-secondary font-bold pl-2 bg-grey"
+                                        className="block w-full rounded-md outline-none h-8 text-secondary pl-2 bg-grey"
                                         type={showPwd ? 'text' : 'password'}
                                         name="password"
                                         id="password"
@@ -199,12 +289,17 @@ const Register = () => {
                                         {...register('password', {
                                             required: {
                                                 value: true,
+<<<<<<< HEAD
                                                 message: '* este campo es obligatorio'
+=======
+                                                message:
+                                                    'este campo es obligatorio'
+>>>>>>> 459398cdb3cd0d2c9fd20dbbc87bde8360041b98
                                             },
                                             pattern: {
                                                 value: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
                                                 message:
-                                                    '* la contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un caracter especial'
+                                                    'la contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un caracter especial'
                                             }
                                         })}
                                     />
@@ -220,9 +315,10 @@ const Register = () => {
                                     </span>
                                 </div>
                                 {errors.password && (
-                                    <span className="text-primary font-bold text-xs leading">
+                                    <span className="text-primary text-xs">
                                         {errors.password.message}
                                     </span>
+
                                 )}
                             </div>
 
@@ -233,7 +329,7 @@ const Register = () => {
                                 </label>
                                 <div className="relative rounded-md">
                                     <input
-                                        className="block w-full rounded-md outline-none h-8 text-secondary font-bold pl-2 bg-grey"
+                                        className="block w-full rounded-md outline-none h-8 text-secondary  pl-2 bg-grey"
                                         type={showPwd2 ? 'text' : 'password'}
                                         name="password2"
                                         id="password2"
@@ -254,13 +350,23 @@ const Register = () => {
                                         {showPwd2 ? (
                                             <FontAwesomeIcon icon={faEye} />
                                         ) : (
+<<<<<<< HEAD
                                             // <img src={EyeSlash} alt="Logo AutoGo" />
                                             <FontAwesomeIcon icon={faEyeSlash} />
+=======
+                                            <img
+                                                src={EyeSlash}
+                                                alt="icono ver contraseña"
+                                            />
+                                            // <FontAwesomeIcon
+                                            //     icon={faEyeSlash}
+                                            // />
+>>>>>>> 459398cdb3cd0d2c9fd20dbbc87bde8360041b98
                                         )}
                                     </span>
                                 </div>
                                 {errors.password2 && (
-                                    <span className="text-primary font-bold text-xs leading">
+                                    <span className="text-primary  text-xs leading">
                                         {errors.password2.message}
                                     </span>
                                 )}
@@ -279,8 +385,14 @@ const Register = () => {
                                 </p>
                                 <hr className="mt-5" />
                                 <p className="mt-1 text-sm">
+<<<<<<< HEAD
                                     <button type="submit">Reenviar correo de confirmación</button>
                                     {/* 00:59 */}
+=======
+                                    {
+                                        `Reenviar correo de confirmación 00:59`
+                                    }
+>>>>>>> 459398cdb3cd0d2c9fd20dbbc87bde8360041b98
                                 </p>
                             </div>
                         </form>

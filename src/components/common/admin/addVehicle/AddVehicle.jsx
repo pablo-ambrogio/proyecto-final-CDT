@@ -28,7 +28,7 @@ const AddVehicle = () => {
     const { id } = useParams()
     const { setDataForId, dataForId, searchDataForId } = useContext(NavBarContext)
 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm(defaultValues);
+    const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm(defaultValues);
 
     const [categories, setCategories] = useState([])
     const [yearsSelect, setYearsSelect] = useState([])
@@ -50,19 +50,22 @@ const AddVehicle = () => {
         console.log(e);
         const value = e.target.value
         const name = e.target.name
-        setDataForId({
-            ...dataForId,
-            [name]: value
-        })
+        console.log(value, name);
+        // setValue(name, value)
+        // setDataForId({
+        //     ...dataForId,
+        //     [name]: value
+        // })
     }
 
     const handleChangeChecked = e => {
         const checked = e.target.checked
         const name = e.target.name
-        setDataForId({
-            ...dataForId,
-            [name]: checked
-        })
+        setValue(name, checked)
+        // setDataForId({
+        //     ...dataForId,
+        //     [name]: checked
+        // })
     }
 
     useEffect(() => {
@@ -149,16 +152,10 @@ const AddVehicle = () => {
                                                 value={brand}
                                                 className="w-3/5 bg-white text-[#010101] pl-1 outline-none"
                                                 {...register("brand", {
-                                                    // value: brand,
                                                     required: {
                                                         value: true,
                                                         message: message.req
                                                     },
-
-                                                    // setValueAs: v => {
-                                                    //     parseInt(v)
-                                                    //     console.log(v)
-                                                    // }
 
                                                     onChange: e => {
                                                         handleChange(e);
@@ -189,7 +186,6 @@ const AddVehicle = () => {
                                                 {...register("model", {
                                                     required: message.req,
                                                     value: model
-
                                                     // setValueAs: v =>
                                                     //     parseInt(v)
                                                     ,
@@ -523,7 +519,7 @@ const AddVehicle = () => {
                             </ul>
                         </fieldset>
                         <p className="text-center">
-                            <button className="bg-blue px-8 py-2 rounded-lg">
+                            <button className="bg-secondary px-8 py-2 rounded-lg">
                                 {
                                     id ? "Actualizar" :
                                         "Agregar"

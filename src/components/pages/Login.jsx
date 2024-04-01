@@ -5,7 +5,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import LogoShort from '../../assets/Logo_Short 2.svg'
 import axios from 'axios'
 
-const Register = () => {
+const Login = () => {
     const [showPwd, setShowPwd] = useState(false)
 
     const {
@@ -59,7 +59,7 @@ const Register = () => {
                     </div>
 
                     {/* BLOQUE FORMULARIO DERECHA */}
-                    <div className="bg-primary p-12 rounded-md w-96 flex flex-col justify-center">
+                    <div className="bg-primary text-white p-12 rounded-md w-96 flex flex-col justify-center">
                         {/* TÍTULO */}
                         <div>
                             <h2 className="font-modern text-2xl">iniciar sesión</h2>
@@ -74,7 +74,7 @@ const Register = () => {
                                     E-mail
                                 </label>
                                 <input
-                                    className="rounded-md outline-none h-8 text-secondar font-bold pl-2 bg-grey"
+                                    className="rounded-md outline-none h-8 text-secondar pl-2 text-secondary bg-grey"
                                     type="text"
                                     name="user"
                                     id="user"
@@ -104,7 +104,7 @@ const Register = () => {
                                 </label>
                                 <div className="relative rounded-md">
                                     <input
-                                        className="block w-full rounded-md outline-none h-8 text-secondar font-bold pl-2 bg-grey"
+                                        className="block w-full rounded-md outline-none h-8 text-secondar pl-2 text-secondary bg-grey"
                                         type={showPwd ? 'text' : 'password'}
                                         name="password"
                                         id="password"
@@ -155,4 +155,4 @@ const Register = () => {
         </>
     )
 }
-export default Register
+export default Login

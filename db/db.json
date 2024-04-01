@@ -17,19 +17,20 @@
       "isFav": false
     },
     {
-      "brand": "Renault",
-      "model": "adsffafd",
-      "category": "motocicleta",
+      "brand": "pablo",
+      "model": "asdasd",
+      "category": "Selec. una categoria",
       "serialBody": "asdasd",
       "serialMotor": "motor777",
       "color": "asdasd",
       "year": "2017",
       "plaque": "asdasd",
-      "operative": true,
+      "operative": false,
       "observation": "asdasd",
       "description": "asdasd",
-      "isFav": true,
-      "id": "fbc4"
+      "photo": {},
+      "id": "eb28",
+      "isFav": true
     },
     {
       "id": "e469",
@@ -60,7 +61,7 @@
       "description": "ideal para campo",
       "photo": {},
       "id": "efd4",
-      "isFav": true
+      "isFav": false
     },
     {
       "id": "c04b",
@@ -95,6 +96,12 @@
       "name": "motocicleta",
       "description": "Ideal para recorre las ciudades",
       "icon": "/src/assets/iconcategories/icon-notfound.svg?t=1710974950245"
+    },
+    {
+      "id": "36ba",
+      "name": "pablo",
+      "description": "asdadasd",
+      "icon": "/src/assets/iconcategories/icon-notfound.svg"
     }
   ],
   "users": [
@@ -139,9 +146,36 @@
       "name": "mauricio",
       "lastname": "henao",
       "email": "mhenaor@gmail.com",
-      "password": "miranda09!",
-      "password2": "miranda09!",
+      "password": "prueba123!",
+      "password2": "prueba123!",
       "role": "user"
+    },
+    {
+      "id": "c783",
+      "username": "asdasd",
+      "password": "hola?123",
+      "apellido": "asdasd",
+      "email": "asdasd@asd.com",
+      "nombre": "asdasd",
+      "role": "customer"
+    },
+    {
+      "id": "49c1",
+      "username": "asdasd",
+      "password": "hola?123",
+      "apellido": "asdasd",
+      "email": "asdasd@asd.com",
+      "nombre": "asdasd",
+      "role": "customer"
+    },
+    {
+      "id": "9f2c",
+      "username": "pablo",
+      "password": "hola?123",
+      "apellido": "asdasd",
+      "email": "asdasd@asd.com",
+      "nombre": "asdasd",
+      "role": "customer"
     }
   ],
   "login": [
@@ -168,6 +202,33 @@
       "email": "mauricio@vestigio.co",
       "password": "Prueba123!",
       "role": "user"
+    },
+    {
+      "id": "c783",
+      "username": "asdasd",
+      "password": "hola?123",
+      "apellido": "asdasd",
+      "email": "asdasd@asd.com",
+      "nombre": "asdasd",
+      "role": "customer"
+    },
+    {
+      "id": "49c1",
+      "username": "asdasd",
+      "password": "hola?123",
+      "apellido": "asdasd",
+      "email": "asdasd@asd.com",
+      "nombre": "asdasd",
+      "role": "customer"
+    },
+    {
+      "id": "9f2c",
+      "username": "pablo",
+      "password": "hola?123",
+      "apellido": "asdasd",
+      "email": "asdasd@asd.com",
+      "nombre": "asdasd",
+      "role": "customer"
     }
   ]
 }
