@@ -20,13 +20,17 @@ const Register = () => {
         watch
     } = useForm()
 
-    const login = (settings) => {
+    const registerUser = (settings) => {
 
         console.log(settings);
 
-        const { response } = axios.post("http://localhost:8084/auth/register", settings)
-        console.log(response);
-        // console.log(res);
+        axios.post("http://localhost:8084/auth/register", settings)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
     }
 
@@ -35,23 +39,18 @@ const Register = () => {
 
         const payload = {
             username: data.username,
-            password: btoa(data.password),
+            password: data.password, //btoa(data.password)
             apellido: data.lastname,
             email: data.email,
             nombre: data.name,
             role: 'CUSTOMER'
         }
-
-        console.log("password", btoa(data.password));
-
-        // function utf8_to_b64(str) {
-        //     return window.btoa(unescape(encodeURIComponent(str)));
-        //   }
-
-
         for (const key in payload) {
             if (typeof payload[key] === 'string') {
-                payload[key] = payload[key].toLowerCase()
+                if (payload[key] == "role") {
+                    payload[key] = payload[key].toLowerCase()
+                    continue
+                }
             }
         }
         console.log(payload);
@@ -63,8 +62,16 @@ const Register = () => {
                 'Content-Type': 'application/json'
             }
         }
+        console.log("password", payload);
+        registerUser(settings)
 
-        login(settings)
+        // console.log("password", payload);
+
+        // function utf8_to_b64(str) {
+        //     return window.btoa(unescape(encodeURIComponent(str)));
+        //   }
+
+
 
         // Swal.fire({
         //     icon: 'success',

@@ -24,9 +24,8 @@ const CardDetail = ({ id }) => {
 
     return (
         <div>
-            <article className="p-8 text-secondary sm:h-auto rounded-lg max-w-7xl mx-auto">
-
-                <section className="grid grid-cols-2 grid-rows-[1fr,100px] h-full gap-x-4 md:gap-6">
+            <article className="lg:p-8 text-secondary sm:h-auto rounded-lg max-w-7xl mx-auto w-full ">
+                <section className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[1fr,100px] h-full lg:gap-x-4 gap-6 py-8 px-4 lg:p-0">
                     <div className="lg:col-start-1 lg:col-end-2 row-span-1 self-center justify-self-center">
                         <div
                             className='bg-secondary relative w-96 h-96 rounded-full'>
@@ -65,7 +64,7 @@ const CardDetail = ({ id }) => {
 
                     <div className="flex-col gap-3 lg:col-start-2 lg:col-end-3 row-span-2 flex justify-start items-center">
                         <div
-                            className="hover:font-bold hover:underline"
+                            className="underline cursor-pointer"
                             onClick={() => {
                                 setModal(!modal)
                             }}
@@ -78,7 +77,7 @@ const CardDetail = ({ id }) => {
                             </div>
                         </Modal>
 
-                        <button className="first-letter:uppercase w-[15rem] bg-secondary p-2 text-white rounded-lg">
+                        <button className="first-letter:uppercase w-[15rem] bg-secondary p-2 text-white rounded-lg hover:bg-blue2">
                             resevar ahora
                         </button>
                     </div>
