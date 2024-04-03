@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 
 transporter
     .verify()
-    .then(() => console.log('transporter creado'))
+    .then(() => console.log('gmail enviado con exito!...'))
     .catch(error => console.error(error))
 
 module.exports = transporter

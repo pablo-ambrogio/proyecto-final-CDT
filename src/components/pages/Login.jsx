@@ -1,12 +1,20 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import LogoShort from '../../assets/Logo_Short 2.svg'
-import axios from 'axios'
+import { AuthAdminContext } from '../../context/AuthAdminContext'
+import { useNavigate } from 'react-router-dom'
+import { NavBarContext } from '../../context/NavbarContext'
 
 const Login = () => {
     const [showPwd, setShowPwd] = useState(false)
+
+    const { setAdmin } = useContext(AuthAdminContext)
+
+    const { setModal1 } = useContext(NavBarContext)
+
+    const navigate = useNavigate()
 
     const {
         register,
@@ -14,6 +22,27 @@ const Login = () => {
         formState: { errors },
         reset
     } = useForm()
+
+    const loginUser = async settings => {
+
+        try {
+            const response = await fetch("http://localhost:8084/auth/authenticate", settings)
+            const data = await response.json()
+            console.log(data);
+            const ROLE = JSON.parse(atob(data.jwt.split('.')[1])).role
+            if (ROLE === "ADMIN") {
+                setAdmin(true)
+                navigate("/admin")
+            } else {
+                navigate("/")
+            }
+            localStorage.setItem("jwt", JSON.stringify(data.jwt))
+            setModal1(false)
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
 
     const formSubmit = handleSubmit(data => {
         console.log(data)
@@ -23,7 +52,15 @@ const Login = () => {
             }
         }
 
-        axios.get('http://localhost:3000/users', data)
+        const settings = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        loginUser(settings)
         reset()
     })
 
@@ -31,9 +68,9 @@ const Login = () => {
         <>
             {/* CONTENEDOR */}
             <div className="flex justify-center">
-                <div className="flex bg-grey p-4 rounded-md">
+                <div className="flex bg-grey p-4 rounded-md w-4/5 md:w-full lg:w-full">
                     {/* BLOQUE IMAGEN IZQUIERDA */}
-                    <div className="p-5 rounded-md sm:hidden lg:block">
+                    <div className="p-5 rounded-md hidden lg:block">
                         <img
                             className="object-scale-down h-full w-96 items-center"
                             src={LogoShort}
@@ -59,7 +96,7 @@ const Login = () => {
                             onSubmit={handleSubmit(formSubmit)}
                         >
                             {/* USUARIO */}
-                            <div className="flex flex-col mb-3">
+                            {/* <div className="flex flex-col mb-3">
                                 <label
                                     htmlFor="user"
                                     className="uppercase text-xs"
@@ -90,7 +127,40 @@ const Login = () => {
                                         {errors.user.message}
                                     </span>
                                 )}
+                            </div> */}
+                            <div className="flex flex-col mb-3">
+                                <label
+                                    htmlFor="username"
+                                    className="uppercase text-xs"
+                                >
+                                    username
+                                </label>
+                                <input
+                                    className="rounded-md outline-none h-8 text-secondar pl-2 text-secondary bg-grey"
+                                    type="text"
+                                    name="username"
+                                    id="username"
+                                    autoComplete="off"
+                                    {...register('username', {
+                                        required: {
+                                            value: true,
+                                            message:
+                                                '* este campo es obligatorio'
+                                        }
+                                        // pattern: {
+                                        //     value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                                        //     message:
+                                        //         '* por favor valide que el username sea el correcto'
+                                        // }
+                                    })}
+                                />
+                                {errors.username && (
+                                    <span className="text-secondar font-bold text-xs leading">
+                                        {errors.username.message}
+                                    </span>
+                                )}
                             </div>
+
 
                             {/* PASSWORD */}
                             <div className="flex flex-col mb-3">

@@ -14,7 +14,6 @@ const Navbar = () => {
         setMenu(false)
     }
 
-
     return (
         <nav
             className='w-11/12 lg:w-full mx-auto h-full'
@@ -56,6 +55,7 @@ const Navbar = () => {
                         favoritos
                     </Link>
                 </div>
+
                 <div className='row-start-3 row-end-4 lg:row-span-1 lg:place-content-center col-span-3 lg:col-span-1' >
                     <Buttons />
                 </div>

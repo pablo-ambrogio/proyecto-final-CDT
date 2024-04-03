@@ -11,7 +11,7 @@ const AdminHome = () => {
         <section className="grid min-h-screen grid-rows-1">
 
             <section
-                className={`grid 
+                className={`grid transition-all duration-300
                 ${viewNavbar ? "grid-cols-[20rem,1fr]" : "grid-cols-[8rem,1fr]"}
             row-span-1 `}
             >

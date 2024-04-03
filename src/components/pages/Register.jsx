@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
@@ -6,12 +6,15 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import Logo from '../../assets/Logo 1.svg'
 // import Eye from '../../assets/eye-solid.svg'
 import EyeSlash from '../../assets/eye-slash-solid.svg'
-import axios from 'axios'
+import { NavBarContext } from '../../context/NavbarContext'
+
 
 const Register = () => {
     const [showPwd, setShowPwd] = useState(false)
     const [showPwd2, setShowPwd2] = useState(false)
     // const [emailSent, setEmailSent] = useState(false)
+
+    const { setModal2 } = useContext(NavBarContext)
 
     const {
         register,
@@ -20,22 +23,44 @@ const Register = () => {
         watch
     } = useForm()
 
-    const registerUser = (settings) => {
+    const registerUser = async (settings) => {
 
         console.log(settings);
 
-        axios.post("http://localhost:8084/auth/register", settings)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        try {
+            const response = await fetch('http://localhost:8084/auth/register', settings)
+            const data = await response.json()
+            if (data.jwt) {
+                setModal2(false)
+                // console.log(data)
+            }
+        } catch (error) {
+            console.error(error)
+        }
+
+    }
+
+    const sendEmail = async (email) => {
+        console.log(email);
+        const template = `<h1>Hola, soy un H1</h1>`
+
+        const body = {
+            asunto: "Asunto",
+            mensaje: btoa(template)
+        }
+        const response = await fetch(`http://localhost:8084/mail/send/${email}`, {
+            method: 'POST',
+            body: JSON.stringify(body),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const data = await response.json()
+        console.log(data);
 
     }
 
     const formSubmit = handleSubmit(data => {
-        // setEmailSent(true)
 
         const payload = {
             username: data.username,
@@ -47,10 +72,14 @@ const Register = () => {
         }
         for (const key in payload) {
             if (typeof payload[key] === 'string') {
-                if (payload[key] == "role") {
-                    payload[key] = payload[key].toLowerCase()
-                    continue
+                console.log(payload[key]);
+                if (key == "role") {
+                    payload[key] = payload[key].toUpperCase()
                 }
+                else {
+                    payload[key] = payload[key].toLowerCase()
+                }
+
             }
         }
         console.log(payload);
@@ -64,43 +93,19 @@ const Register = () => {
         }
         console.log("password", payload);
         registerUser(settings)
+        sendEmail(payload.email)
 
-        // console.log("password", payload);
-
-        // function utf8_to_b64(str) {
-        //     return window.btoa(unescape(encodeURIComponent(str)));
-        //   }
-
-
-
-        // Swal.fire({
-        //     icon: 'success',
-        //     html: '<p class = "text-secondary text-xl " >Usuario creado con éxito</p>',
-        //     showConfirmButton: false,
-        //     timer: 2000
-        // })
-        // alert('Usuario creado con éxito')
-        // console.log(refactorizacion)
-
-
-        // axios.post('http://localhost:3000/users', refactorizacion)
-
-
-        // reset()
-        // sendEmail(data.email, data.name)
     })
 
-    // const sendEmail = async (email, name) => {
-    //     await axios.post('http://localhost:4000/nodemailer', { email, name })
-    // }
+
 
     return (
         <>
             {/* CONTENEDOR */}
             <div className="flex justify-center">
-                <div className="flex bg-grey p-4 rounded-md">
+                <div className="flex bg-grey p-4 rounded-md w-4/5 md:w-full lg:w-full">
                     {/* BLOQUE IMAGEN IZQUIERDA */}
-                    <div className="p-5 rounded-md sm:hidden lg:block">
+                    <div className="p-5 rounded-md hidden lg:block">
                         <img
                             className="object-scale-down h-full w-96 items-center"
                             src={Logo}

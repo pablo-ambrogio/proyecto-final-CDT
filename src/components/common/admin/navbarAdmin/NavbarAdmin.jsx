@@ -61,7 +61,7 @@ const NavbarAdmin = () => {
 
     return (
         <>
-            <nav className="text-[#010101] bg-grey flex justify-center"
+            <nav className="text-[#010101] bg-grey flex justify-center "
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}>
                 <div className="w-11/12 pt-4 
@@ -85,14 +85,14 @@ const NavbarAdmin = () => {
                                     viewNavbar &&
                                     <>
                                         <span className={`justify-self-start`}>vehiculos</span>
-                                        <span>
+                                        <div className="font-bold place-self-center text-lg transition-all duration-300">
                                             {
                                                 !vehicle ?
-                                                    <span className="font-bold place-self-start text-lg">+</span>
+                                                    <span>+</span>
                                                     :
-                                                    <span className="font-bold place-self-start text-lg">-</span>
+                                                    <span>-</span>
                                             }
-                                        </span>
+                                        </div>
                                     </>
 
                                 }

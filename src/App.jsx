@@ -10,21 +10,24 @@ function App() {
 
   const location = useLocation()
 
+  console.log(location.pathname.includes("/vehicles"));
+
   return (
     <>
       <div
-        className="grid min-h-screen grid-rows-[auto,1fr,100px]"
+        className={`grid min-h-screen ${admin ? 'grid-rows-[auto,1fr]' : 'grid-rows-[auto,1fr,100px]'}`}
       >
 
         {!admin && <Header />}
-
 
         <section className=
           {`${!admin && "max-w-7xl py-8"} w-full mx-auto `}
         >
 
-          {!admin && location.pathname != "/favorite" && <Filter />}
-
+          {
+            (!admin && !location.pathname.includes("/favorite") && !location.pathname.includes("/vehicles"))
+            && <Filter />
+          }
           <Outlet />
         </section>
 

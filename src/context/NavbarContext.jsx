@@ -8,6 +8,12 @@ export const NavBarContext = createContext()
 // eslint-disable-next-line react/prop-types
 const NavBarContextProvider = ({ children }) => {
 
+    // MODAL
+    const [modal1, setModal1] = useState(false)
+    const [modal2, setModal2] = useState(false)
+
+    // FIN MODAL
+
     const [viewNavbar, setViewNavbar] = useState(false)
     const [dataForId, setDataForId] = useState({})
 
@@ -42,7 +48,11 @@ const NavBarContextProvider = ({ children }) => {
         searchDataForId,
         reset,
         setMenu,
-        menu
+        menu,
+        setModal2,
+        setModal1,
+        modal1,
+        modal2
     }
 
     return (
