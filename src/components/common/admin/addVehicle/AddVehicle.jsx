@@ -5,7 +5,7 @@ import axios from "axios";
 import { message } from '../../../utils/validateForm'
 import { years } from '../../../utils/utils'
 import { NavBarContext } from "../../../../context/NavbarContext";
-
+import IconFile from '../../../../assets/icon-file.svg'
 
 export const defaultValues = {
     brand: "",
@@ -32,6 +32,7 @@ const AddVehicle = () => {
 
     const [categories, setCategories] = useState([])
     const [yearsSelect, setYearsSelect] = useState([])
+    const [nameFile, setNameFile] = useState("")
 
     const {
         brand, model, category,
@@ -42,7 +43,8 @@ const AddVehicle = () => {
     } = dataForId
 
     const getCategory = async () => {
-        const { data } = await axios.get("http://localhost:3000/categories")
+        const response = await fetch("http://localhost:8084/categoria/list")
+        const data = await response.json()
         setCategories(data);
     }
 
@@ -89,17 +91,15 @@ const AddVehicle = () => {
             axios.put("http://localhost:3000/vehicles/" + id, data)
         } else {
             const refactorizadoData = {
-                brand: data.brand,
-                category: data.category,
-                description: data.description,
-                model: data.model,
-                observation: data.observation,
-                operative: data.operative,
-                plaque: data.plaque,
-                serialBody: data.serialBody,
+                marca: data.brand,
+                modelo: data.model,
                 serialMotor: data.serialMotor,
+                color: data.color,
                 year: data.year,
-                isFav: false
+                matricula: data.plaque,
+                isDisponible: data.operative,
+                observacion: data.observation,
+                categoria: data.category
             }
             console.log(refactorizadoData);
             for (const key in refactorizadoData) {
@@ -107,25 +107,25 @@ const AddVehicle = () => {
                     refactorizadoData[key] = refactorizadoData[key].toLowerCase();
                 }
             }
-            axios.post("http://localhost:3000/vehicles", refactorizadoData);
+            axios.post("http://localhost:8084/vehiculo/add", refactorizadoData);
         }
         // reset()
         navigate("/admin/vehicles-list")
     });
 
     return (
-        <section className="w-full text-[#010101] text-lg flex justify-center items-center">
+        <section className="w-full text-[#010101] max-w-7xl mx-auto text-lg flex justify-center items-center">
             <div className="w-4/5 p-4 rounded-lg">
                 <form onSubmit={onSubmit}>
                     <h1
-                        className="text-2xl text-center mb-4"
+                        className="text-center text-2xl text-secondary uppercase mb-8"
                     >
                         {
                             id ? "Actualización de vehículo" :
                                 "Carga de vehiculo"
                         }
                     </h1>
-                    <section className="bg-primary text-white p-4 flex flex-col gap-y-2 rounded-lg">
+                    <section className="bg-grey text-[#010101] p-8 flex flex-col gap-y-2 rounded-lg">
                         <h2 className="text-xl">Información del vehiculo</h2>
                         <p>
                             Los campos obligatorios van seguidos de
@@ -215,9 +215,6 @@ const AddVehicle = () => {
                                                 className="w-3/5 bg-white text-[#010101] pl-1 outline-none"
                                                 {...register("category", {
                                                     required: message.req,
-                                                    // setValueAs: v =>
-                                                    //     parseInt(v)
-                                                    // ,
                                                     value: category,
                                                     onChange: e => {
                                                         handleChange(e);
@@ -232,8 +229,8 @@ const AddVehicle = () => {
                                                         return (
                                                             <option
                                                                 key={category.id}
-                                                                value={category.name}>
-                                                                {category.name}
+                                                                value={category.titulo}>
+                                                                {category.titulo}
                                                             </option>
                                                         )
                                                     })
@@ -246,37 +243,7 @@ const AddVehicle = () => {
                                     </div>
                                     <span className="text-sm">{errors.category?.message}</span>
                                 </li>
-                                <li>
-                                    <div className="flex w-full justify-between">
-                                        <label
-                                            htmlFor="serial-body"
-                                            className="flex w-full justify-between pr-4"
-                                        >
-                                            Serial carrocería
-                                            <input
-                                                type="text"
-                                                name="serial-body"
-                                                id="serial-body"
-                                                value={serialBody}
-                                                className="w-3/5 bg-white text-[#010101] pl-1 outline-none"
-                                                {...register("serialBody", {
-                                                    required: message.req,
-                                                    // setValueAs: v =>
-                                                    //     parseInt(v)
-                                                    // ,
-                                                    value: serialBody,
-                                                    onChange: e => {
-                                                        handleChange(e);
-                                                    }
-                                                })}
-                                            />
-                                        </label>
-                                        <strong>
-                                            <abbr title="required">*</abbr>
-                                        </strong>
-                                    </div>
-                                    <span className="text-sm">{errors.serialBody?.message}</span>
-                                </li>
+
                                 <li>
                                     <div className="flex w-full justify-between">
                                         <label
@@ -372,6 +339,9 @@ const AddVehicle = () => {
                                                 }
                                             </select>
                                         </label>
+                                        <strong>
+                                            <abbr title="required">*</abbr>
+                                        </strong>
                                     </div>
                                     <span className="text-sm">{errors.year?.message}</span>
                                 </li>
@@ -381,7 +351,7 @@ const AddVehicle = () => {
                                             htmlFor="plaque"
                                             className="flex w-full justify-between pr-4"
                                         >
-                                            Placa
+                                            Matricula
                                             <input
                                                 type="text"
                                                 name="plaque"
@@ -463,37 +433,7 @@ const AddVehicle = () => {
                                     </div>
                                     <span className="text-sm">{errors.observation?.message}</span>
                                 </li>
-                                <li>
-                                    <div className="flex w-full justify-between">
-                                        <label
-                                            htmlFor="description"
-                                            className="flex w-full justify-between pr-4"
-                                        >
-                                            Descripcion
-                                            <input
-                                                type="text"
-                                                name="description"
-                                                id="description"
-                                                value={description}
-                                                className="w-3/5 bg-white text-[#010101] pl-1 outline-none"
-                                                {...register("description", {
-                                                    required: message.req,
-                                                    // setValueAs: v =>
-                                                    //     parseInt(v)
-                                                    // ,
-                                                    value: description,
-                                                    onChange: e => {
-                                                        handleChange(e);
-                                                    }
-                                                })}
-                                            />
-                                        </label>
-                                        <strong>
-                                            <abbr title="required">*</abbr>
-                                        </strong>
-                                    </div>
-                                    <span className="text-sm">{errors.description?.message}</span>
-                                </li>
+
                                 <li>
                                     <div className="flex w-full justify-between">
                                         <label
@@ -501,15 +441,36 @@ const AddVehicle = () => {
                                             className="flex w-full justify-between pr-4"
                                         >
                                             Foto
-                                            <input
-                                                type="file"
-                                                name="photo"
-                                                id="photo"
-                                                className="w-3/5 bg-white text-[#010101] outline-none"
-                                                {...register("photo", {
-                                                    value: photo
-                                                })}
-                                            />
+                                            <div className="border border-secondary h-10 w-fit px-4 rounded-md">
+                                                <input
+                                                    type="file"
+                                                    name="photo"
+                                                    id="photo"
+                                                    className="hidden"
+                                                    onChange={e => {
+                                                        if (e.target.value) {
+                                                            setNameFile(e.target.value)
+                                                        }
+                                                        const file = e.target.files[0]
+                                                        let reader = new FileReader()
+
+                                                        reader.onload = function () {
+                                                            // console.log(reader.result);
+                                                            setValue("imagen", reader.result)
+                                                        }
+
+                                                        reader.readAsDataURL(file)
+
+                                                    }}
+                                                />
+                                                <label htmlFor="photo" className='flex gap-x-4 h-full items-center cursor-pointer' >
+                                                    <img src={IconFile} alt="" />
+                                                    <span>{
+                                                        nameFile || 'Seleccionar archivo'
+                                                    }</span>
+                                                </label>
+                                            </div>
+
                                         </label>
                                         <strong>
                                             <abbr title="required">*</abbr>
@@ -518,7 +479,7 @@ const AddVehicle = () => {
                                 </li>
                             </ul>
                         </fieldset>
-                        <p className="text-center">
+                        <p className="text-center text-white mt-4">
                             <button className="bg-secondary px-8 py-2 rounded-lg">
                                 {
                                     id ? "Actualizar" :

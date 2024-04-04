@@ -12,21 +12,45 @@ import { useState } from 'react'
 const FormCategories = () => {
     const navigate = useNavigate()
 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm()
+    const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm()
 
     const [nameFile, setNameFile] = useState("")
+    // const [base64, setBase64] = useState("")
+
+    const addCategory = async settings => {
+
+        try {
+            const response = await fetch("http://localhost:8084/categoria/add", settings)
+            const data = await response.json()
+            console.log(data);
+        } catch (error) {
+            console.error(error);
+        }
+
+    }
+
 
     const onSubmit = handleSubmit((data) => {
         const dataRefac = {
-            name: data.name,
-            description: data.description,
-            icon: NotFound
+            titulo: data.title,
+            descripcion: data.description,
+            imagen: "imagen"
         }
-        const dataConvert = convertToLowerCase(dataRefac);
 
-        axios.post("http://localhost:3000/categories", dataConvert)
+        const dataToLowerCase = convertToLowerCase(dataRefac);
+
+        const settings = {
+            method: 'POST',
+            body: JSON.stringify(dataToLowerCase),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        addCategory(settings)
+        console.log(dataToLowerCase);
         reset()
-        navigate("/admin/categories-list")
+        // navigate("/admin/categories-list")
     })
 
     return (
@@ -41,18 +65,17 @@ const FormCategories = () => {
                 >
                     <section
                         className='grid grid-rows[1fr,1fr,1fr,100px] gap-y-8 place-items-center bg-grey rounded-lg text-secondary py-8'>
-
                         <div className='row-span-1 w-5/12 self-end'>
                             <label htmlFor="category" className='grid'>
                                 Título
                                 <input type="text" name="category" id="category"
                                     className="outline-none bg-white border pl-2 h-10 text-[#010101] rounded-md"
-                                    {...register("name", {
+                                    {...register("title", {
                                         required: message.req
                                     })}
                                 />
                             </label>
-                            <span className="text-sm">{errors.name?.message}</span>
+                            <span className="text-sm">{errors.title?.message}</span>
 
                         </div>
                         <div className='row-span-1 w-5/12'>
@@ -70,15 +93,25 @@ const FormCategories = () => {
                         </div>
                         <div className='row-span-1 w-5/12 self-start'>
                             <span>Icono</span>
-                            <div className='bg-secondary text-white h-10 w-fit px-4 rounded-md'>
+                            <div className=' border border-secondary text-[#010101] h-10 w-fit px-4 rounded-md'>
                                 <input type="file" id='icon' className='hidden'
                                     onChange={e => {
                                         if (e.target.value) {
                                             setNameFile(e.target.value)
                                         }
+                                        const file = e.target.files[0]
+                                        let reader = new FileReader()
+
+                                        reader.onload = function () {
+                                            console.log(reader.result);
+                                            // setValue("imagen", reader.result)
+                                        }
+
+                                        reader.readAsDataURL(file)
+
                                     }} />
                                 <label htmlFor="icon" className='flex gap-x-4 h-full items-center cursor-pointer' >
-                                    <img src={IconFile} alt="" />
+                                    <img src={IconFile} alt="icono para subir imagen"  />
                                     <span>{
                                         nameFile || 'Seleccionar archivo'
                                     }</span>

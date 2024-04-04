@@ -42,11 +42,10 @@ const Register = () => {
 
     const sendEmail = async (email) => {
         console.log(email);
-        const template = `<h1>Hola, soy un H1</h1>`
 
         const body = {
-            asunto: "Asunto",
-            mensaje: btoa(template)
+            asunto: "Mensaje de AutoGo",
+            mensaje: "Validar usuario"
         }
         const response = await fetch(`http://localhost:8084/mail/send/${email}`, {
             method: 'POST',

@@ -1,4 +1,3 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
 
 const CategoriesList = () => {
@@ -7,14 +6,15 @@ const CategoriesList = () => {
 
     const getCategories = async () => {
 
-        const { data } = await axios.get("http://localhost:3000/categories")
+        const response = await fetch("http://localhost:8084/categoria/list")
+        const data = await response.json()
 
         setCategories(data)
     }
 
     useEffect(() => {
         getCategories()
-    }, [categories])
+    }, [])
 
     console.log(categories);
 
@@ -45,13 +45,13 @@ const CategoriesList = () => {
                                 return (
                                     <tr className="grid grid-cols-[50px,1fr,1fr] border border-secondary" key={category.id}>
                                         <td className="col-span-1 justify-self-center">
-                                            <img src={category.icon} alt="" />
+                                            <img src={category.icon} alt="icono de categoria" width={30} height={30}/>
                                         </td>
                                         <td className="col-span-1">
-                                            {category.name}
+                                            {category.titulo}
                                         </td>
                                         <td className="col-span-1">
-                                            {category.description}
+                                            {category.descripcion}
                                         </td>
                                     </tr>
                                 )
