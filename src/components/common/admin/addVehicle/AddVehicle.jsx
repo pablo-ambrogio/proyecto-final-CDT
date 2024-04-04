@@ -99,7 +99,8 @@ const AddVehicle = () => {
                 matricula: data.plaque,
                 isDisponible: data.operative,
                 observacion: data.observation,
-                categoria: data.category
+                categoria: data.category,
+                isFav: false
             }
             console.log(refactorizadoData);
             for (const key in refactorizadoData) {

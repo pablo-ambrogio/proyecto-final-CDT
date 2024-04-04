@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import NotFound from '../../../../assets/iconCategories/icon-notfound.svg'
 
 const CategoriesList = () => {
 
@@ -45,7 +46,7 @@ const CategoriesList = () => {
                                 return (
                                     <tr className="grid grid-cols-[50px,1fr,1fr] border border-secondary" key={category.id}>
                                         <td className="col-span-1 justify-self-center">
-                                            <img src={category.icon} alt="icono de categoria" width={30} height={30}/>
+                                            <img src={NotFound} alt="icono de categoria" width={30} height={30}/>
                                         </td>
                                         <td className="col-span-1">
                                             {category.titulo}

@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
 import { message } from '../../../utils/validateForm'
 import NotFound from '../../../../assets/iconCategories/icon-notfound.svg'
 import { convertToLowerCase } from '../../../utils/utils'
