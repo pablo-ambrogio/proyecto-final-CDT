@@ -61,6 +61,9 @@ const Home = () => {
                         <button type="submit"
                             className='bg-primary font-bold w-48 py-2 mt-8 rounded-lg'
                         >Buscar</button>
+                                                <button type="submit"
+                            className='bg-primary font-bold w-48 py-2 mt-8 rounded-lg'
+                        >Cargar Vehículo</button>
                     </form>
                 </section>
             </article>

@@ -11,12 +11,14 @@
     color-scheme: light dark;
     color: rgba(255, 255, 255, 0.87);
     background-color: #242424;
-    
+
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -35,3 +37,28 @@
 .active {
     color: #11468F;
 }
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #ffffff; /* fondo blanco */
+    border-radius: 10px;
+    padding: 20px;
+    width: 70%;
+    margin-left: auto;
+    box-shadow: none;
+}
+
+.card {
+    flex: 0 1 calc(50% - 20px);
+    background-color: #dcdada; /* fondo gris */
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #e5e5e5;
+}
+
+
+
+
+

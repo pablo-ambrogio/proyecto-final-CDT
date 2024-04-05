@@ -61,20 +61,6 @@
       "description": "ideal para campo",
       "photo": {},
       "id": "efd4",
-      "isFav": false
-    },
-    {
-      "id": "dad4",
-      "brand": "adfadf",
-      "category": "camioneta",
-      "description": "adf",
-      "model": "adsffafd",
-      "observation": "adafaf",
-      "operative": true,
-      "plaque": "adf",
-      "serialBody": "afd",
-      "serialMotor": "adfadf",
-      "year": "2016",
       "isFav": true
     }
   ],
