@@ -1,10 +1,14 @@
 import { useContext, useEffect, useState } from 'react'
 import Amarok from '../../../assets/amarok.webp'
+import Icon from '../../../assets/iconauto.png'
 import { Link } from 'react-router-dom'
 
 import IconDelete from '../../../assets/dashboard/icon-delete.svg'
 import IconUpdate from '../../../assets/dashboard/icon-modify.svg'
 import { NavBarContext } from '../../../context/NavbarContext'
+
+
+
 
 
 const VehiclesList = () => {
@@ -17,7 +21,7 @@ const VehiclesList = () => {
 
     const getVehicles = async () => {
         try {
-            const response = await fetch("http://localhost:8084/vehiculo/list")
+            const response = await fetch("http://localhost:8084/vehiculo/list/all")
             const data = await response.json()
             // console.log(data);
             setVehicles(data);
@@ -197,7 +201,7 @@ const VehiclesList = () => {
                                         {vehicle.observacion}
                                     </td>
                                     <td>
-                                        <img src={Amarok} alt="Foto de vehículo cargado" width={80} />
+                                        <img src={Icon} alt="Foto de vehículo cargado" width={80} />
                                     </td>
                                     <td
                                         className='flex justify-around items-center h-14 uppercase'

@@ -2,12 +2,11 @@
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { FilterContext } from "../../../context/FilterContext";
-import { Link } from "react-router-dom";
 import InputFilter from "../inputFilter/InputFilter";
 
 const Filter = () => {
 
-    const { check, setCheck, vehicles, getVehicles } = useContext(FilterContext)
+    const { check, setCheck, vehicles } = useContext(FilterContext)
 
     const [categories, setCategories] = useState([])
     const [filter, setFilter] = useState(false)
