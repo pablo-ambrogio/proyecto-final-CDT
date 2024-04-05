@@ -24,12 +24,15 @@ const Login = () => {
     } = useForm()
 
     const loginUser = async settings => {
+        console.log(settings);
 
         try {
             const response = await fetch("http://localhost:8084/auth/authenticate", settings)
             const data = await response.json()
             console.log(data);
+            
             const ROLE = JSON.parse(atob(data.jwt.split('.')[1])).role
+            console.log(ROLE);
             if (ROLE === "ADMIN") {
                 setAdmin(true)
                 navigate("/admin")
@@ -47,14 +50,21 @@ const Login = () => {
     const formSubmit = handleSubmit(data => {
         console.log(data)
         for (const key in data) {
-            if (typeof data[key] === 'string') {
-                data[key] = data[key].toLowerCase()
+            if (typeof data[key] === "string") {
+                if (!data.password) {
+                    data[key] = data[key].toLowerCase()
+                }
             }
+        }
+
+        const payload = {
+            username: data.username,
+            password: data.password
         }
 
         const settings = {
             method: 'POST',
-            body: JSON.stringify(data),
+            body: JSON.stringify(payload),
             headers: {
                 'Content-Type': 'application/json'
             }

@@ -8,7 +8,7 @@ const AuthAdminContextProvider = ({ children }) => {
 
     const location = useLocation()
 
-    const [admin, setAdmin] = useState(true)
+    const [admin, setAdmin] = useState(false)
 
     console.log(location);
 
@@ -21,7 +21,6 @@ const AuthAdminContextProvider = ({ children }) => {
         if (!location.pathname.includes("admin")) {
             setAdmin(false)
         }
-
     }, [location])
 
 

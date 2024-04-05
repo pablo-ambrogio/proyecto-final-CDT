@@ -7,9 +7,12 @@ import Logo from '../../assets/Logo 1.svg'
 // import Eye from '../../assets/eye-solid.svg'
 import EyeSlash from '../../assets/eye-slash-solid.svg'
 import { NavBarContext } from '../../context/NavbarContext'
+import { pattern } from '../utils/validateForm'
 
 
 const Register = () => {
+
+    console.log(pattern);
     const [showPwd, setShowPwd] = useState(false)
     const [showPwd2, setShowPwd2] = useState(false)
     // const [emailSent, setEmailSent] = useState(false)
@@ -58,6 +61,8 @@ const Register = () => {
         console.log(data);
 
     }
+
+
 
     const formSubmit = handleSubmit(data => {
 
@@ -159,7 +164,7 @@ const Register = () => {
                                     })}
                                 />
                                 {errors.username && (
-                                    <span className="text-primary text-xs leading">
+                                    <span className="text-white text-xs leading">
                                         {errors.name.message}
                                     </span>
                                 )}
@@ -199,7 +204,7 @@ const Register = () => {
                                     })}
                                 />
                                 {errors.name && (
-                                    <span className="text-primary text-xs leading">
+                                    <span className="text-white text-xs leading">
                                         {errors.name.message}
                                     </span>
                                 )}
@@ -238,7 +243,7 @@ const Register = () => {
                                     })}
                                 />
                                 {errors.lastname && (
-                                    <span className="text-primary text-xs leading">
+                                    <span className="text-white text-xs leading">
                                         {errors.lastname.message}
                                     </span>
                                 )}
@@ -272,7 +277,7 @@ const Register = () => {
                                     })}
                                 />
                                 {errors.email && (
-                                    <span className="text-primary  text-xs leading">
+                                    <span className="text-white  text-xs leading">
                                         {errors.email.message}
                                     </span>
                                 )}
@@ -320,7 +325,7 @@ const Register = () => {
                                     </span>
                                 </div>
                                 {errors.password && (
-                                    <span className="text-primary text-xs">
+                                    <span className="text-white text-xs">
                                         {errors.password.message}
                                     </span>
 
@@ -371,7 +376,7 @@ const Register = () => {
                                     </span>
                                 </div>
                                 {errors.password2 && (
-                                    <span className="text-primary  text-xs leading">
+                                    <span className="text-white  text-xs leading">
                                         {errors.password2.message}
                                     </span>
                                 )}
