@@ -1,8 +1,10 @@
-import AddVehicle from "../../common/admin/addVehicle/AddVehicle"
+// import AddVehicle from "../../common/admin/addVehicle/AddVehicle"
+import AddVehicleControlado from "../../common/admin/addVehicleControlado/AddVehicleControlado"
 
 const AdminAddVehicles = () => {
     return (
-        <AddVehicle />
+        // <AddVehicle />
+        <AddVehicleControlado />
     )
 }
 export default AdminAddVehicles

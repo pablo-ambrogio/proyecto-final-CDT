@@ -5,11 +5,11 @@ import { FilterContext } from "../../context/FilterContext"
 
 const Vehicles = () => {
 
-    const { vehicles, check, getVehicles } = useContext(FilterContext)
+    const { vehicles, check } = useContext(FilterContext)
 
-    useEffect(() => {
-        getVehicles()
-    }, [])
+    // useEffect(() => {
+    //     getVehicles()
+    // }, [])
 
     return (
         <div className="min-h-dvh max-w-screen-xl lg:max-w-7xl mx-auto py-8 pb-16">
