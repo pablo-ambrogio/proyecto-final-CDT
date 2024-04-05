@@ -191,6 +191,9 @@ const NavbarAdmin = () => {
                                         <li>
                                             <NavLink to={"add-users"}>agregar usuarios</NavLink>
                                         </li>
+                                        <li>
+                                            <NavLink to={"list-users"}>listar usuarios</NavLink>
+                                        </li>
                                     </ul>
                                 </>
                             }

@@ -4,6 +4,7 @@ import Policies from '../../pages/Policies'
 import Modal from '../modal/Modal'
 import ButtonFav from '../buttonFav/ButtonFav'
 import axios from 'axios'
+import Calendar from '../calendar/Calendar'
 
 
 const CardDetail = ({ id }) => {
@@ -25,7 +26,7 @@ const CardDetail = ({ id }) => {
     return (
         <div>
             <article className="lg:p-8 text-secondary sm:h-auto rounded-lg max-w-7xl mx-auto w-full ">
-                <section className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[1fr,100px] h-full lg:gap-x-4 gap-6 py-8 px-4 lg:p-0">
+                <section className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[1fr,1fr,100px] h-full lg:gap-x-4 gap-6 py-8 px-4 lg:p-0">
                     <div className="lg:col-start-1 lg:col-end-2 row-span-1 self-center justify-self-center">
                         <div
                             className='bg-secondary relative w-96 h-96 rounded-full'>
@@ -60,8 +61,11 @@ const CardDetail = ({ id }) => {
                             pulgadas y un baúl de 235 litros. Su transmisión es
                             manual de cinco velocidades.
                         </p>
-                    </div>
 
+                    </div>
+                    <div className='col-span-2 row-span-1'>
+                        <Calendar />
+                    </div>
                     <div className="flex-col gap-3 lg:col-start-2 lg:col-end-3 row-span-2 flex justify-start items-center">
                         <div
                             className="underline cursor-pointer"

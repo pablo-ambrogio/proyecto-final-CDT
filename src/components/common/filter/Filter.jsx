@@ -1,20 +1,29 @@
-import axios from "axios"
+
 import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { FilterContext } from "../../../context/FilterContext";
 import { Link } from "react-router-dom";
+import InputFilter from "../inputFilter/InputFilter";
 
 const Filter = () => {
 
-    const { check, setCheck, vehicles } = useContext(FilterContext)
+    const { check, setCheck, vehicles, getVehicles } = useContext(FilterContext)
 
     const [categories, setCategories] = useState([])
     const [filter, setFilter] = useState(false)
     const [isCheck, setIsCheck] = useState(false)
 
     const getCategory = async () => {
-        const { data } = await axios.get("http://localhost:3000/categories")
-        setCategories(data);
+
+        try {
+            const response = await fetch(`http://localhost:8084/categoria/list`)
+            const data = await response.json()
+            setCategories(data)
+        } catch (error) {
+            console.error(error);
+        }
+        // const { data } = await axios.get("http://localhost:3000/categories")
+        // setCategories(data);
     }
 
     const handleCheck = e => {
@@ -22,12 +31,12 @@ const Filter = () => {
         const { value } = e.target
         const { checked } = e.target
         if (checked) {
-            const vehiclesFilter = vehicles.filter(vehicle => vehicle.category === value)
+            const vehiclesFilter = vehicles.filter(vehicle => vehicle.categoria.titulo === value)
             setCheck([...check, ...vehiclesFilter])
 
         }
         else {
-            const vehiclesFilter = check.filter(vehicle => vehicle.category !== value)
+            const vehiclesFilter = check.filter(vehicle => vehicle.categoria.titulo !== value)
             setCheck([...vehiclesFilter])
         }
     }
@@ -42,6 +51,7 @@ const Filter = () => {
 
     useEffect(() => {
         getCategory()
+        console.log(vehicles);
     }, [])
 
     return (
@@ -63,28 +73,30 @@ const Filter = () => {
                             return (
                                 <div key={category.id}
                                     onClick={hanldeText}
-                                    className="px-4 py-2 border border-secondary rounded-md text-sm"
+                                    className={`px-4 py-2 border border-secondary rounded-md text-sm  cursor-pointer`}
                                 >
-                                    <label htmlFor={category.name}
-                                        className={`${isCheck && " text-primary"} text-secondary cursor-pointer`}
+                                    <InputFilter category={category} handleCheck={handleCheck} isCheck={isCheck} />
+                                    {/* <label htmlFor={category.titulo}
+                                    className={``}
                                     >
                                         <input type="checkbox"
                                             className="hidden"
-                                            id={category.name}
-                                            name={category.name}
-                                            value={category.name}
+                                            id={category.titulo}
+                                            name={category.titulo}
+                                            value={category.titulo}
                                             onChange={handleCheck}
                                         />
-                                        {category.name}
-                                    </label>
+                                        {category.titulo}
+                                    </label> */}
                                 </div>
                             )
                         })
+
                     }
+
                 </div>
             </div>
-
-        </section>
+        </section >
     )
 }
 export default Filter

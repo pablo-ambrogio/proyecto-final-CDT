@@ -11,23 +11,21 @@ import { useState } from 'react'
 const FormCategories = () => {
     const navigate = useNavigate()
 
-    const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm()
+    const { register, handleSubmit, formState: { errors }, reset } = useForm()
 
     const [nameFile, setNameFile] = useState("")
     // const [base64, setBase64] = useState("")
 
     const addCategory = async settings => {
-
         try {
             const response = await fetch("http://localhost:8084/categoria/add", settings)
             const data = await response.json()
+            navigate("/admin/categories-list")
             console.log(data);
         } catch (error) {
             console.error(error);
         }
-
     }
-
 
     const onSubmit = handleSubmit((data) => {
         const dataRefac = {
@@ -49,7 +47,7 @@ const FormCategories = () => {
         addCategory(settings)
         console.log(dataToLowerCase);
         reset()
-        // navigate("/admin/categories-list")
+        
     })
 
     return (

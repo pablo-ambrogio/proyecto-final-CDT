@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
 import Amarok from '../../../assets/amarok.webp'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import IconDelete from '../../../assets/dashboard/icon-delete.svg'
@@ -11,41 +10,54 @@ import { NavBarContext } from '../../../context/NavbarContext'
 const VehiclesList = () => {
 
     const [vehicles, setVehicles] = useState([])
+    const [vehicleDelete, setVehicleDelete] = useState(false)
 
-    const [data, setData] = useState({})
 
     const { searchDataForId } = useContext(NavBarContext)
 
-    //#region FUNCIONES
-
-    const handleChange = e => {
-        const value = e.target.value
-        const name = e.target.name
-        setData({
-            ...data,
-            [name]: value
-        })
-    }
-
     const getVehicles = async () => {
-        const { data } = await axios.get("http://localhost:3000/vehicles")
-        setVehicles(data);
+        try {
+            const response = await fetch("http://localhost:8084/vehiculo/list")
+            const data = await response.json()
+            // console.log(data);
+            setVehicles(data);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
-    const deleteVehicle = async (id) => {
-        await axios.delete("http://localhost:3000/vehicles/" + id)
-    }
 
-    const handleDelete = (id) => {
+    const handleDelete = async (id) => {
+
+        const settings = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
         const res = confirm("¿Estás seguro que deseas eliminarlo?")
-        if (res) return deleteVehicle(id)
+        if (res) {
+            try {
+                const response = await fetch(`http://localhost:8084/vehiculo/delete/${id}`, settings)
+                await response.json()
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        setVehicleDelete(true)
     }
 
-    //#endregion
 
     useEffect(() => {
         getVehicles()
-    }, [vehicles])
+    }, [])
+
+    useEffect(() => {
+        getVehicles()
+        setVehicleDelete(false)
+    }, [vehicleDelete])
+
 
 
     return (
@@ -62,7 +74,7 @@ const VehiclesList = () => {
             <table className="w-full text-xs mt-8 border border-secondary">
                 <thead className="uppercase text-center border border-secondary">
                     <tr>
-                        <th >
+                        <th>
                             Marca
                         </th>
                         <th>
@@ -71,10 +83,7 @@ const VehiclesList = () => {
                         <th >
                             Categoria
                         </th>
-                        <th title='Serial carroceria'>
-                            Srl. carroceria
-                        </th>
-                        <th title='Serial motor'>
+                        <th>
                             Srl. motor
                         </th>
                         <th >
@@ -86,16 +95,13 @@ const VehiclesList = () => {
                         <th >
                             placa
                         </th>
-                        <th >
-                            operativos
+                        <th>
+                            operativo
                         </th>
-                        <th >
+                        <th>
                             observacion
                         </th>
-                        <th >
-                            descripción
-                        </th>
-                        <th >
+                        <th>
                             fotos
                         </th>
                         <th >
@@ -104,68 +110,66 @@ const VehiclesList = () => {
                     </tr>
                 </thead>
                 <tbody>
+
                     {
                         vehicles.map(vehicle => {
-
-                            let { brand, model, category, serialBody, serialMotor, color, year, plaque, operative, observation, description } = vehicle
 
                             return (
 
                                 <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 uppercase text-center h-14" key={vehicle.id}>
                                     <td>
-                                        {
+                                        {/* {
                                             vehicle.id === data.id &&
                                                 Object.entries(data).length > 0 ?
                                                 <input type="text"
                                                     className='bg-white border border-secondary'
                                                     name={"brand"}
-                                                    value={data.brand}
+                                                    value={data.marca}
                                                     onChange={handleChange}
                                                 />
                                                 :
-                                                brand
-                                        }
+                                                marca
+                                        } */}
+                                        {vehicle.marca}
                                     </td>
-                                    <td >
-                                        {
+                                    <td>
+                                        {/* {
                                             vehicle.id === data.id &&
                                                 Object.entries(data).length > 0 ?
                                                 <input type="text"
                                                     className='bg-white border border-secondary'
                                                     name={"model"}
-                                                    value={data.model}
+                                                    value={data.modelo}
                                                     onChange={handleChange}
                                                 />
                                                 :
-                                                model
-                                        }
+                                                modelo
+                                        } */}
+                                        {vehicle.modelo}
                                     </td>
                                     <td>
-                                        {category}
+                                        {vehicle.categoria.titulo}
+                                    </td>
+                                    <td>
+                                        {vehicle.serialMotor}
                                     </td>
                                     <td >
-                                        {serialBody}
+                                        {vehicle.color}
                                     </td>
-                                    <td >
-                                        {serialMotor}
-                                    </td>
-                                    <td >
-                                        {color}
-                                    </td>
-                                    <td >
+                                    <td>
 
-                                        {year}
+                                        {vehicle.year}
                                     </td>
                                     <td>
-                                        {plaque}
+                                        {vehicle.matricula}
                                     </td>
                                     <td>
-                                        {
+                                        {/* {
                                             vehicle.id === data.id &&
                                                 Object.entries(data).length > 0 ?
                                                 <select id=""
                                                     name={"operative"}
-                                                    value={data.operative}
+                                                    value={data.isDisponible}
                                                     onChange={handleChange}
                                                     className='bg-white'
                                                 >
@@ -173,36 +177,24 @@ const VehiclesList = () => {
                                                     <option value={false}>no</option>
                                                 </select>
                                                 :
-                                                operative || operative === "true" ? "Si" : "No"
-                                        }
+                                                isDisponible || isDisponible === "true" ? "Si" : "No"
+                                        } */}
+                                        {vehicle.isDisponible ? "Si" : "No"}
                                     </td>
                                     <td>
-                                        {
+                                        {/* {
                                             vehicle.id === data.id &&
                                                 Object.entries(data).length > 0 ?
                                                 <input type="text"
                                                     className='bg-white border border-secondary'
                                                     name={"observation"}
-                                                    value={data.observation}
+                                                    value={data.observacion}
                                                     onChange={handleChange}
                                                 />
                                                 :
-                                                observation
-                                        }
-                                    </td>
-                                    <td >
-                                        {
-                                            vehicle.id === data.id &&
-                                                Object.entries(data).length > 0 ?
-                                                <input type="text"
-                                                    className='bg-white border border-secondary'
-                                                    name={"description"}
-                                                    value={data.description}
-                                                    onChange={handleChange}
-                                                />
-                                                :
-                                                description
-                                        }
+                                                observacion
+                                        } */}
+                                        {vehicle.observacion}
                                     </td>
                                     <td>
                                         <img src={Amarok} alt="Foto de vehículo cargado" width={80} />
@@ -228,9 +220,11 @@ const VehiclesList = () => {
                                         </Link>
                                     </td>
                                 </tr>
+
                             )
                         })
                     }
+
                 </tbody>
             </table>
 

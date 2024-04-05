@@ -11,14 +11,13 @@ export const defaultValues = {
     brand: "",
     model: "",
     category: "",
-    serialBody: "",
     serialMotor: "",
     color: "",
     year: "",
     plaque: "",
     operative: false,
     observation: "",
-    description: ""
+    isFav: false
 }
 
 
@@ -27,8 +26,10 @@ const AddVehicle = () => {
     const navigate = useNavigate()
     const { id } = useParams()
     const { setDataForId, dataForId, searchDataForId } = useContext(NavBarContext)
+    const [dataValue, setDataValue] = useState({})
 
-    const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm(defaultValues);
+
+    const { register, handleSubmit, formState: { errors }, reset, setValue } = useForm(dataValue);
 
     const [categories, setCategories] = useState([])
     const [yearsSelect, setYearsSelect] = useState([])
@@ -36,38 +37,56 @@ const AddVehicle = () => {
 
     const {
         brand, model, category,
-        serialBody, serialMotor,
+        serialMotor,
         color, year, plaque, operative,
-        observation, description,
+        observation,
         photo,
     } = dataForId
 
+    // const getCategory = async () => {
+    //     const response = await fetch("http://localhost:8084/categoria/list")
+    //     const data = await response.json()
+    //     setCategories(data);
+    // }
+
+
     const getCategory = async () => {
-        const response = await fetch("http://localhost:8084/categoria/list")
+        const response = await fetch("http://localhost:3000/categories")
         const data = await response.json()
         setCategories(data);
     }
 
     const handleChange = e => {
-        console.log(e);
+        // console.log(e);
         const value = e.target.value
         const name = e.target.name
-        console.log(value, name);
-        // setValue(name, value)
-        // setDataForId({
-        //     ...dataForId,
-        //     [name]: value
-        // })
+        // console.log(value, name);
+        setValue(name, value)
+        setDataForId({
+            // ...dataForId,
+            [name]: value
+        })
     }
 
     const handleChangeChecked = e => {
         const checked = e.target.checked
         const name = e.target.name
         setValue(name, checked)
-        // setDataForId({
-        //     ...dataForId,
-        //     [name]: checked
-        // })
+        setDataForId({
+            // ...dataForId,
+            [name]: checked
+        })
+    }
+
+    // const addVehicle = async settings => {
+    //     const response = await fetch("http://localhost:8084/vehiculo/add", settings)
+    //     const data = await response.json()
+    //     console.log(data);
+    // }
+
+    const addVehicleAxios = vehicle => {
+        axios.post("http://localhost:3000/vehicles", vehicle)
+        console.log(vehicle);
     }
 
     useEffect(() => {
@@ -80,44 +99,87 @@ const AddVehicle = () => {
         console.log(id);
         if (id) {
             searchDataForId(id)
+            console.log(dataForId);
+            setDataValue(dataForId)
         } else {
             setDataForId({})
-            reset(defaultValues)
+            setDataValue(defaultValues)
+            // reset(defaultValues)
         }
     }, [id])
 
-    const onSubmit = handleSubmit((data) => {
+
+    const onError = data => {
+        console.log(data);
+    }
+
+    const onSubmit = data => {
+
+        // console.log(refactorizadoDataServer);
+        console.log(data);
         if (id) {
             axios.put("http://localhost:3000/vehicles/" + id, data)
         } else {
-            const refactorizadoData = {
-                marca: data.brand,
-                modelo: data.model,
+            // const categoryFilter = categories.find(category => category.titulo === data.category)
+            // console.log(categoryFilter);
+            // const refactorizadoData = {
+            //     marca: data.brand,
+            //     modelo: data.model,
+            //     serialMotor: data.serialMotor,
+            //     color: data.color,
+            //     year: data.year,
+            //     matricula: data.plaque,
+            //     isDisponible: data.operative,
+            //     isFav: false,
+            //     observacion: data.observation,
+            //     categoria: {
+            //         id: categoryFilter.id,
+            //         titulo: categoryFilter.titulo,
+            //         descripcion: categoryFilter.descripcion,
+            //         imagen: categoryFilter.imagen
+            //     }
+            // }
+
+            const refactorizadoDataServer = {
+                brand: data.brand,
+                model: data.model,
                 serialMotor: data.serialMotor,
                 color: data.color,
                 year: data.year,
-                matricula: data.plaque,
+                plaque: data.plaque,
                 isDisponible: data.operative,
                 observacion: data.observation,
                 categoria: data.category,
                 isFav: false
             }
-            console.log(refactorizadoData);
-            for (const key in refactorizadoData) {
-                if (typeof refactorizadoData[key] === 'string') {
-                    refactorizadoData[key] = refactorizadoData[key].toLowerCase();
+
+            // console.log(refactorizadoData);
+            for (const key in refactorizadoDataServer) {
+                if (typeof refactorizadoDataServer[key] === 'string') {
+                    refactorizadoDataServer[key] = refactorizadoDataServer[key].toLowerCase();
                 }
             }
-            axios.post("http://localhost:8084/vehiculo/add", refactorizadoData);
+            console.log(refactorizadoDataServer);
+            addVehicleAxios(refactorizadoDataServer)
+
+            // const settings = {
+            //     method: 'POST',
+            //     body: JSON.stringify(refactorizadoData),
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     }
+            // }
+
+            // addVehicle(settings);
         }
         // reset()
         navigate("/admin/vehicles-list")
-    });
+    };
 
     return (
         <section className="w-full text-[#010101] max-w-7xl mx-auto text-lg flex justify-center items-center">
             <div className="w-4/5 p-4 rounded-lg">
-                <form onSubmit={onSubmit}>
+                <form onSubmit={handleSubmit(onSubmit, onError)}>
                     <h1
                         className="text-center text-2xl text-secondary uppercase mb-8"
                     >
@@ -153,11 +215,8 @@ const AddVehicle = () => {
                                                 value={brand}
                                                 className="w-3/5 bg-white text-[#010101] pl-1 outline-none"
                                                 {...register("brand", {
-                                                    required: {
-                                                        value: true,
-                                                        message: message.req
-                                                    },
-
+                                                    required: message.req
+                                                    ,
                                                     onChange: e => {
                                                         handleChange(e);
                                                     }
@@ -186,10 +245,9 @@ const AddVehicle = () => {
                                                 className="w-3/5 bg-white text-[#010101] pl-1 outline-none"
                                                 {...register("model", {
                                                     required: message.req,
-                                                    value: model
                                                     // setValueAs: v =>
                                                     //     parseInt(v)
-                                                    ,
+
                                                     onChange: e => {
                                                         handleChange(e);
                                                     }
@@ -216,7 +274,6 @@ const AddVehicle = () => {
                                                 className="w-3/5 bg-white text-[#010101] pl-1 outline-none"
                                                 {...register("category", {
                                                     required: message.req,
-                                                    value: category,
                                                     onChange: e => {
                                                         handleChange(e);
                                                     }
@@ -228,10 +285,16 @@ const AddVehicle = () => {
                                                 {
                                                     categories.map(category => {
                                                         return (
+                                                            // <option
+                                                            //     key={category.id}
+                                                            //     value={category.titulo}>
+                                                            //     {category.titulo}
+                                                            // </option>
+
                                                             <option
                                                                 key={category.id}
-                                                                value={category.titulo}>
-                                                                {category.titulo}
+                                                                value={category.name}>
+                                                                {category.name}
                                                             </option>
                                                         )
                                                     })
@@ -263,7 +326,7 @@ const AddVehicle = () => {
                                                     // setValueAs: v =>
                                                     //     parseInt(v)
                                                     // ,
-                                                    value: serialMotor,
+                                                    // value: serialMotor,
                                                     onChange: e => {
                                                         handleChange(e);
                                                     }
@@ -294,7 +357,7 @@ const AddVehicle = () => {
                                                     // setValueAs: v =>
                                                     //     parseInt(v)
                                                     // ,
-                                                    value: color,
+                                                    // value: color,
                                                     onChange: e => {
                                                         handleChange(e);
                                                     }
@@ -323,7 +386,7 @@ const AddVehicle = () => {
                                                     // setValueAs: v =>
                                                     //     parseInt(v)
                                                     // ,
-                                                    value: year,
+                                                    // value: year,
                                                     onChange: e => {
                                                         handleChange(e);
                                                     }
@@ -364,7 +427,7 @@ const AddVehicle = () => {
                                                     // setValueAs: v =>
                                                     //     parseInt(v)
                                                     // ,
-                                                    value: plaque,
+                                                    // value: plaque,
                                                     onChange: e => {
                                                         handleChange(e);
                                                     }
@@ -391,7 +454,7 @@ const AddVehicle = () => {
                                                 checked={operative}
                                                 className="w-6 bg-white text-[#010101] outline-none"
                                                 {...register("operative", {
-                                                    value: operative,
+                                                    // value: operative,
                                                     onChange: e => {
                                                         handleChangeChecked(e)
                                                     }
@@ -421,7 +484,7 @@ const AddVehicle = () => {
                                                     // setValueAs: v =>
                                                     //     parseInt(v)
                                                     // ,
-                                                    value: observation,
+                                                    // value: observation,
                                                     onChange: e => {
                                                         handleChange(e);
                                                     }

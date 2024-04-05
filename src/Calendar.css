@@ -1,0 +1,69 @@
+.calendario-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    /* background-color: #f0f0f0; */
+    /* padding: 10px; */
+  }
+  
+  .calendario-card {
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Estilos para el selector del año */
+  .rdrYearPicker > select {
+    background-color: #213B73;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100px;
+    color: white;
+  }
+  .rdrMonthPicker > select {
+    background-color: #213B73;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100px;
+    text-transform: capitalize;
+    color: white;
+  }
+  .rdrMonthPicker > select:hover {
+    background-color: #213B73;
+  }
+  .rdrYearPicker > select:hover {
+    background-color: #213B73;
+  }
+  
+  .rdrMonthName {
+    text-transform: capitalize;
+    color: peru;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  .rdrWeekDays > span {
+    text-transform: capitalize;
+    color: peru;
+    font-weight: bold;
+  }
+  
+  .rdrDayDisabled {
+    cursor: not-allowed; /* Cambiar cursor al pasar sobre fechas deshabilitadas */
+    background-color: rgba(205, 134, 63, 0.164);
+    font-weight: bold;
+  }
+  .rdrDayDisabled > span {
+    font-weight: bold;
+  }
+  .rdrMonthAndYearWrapper > button {
+    background-color: peru;
+  }
+  .rdrMonthAndYearWrapper > button:hover {
+    background-color: rgb(183, 121, 58);
+  }

@@ -21,6 +21,7 @@ import AdminCategoriesList from './components/pages/admin/AdminCategoriesList.js
 import Favorite from './components/pages/Favorite.jsx'
 import FilterContextProvider from './context/FilterContext.jsx'
 import AuthAdminContextProvider from './context/AuthAdminContext.jsx'
+import AdminListUser from './components/pages/admin/AdminListUser.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
@@ -57,6 +58,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
                     <Route path='reserve' element={<AdminReserve />} />
                     <Route path='add-users' element={<AdminAddUser />} />
+                    <Route path='list-users' element={<AdminListUser />} />
                     <Route path='configuration' element={<AdminConfiguration />} />
                   </Route>
 

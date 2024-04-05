@@ -7,17 +7,21 @@ const CategoriesList = () => {
 
     const getCategories = async () => {
 
-        const response = await fetch("http://localhost:8084/categoria/list")
-        const data = await response.json()
+        try {
+            const response = await fetch("http://localhost:8084/categoria/list")
+            const data = await response.json()
+            console.log(data);
+            setCategories(data)
+        } catch (error) {
+            console.error(error);
+        }
 
-        setCategories(data)
     }
 
     useEffect(() => {
         getCategories()
     }, [])
 
-    console.log(categories);
 
     return (
         <div
@@ -44,14 +48,16 @@ const CategoriesList = () => {
                         {
                             categories.map(category => {
                                 return (
-                                    <tr className="grid grid-cols-[50px,1fr,1fr] border border-secondary" key={category.id}>
-                                        <td className="col-span-1 justify-self-center">
-                                            <img src={NotFound} alt="icono de categoria" width={30} height={30}/>
+
+                                    <tr className="grid grid-cols-[50px,1fr,1fr] border-[1px] place-content-center" key={category.id}>
+                                        <td className="col-span-1  h-full w-full">
+                                            <img src={NotFound} alt="icono de categoria" className="mx-auto" />
+
                                         </td>
-                                        <td className="col-span-1">
+                                        <td className="col-span-1 border-x h-full pl-1">
                                             {category.titulo}
                                         </td>
-                                        <td className="col-span-1">
+                                        <td className="col-span-1 h-full pl-1">
                                             {category.descripcion}
                                         </td>
                                     </tr>
