@@ -21,7 +21,7 @@ const VehiclesList = () => {
 
     const getVehicles = async () => {
         try {
-            const response = await fetch("http://localhost:8084/vehiculo/list")
+            const response = await fetch("http://localhost:8084/vehiculo/list/all")
             const data = await response.json()
             // console.log(data);
             setVehicles(data);

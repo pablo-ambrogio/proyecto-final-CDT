@@ -12,7 +12,7 @@ const ButtonFav = ({ id, isFav }) => {
     const location = useLocation()
 
     const [fav, setFav] = useState(isFav)
-    const { getVehicles, } = useContext(FilterContext)
+    const { getVehicles } = useContext(FilterContext)
 
     const putFav = (id) => {
         axios.patch(`http://localhost:3000/vehicles/${id}`, {

@@ -15,7 +15,7 @@ const FilterContextProvider = ({ children }) => {
     const getVehicles = async () => {
 
         try {
-            const response = await fetch("http://localhost:8084/vehiculo/list", {
+            const response = await fetch("http://localhost:8084/vehiculo/list/all", {
                 method: 'GET'
             })
             const data = await response.json()
@@ -38,9 +38,9 @@ const FilterContextProvider = ({ children }) => {
 
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getVehicles()
-    },[location])
+    }, [location])
 
     const data = {
         setCheck,

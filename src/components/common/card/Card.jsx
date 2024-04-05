@@ -15,7 +15,6 @@ export const vehiclesImg = {
 
 const Card = ({ vehicle }) => {
 
-   
 
     console.log(vehicle);
 
@@ -48,7 +47,7 @@ const Card = ({ vehicle }) => {
             <div
                 className='flex justify-end pr-4'
             >
-                {/* <ButtonFav id={id} isFav={isFav} /> */}
+                {/* <ButtonFav id={id} isFav={isFavorito} /> */}
             </div>
             <div className="max-w-sm mx-auto grid gap-y-4">
                 <Link to={`/vehicles/${id}`}

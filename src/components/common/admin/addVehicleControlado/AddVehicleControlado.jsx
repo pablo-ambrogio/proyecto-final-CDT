@@ -21,7 +21,7 @@ const AddVehicleControlado = () => {
         serialMotor: "",
         year: "",
         isDisponible: false,
-        isFav: false
+        isFavorito: false
     })
 
     // const { setDataForId, dataForId, searchDataForId } = useContext(NavBarContext)

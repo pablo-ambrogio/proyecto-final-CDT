@@ -2,9 +2,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { useForm } from "react-hook-form"
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom'
 
 const AddUser = () => {
     const [showPwd, setShowPwd] = useState(false)
+
+    const navigate = useNavigate()
 
     const {
         register,
@@ -62,6 +65,7 @@ const AddUser = () => {
         }
         AddUser(settings)
         console.log("password", payload);
+        navigate("/admin/list-users")
 
     })
 

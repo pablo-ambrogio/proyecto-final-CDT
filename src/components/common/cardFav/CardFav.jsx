@@ -20,7 +20,7 @@ const CardFav = ({ vehicle }) => {
                     <div
                         className='w-full flex justify-end items-start'
                     >
-                        <ButtonFav id={id} isFav={vehicle.isFav} />
+                        <ButtonFav id={id} isFav={vehicle.isFavorito} />
                     </div>
                 </div>
             </div>
